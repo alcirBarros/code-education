@@ -47,7 +47,7 @@
     <modules>
         <module>infrastructure-parent</module>
         <module>commons-parent</module>
-        <module>modulo-parent</module>
+        <!--        <module>modulo-parent</module>-->
     </modules>
 
     <dependencies>
