@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+
+    <f:metadata>
+        <f:viewAction action="#{consultarColetaClasseMb.carregarTela()}"  />
+    </f:metadata>
+    <ui:composition template="/WEB-INF/templates/template.xhtml">
+        <ui:define name="body">
+            <h:form id="formEdicao" >
+                <p:tabView id="tabView">
+                    <p:tab id="tabConsultarFichaAluno" title="Consultar Coleta Classe" >    
+                        <p:fieldset legend="Registro">
+
+                            <h:panelGrid id="panelGridHeader" style="width: 100%"  >
+
+                                <h:panelGrid columns="3" style="width: 100%"  >
+                                    <p:panelGrid id="panelGridCodigo"  > 
+                                        <p:outputLabel value="Código" />
+                                        <p:inputText id="inputTextCodigo" value="#{consultarColetaClasseMb.consultarColetaClasse.consultarColetaClasseResponse.outProcessoID}" disabled="true" style="width: 100%"  />
+                                    </p:panelGrid>
+                                    <p:spacer width="1"/>
+                                    <p:panelGrid id="panelGridStatus" > 
+                                        <p:outputLabel value="Status" />
+                                        <p:inputText id="inputTextStatus" value="#{consultarColetaClasseMb.consultarColetaClasse.statusResponseEnum.display}" disabled="true" style="width: 100%"  />
+                                    </p:panelGrid>
+                                </h:panelGrid>
+
+                                <p:spacer width="1"/>
+                                <p:panelGrid id="panelGridMensagem" > 
+                                    <p:outputLabel value="Mensagem" />
+                                    <p:inputText id="inputTextMensagem" value="#{consultarColetaClasseMb.consultarColetaClasse.consultarColetaClasseResponse.mensagem}" disabled="true" style="width: 100%"  />
+                                </p:panelGrid>
+
+                            </h:panelGrid>
+
+                        </p:fieldset>  
+
+                        <div style="height:1px; border:none; color:#000; background-color:#4297d7; margin-top: 15px; margin-bottom: 10px;"/>
+
+
+                        <p:fieldset legend="Consulta">
+                            <h:panelGrid columns="3"  style="width: 100%" >
+                                <p:panelGrid>
+                                    <p:outputLabel  value="Ano"/>
+                                    <p:inputText value="#{consultarColetaClasseMb.consultarColetaClasse.inAno}" style="width: 100%"/>
+                                </p:panelGrid>
+                                <p:spacer width="1" />
+                                <p:panelGrid>
+                                    <p:outputLabel  value="Número Classe"/>
+                                    <p:inputText value="#{consultarColetaClasseMb.consultarColetaClasse.inNumClasse}" style="width: 100%" />
+                                </p:panelGrid>
+                            </h:panelGrid>
+                        </p:fieldset>
+
+                        <br/>
+                        <p:dataTable 
+                            value="#{consultarColetaClasseMb.consultarColetaClasse.consultarColetaClasseResponse.msgConsultaColetaClasses}"
+                            var="consultaColetaClasses" 
+                            reflow="true"
+                            paginator="true"
+                            paginatorPosition="bottom"
+                            emptyMessage="Registro não encontrado.">
+
+                            <p:column headerText="Código">
+                                <h:outputText value="#{consultaColetaClasses.id}" />
+                            </p:column>
+
+                            <p:column headerText="Erro">
+                                <h:outputText value="#{consultaColetaClasses.outErro}" />
+                            </p:column>
+
+                            <p:column headerText="Número Sala" >
+                                <h:outputText value="#{consultaColetaClasses.outNumeroSala}" />
+                            </p:column>
+
+                            <p:column headerText="Nome Escola">
+                                <h:outputText value="#{consultaColetaClasses.outNomeEscola}" />
+                            </p:column>
+
+                            <p:column headerText="Capacidade Física" >
+                                <h:outputText value="#{consultaColetaClasses.outCapacidadeFisica}" />
+                            </p:column>
+
+                            <p:column headerText="Nome Unidade" >
+                                <h:outputText value="#{consultaColetaClasses.outNomeUnidade}" />
+                            </p:column>
+                            <p:column headerText="Data Início" >
+                                <h:outputText value="#{consultaColetaClasses.outDataInicio}" />
+                            </p:column>
+                            <p:column headerText="Série / Ano" >
+                                <h:outputText value="#{consultaColetaClasses.outSerieAno}" />
+                            </p:column>
+                            <p:column headerText="Segunda-Feira">
+                                <h:outputText value="#{consultaColetaClasses.outSegundaFeira}" />
+                            </p:column>
+                            <p:column headerText="Terça-Feira">
+                                <h:outputText value="#{consultaColetaClasses.outTercaFeira}" />
+                            </p:column>
+                            <p:column headerText="Quarta-Feira">
+                                <h:outputText value="#{consultaColetaClasses.outQuartaFeira}" />
+                            </p:column>
+                            <p:column headerText="Quinta-Feira">
+                                <h:outputText value="#{consultaColetaClasses.outQuintaFeira}" />
+                            </p:column>
+                            <p:column headerText="Sexta-Feira" >
+                                <h:outputText value="#{consultaColetaClasses.outSextaFeira}" />
+                            </p:column>
+                            <p:column headerText="Sábado" >
+                                <h:outputText value="#{consultaColetaClasses.outSabado}" />
+                            </p:column>
+                            <p:column headerText="Domingo">
+                                <h:outputText value="#{consultaColetaClasses.outDomingo}" />
+                            </p:column>
+                            <p:column headerText="Turma">
+                                <h:outputText value="#{consultaColetaClasses.outTurma}" />
+                            </p:column>
+                            <p:column headerText="Turno" >
+                                <h:outputText value="#{consultaColetaClasses.outTurno}" />
+                            </p:column>
+                            <p:column headerText="Quantidade Aluno" >
+                                <h:outputText value="#{consultaColetaClasses.outQtdAlunoClasse}" />
+                            </p:column>
+
+                        </p:dataTable>
+                    </p:tab>
+                    <p:tab id="tabHistorico" title="Histórico" >
+                        <p:dataTable id="dataTableHistorico"
+                                     value="#{consultarFichaAlunoMb.consultarFichaAlunoList}"
+                                     reflow="true"
+                                     var="registro" 
+                                     rowKey="#{registro.id}"
+                                     selectionMode="single" 
+                                     emptyMessage="Registro não encontrado.">
+
+                            <p:ajax event="rowSelect"
+                                    listener="#{consultarFichaAlunoMb.selectRegistroEvent}"
+                                    update="@form"/>
+
+                            <p:column headerText="Código">
+                                <h:outputText value="#{registro.id}" />
+                            </p:column>
+                            <p:column headerText="Processo ID">
+                                <h:outputText value="#{registro.consultarFichaAlunoResponse.outProcessoID}" />
+                            </p:column>
+                            <p:column headerText="Data Hora">
+                                <h:outputText value="#{registro.dataHora}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm" timeZone="America/Sao_Paulo" />
+                                </h:outputText>
+                            </p:column>
+
+                        </p:dataTable>
+                    </p:tab>
+                </p:tabView>
+                <p:spacer/>
+                <h:panelGrid columns="2"  style="width: 100%">
+                    <h:panelGrid columns="5">
+                        <p:commandButton value="Inserir" 
+                                         action="#{consultarColetaClasseMb.inserir()}"
+                                         rendered="#{!consultarColetaClasseMb.modoTela.insercaoOrAlteracao}"
+                                         process="@this"
+                                         update="@form"
+                                         class="btn btn-primary"/>
+
+                        <p:commandButton value="Salvar" 
+                                         action="#{consultarColetaClasseMb.salvar()}" 
+                                         rendered="#{consultarColetaClasseMb.modoTela.insercaoOrAlteracao}"
+                                         class="btn btn-success"
+                                         process="@form"
+                                         update="@form"/>
+
+                        <p:commandButton value="Alterar" 
+                                         action="#{consultarColetaClasseMb.alterar()}"
+                                         rendered="#{consultarColetaClasseMb.modoTela.visualizacao}"
+                                         process="@this"
+                                         update="@form"
+                                         class="btn btn-warning" />
+
+                        <p:commandButton value="Excluir"
+                                         action="#{consultarColetaClasseMb.excluir()}"
+                                         rendered="#{consultarColetaClasseMb.modoTela.visualizacao}"
+                                         class="btn btn-info" />
+
+                        <p:commandButton value="Cancelar" 
+                                         action="#{consultarColetaClasseMb.cancelar()}"
+                                         class="btn btn-danger"
+                                         process="@this"
+                                         update="@form">
+                            <p:resetInput target="@form" />
+                        </p:commandButton>
+
+                    </h:panelGrid>
+                    <h:panelGrid style="text-align: right; width: 100%" >
+                        <p:commandButton value="Processar"
+                                         action="#{consultarColetaClasseMb.processar()}"
+                                         rendered="#{consultarColetaClasseMb.modoTela.visualizacao}"
+                                         process="@this"
+                                         update="@form"
+                                         class="btn btn-success" />
+                    </h:panelGrid>
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>    
+</html>
+

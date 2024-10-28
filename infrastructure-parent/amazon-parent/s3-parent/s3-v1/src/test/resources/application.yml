@@ -1,0 +1,7 @@
+cloud:
+  aws:
+    s3:
+      region: us-east-1
+      endpoint: http://localhost:4566
+
+valuesMap: "{'KEY1': 'value1', 'KEY2': 'value3', 'KEY3': 'value5'}"

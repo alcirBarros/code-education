@@ -1,0 +1,30 @@
+server:
+  port: 8181
+
+cloud:
+  aws:
+#    credentials:
+#      profile-name: default
+#      access-key: foo
+#      secret-key: bar
+    region:
+      auto: false
+      static: sa-east-1
+    stack:
+      auto: false
+      name: AwsSampleStack
+    sqs:
+      enabled: true
+      handler:
+        default-deletion-policy: ON_SUCCESS
+      endpoint: http://localhost:4566
+      region: sa-east-1
+    s3:
+      endpoint: http://localhost:4566
+    rds:
+      RdsInstance:
+        password: someVerySecretPassword
+      endpoint: http://localhost:4566
+
+sqs.input.arn: input-queue
+sqs.output.arn: output-queue

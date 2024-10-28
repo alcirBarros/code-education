@@ -1,0 +1,95 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'jacoco'
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+bootJar {
+    enabled = false
+}
+
+allprojects{
+    group = 'br.com.context'
+    version = '0.0.1-SNAPSHOT'
+
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+def excludePattern = ["**/config/**"]
+
+allprojects {
+
+}
+
+subprojects {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'jacoco'
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+//    project(':library') {
+//        springBoot  {
+//            buildInfo()
+//        }
+//    }
+
+    processResources {
+        expand(project.properties)
+    }
+
+    test {
+        useJUnitPlatform()
+        finalizedBy {
+            jacocoTestReport
+        }
+        jacoco {
+            enabled = true
+            destinationFile = layout.buildDirectory.file("jacoco/${name}.exec").get().asFile
+        }
+    }
+
+    check {
+        dependsOn jacocoTestCoverageVerification
+    }
+
+    jacocoTestReport {
+        reports {
+            html.destination file("${buildDir}/jacoco")
+        }
+
+        afterEvaluate {
+            getClassDirectories().setFrom(files(classDirectories.files.collect {
+                fileTree(dir: it, exclude: excludePattern)
+            }))
+        }
+    }
+
+    jacocoTestCoverageVerification {
+        dependsOn jacocoTestReport
+        violationRules {
+            rule {
+                limit {
+                    minimum = 0.20
+                }
+            }
+        }
+
+        afterEvaluate {
+            getClassDirectories().setFrom(files(classDirectories.files.collect {
+                fileTree(dir: it, exclude: excludePattern)
+            }))
+        }
+    }
+}
+
+

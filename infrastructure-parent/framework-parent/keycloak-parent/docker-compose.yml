@@ -1,0 +1,97 @@
+version: '3'
+services:
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - keycloak-net
+    environment:
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 88:80 #HOST:CONTAINER
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - mysql
+
+  keycloak-db:
+    image: postgres:9.6
+    volumes:
+      - keycloak-datastore:/var/lib/postresql/data
+    networks:
+      - keycloak-net
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: postgres
+
+  keycloak:
+    image: jboss/keycloak:12.0.4
+    container_name: keycloak
+    restart: always
+    ports:
+      - "8180:8180"
+    volumes:
+      - ./infra/keycloak/realm.json:/tmp/realm.json
+    command: [
+        "-Djboss.http.port=8180",
+        "-Dkeycloak.profile.feature.upload_scripts=enabled"
+    ]
+    depends_on:
+      - keycloak-db
+      - mysql
+    networks:
+      - keycloak-net
+    environment:
+      KEYCLOAK_IMPORT: ./tmp/realm.json
+
+#      DB_VENDOR: MYSQL
+#      DB_ADDR: mysql
+#      DB_PORT: 3306
+#
+#      DB_DATABASE: keycloak
+#
+#      DB_USER: keycloak
+#      DB_PASSWORD: password
+#
+#      KEYCLOAK_USER: admin
+#      KEYCLOAK_PASSWORD: Pa55w0rd
+
+
+      DB_VENDOR:   POSTGRES
+      DB_ADDR:     keycloak-db
+      DB_PORT:     5432
+
+      DB_DATABASE: keycloak
+      DB_SCHEMA: public
+
+      DB_USER:     keycloak
+      DB_PASSWORD: password
+
+      KEYCLOAK_USER:     admin
+      KEYCLOAK_PASSWORD: admin
+
+      KEYCLOAK_LOGLEVEL: INFO
+
+networks:
+#  kong-net:
+  keycloak-net:
+
+volumes:
+  kong-datastore:
+  keycloak-datastore:
+  mysql_data:

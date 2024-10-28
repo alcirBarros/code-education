@@ -1,0 +1,28 @@
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/employee
+        username: root
+        password: root
+    jpa:
+        show-sql: true
+        hibernate:
+            format_sql: true
+            ddl-auto: create-drop
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                show_sql: true
+                format_sql: true
+
+
+
+
+
+
+
+#spring:
+#  datasource:
+#    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerPostgreSQLDriver
+#    url: jdbc:postgresql://localhost:5432/postgres
+#    username: dev/accredit/owadq

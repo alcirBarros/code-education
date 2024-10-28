@@ -1,0 +1,39 @@
+version: "3.3"
+
+services:
+  educa-facil:
+    image: alcirbarros/educa-facil:latest
+    environment:
+      COMPOSE_PROFILES: "development,logging"
+      CLOUD_AWS_SNS_ARN: "arn:aws:sns:sa-east-1:066462104482:product-event"
+      UUID: 111111111111111111111111111
+    ports :
+      - "8080:8080"
+    volumes:
+      - type: bind
+        source: ${HOME}/.aws
+        target: /root/.aws
+#
+#  ubuntu:
+#    image: ubuntu:latest
+
+  spring-boot:
+    container_name: spring-actuator
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: spring-actuator-0.0.1.jar
+    profiles:
+      - default
+    environment:
+      COMPOSE_PROFILES: "development,logging"
+      CLOUD_AWS_SNS_ARN: "arn:aws:sns:sa-east-1:066462104482:product-event"
+      UUID: 111111111111111111111111111
+    ports :
+      - "8080:8080"
+    volumes:
+      - type: bind
+        source: ${HOME}/.aws
+        target: /root/.aws
+

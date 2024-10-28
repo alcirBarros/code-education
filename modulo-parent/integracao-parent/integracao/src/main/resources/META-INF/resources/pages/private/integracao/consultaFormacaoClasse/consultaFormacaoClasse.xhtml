@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" >
+
+    <f:metadata>
+        <f:viewAction action="#{consultaFormacaoClasseMb.carregarTela()}"  />
+    </f:metadata>
+    <ui:composition template="/WEB-INF/templates/template.xhtml">
+        <ui:define name="body">
+            <h:form id="formEdicao" >
+                <p:tabView id="tabView">
+                    <p:tab id="tabConsultarFichaAluno" title="Consulta Formação Classe" >    
+                        <p:fieldset legend="Registro">
+                            <h:panelGrid style="width: 100%" >
+                                <h:panelGrid id="panelGridHeader" style="width: 100%">
+
+                                    <h:panelGrid columns="3" style="width: 100%" >
+                                        <h:panelGrid id="panelGridCodigo" style="width: 100%" > 
+                                            <p:outputLabel value="Código" />
+                                            <p:inputText id="inputTextCodigo" 
+                                                         value="#{consultaFormacaoClasseMb.consultaFormacaoClasse.consultaFormacaoClasseResponse.outProcessoID}" 
+                                                         disabled="true" 
+                                                         style="width: 100%"/>
+                                        </h:panelGrid>
+                                        <p:spacer width="1"/>
+                                        <p:panelGrid id="panelGridStatus" > 
+                                            <p:outputLabel value="Status" />
+                                            <p:inputText id="inputTextStatus" value="#{consultaFormacaoClasseMb.consultaFormacaoClasse.statusResponseEnum.display}" disabled="true" style="width: 100%"  />
+                                        </p:panelGrid>
+                                    </h:panelGrid>
+
+                                    <p:spacer width="1"/>
+                                    <h:panelGrid id="panelGridMensagem" style="width: 100%" > 
+                                        <p:outputLabel value="Mensagem" />
+                                        <p:inputText id="inputTextMensagem" 
+                                                     value="#{consultaFormacaoClasseMb.consultaFormacaoClasse.consultaFormacaoClasseResponse.mensagem}" 
+                                                     disabled="true" 
+                                                     style="width: 100%"/>
+                                    </h:panelGrid>
+
+                                </h:panelGrid>
+                            </h:panelGrid>
+                        </p:fieldset>  
+
+                        <div style="height:1px; border:none; color:#000; background-color:#4297d7; margin-top: 15px; margin-bottom: 10px;"/>
+
+
+                        <p:fieldset legend="Consulta">
+                            <h:panelGrid style="width: 100%" >
+
+                                <h:panelGrid  style="width: 100%">
+                                    <p:outputLabel  value="Número Classe"/>
+                                    <p:inputText value="#{consultaFormacaoClasseMb.consultaFormacaoClasse.inNumClasse}" style="width: 100%"/>
+                                </h:panelGrid>
+
+                            </h:panelGrid>
+                        </p:fieldset>
+                        <br/>
+                        <p:dataTable value="#{consultaFormacaoClasseMb.consultaFormacaoClasse.consultaFormacaoClasseResponse.consultaClasseList}"
+                                     paginator="true"
+                                     paginatorPosition="bottom"
+                                     var="consultaClasse" 
+                                     reflow="true"
+                                     emptyMessage="Registro não encontrado.">
+
+                            <p:column headerText="Código" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.id}" />
+                            </p:column>
+
+                            <p:column headerText="Registro Aluno (RA)" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.ra}" />
+                            </p:column>
+
+                            <p:column headerText="UF" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.uf}" />
+                            </p:column>
+
+                            <p:column headerText="Digito (RA)" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.digitoRA}" />
+                            </p:column>
+
+                            <p:column headerText="Nome Aluno" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.nomeAluno}" />
+                            </p:column>
+
+                            <p:column headerText="Número" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.numero}" />
+                            </p:column>
+
+                            <p:column headerText="Quantidade Abandono" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outAbandono}" />
+                            </p:column>
+
+                            <p:column headerText="Ano" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outAno}" />
+                            </p:column>
+
+                            <p:column headerText="Atual" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outAtual}" />
+                            </p:column>
+
+                            <p:column headerText="Cadastrado" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outCadastrado}" />
+                            </p:column>
+
+                            <p:column headerText="Código Escola" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outCodEscola}" />
+                            </p:column>
+
+                            <p:column headerText="Erro" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outErro}" />
+                            </p:column>
+
+                            <p:column headerText="Horário" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outHorario}" />
+                            </p:column>
+
+                            <p:column headerText="Não Compareceu" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outNaoCompareceu}" />
+                            </p:column>
+
+                            <p:column headerText="Nome Escola" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outNomeEscola}" />
+                            </p:column>
+
+                            <p:column headerText="Número Classe" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outNumClasse}" />
+                            </p:column>
+
+                            <p:column headerText="Número Sala" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outNumSala}" />
+                            </p:column>
+
+                            <p:column headerText="Outros" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outOutros}" />
+                            </p:column>
+
+                            <p:column headerText="Remanejado" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outRemanejado}" />
+                            </p:column>
+
+                            <p:column headerText="Série" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outSerie}" />
+                            </p:column>
+
+                            <p:column headerText="Tipo Ensino" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outTipoEnsino}" />
+                            </p:column>
+                            <p:column headerText="Transferido" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outTransferido}" />
+                            </p:column>
+                            <p:column headerText="Turma" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outTurma}" />
+                            </p:column>
+                            <p:column headerText="Turno" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outTurno}" />
+                            </p:column>
+                            <p:column headerText="Status" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.status}" />
+                            </p:column>
+                            <p:column headerText="Tipo Classe" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.outTipoClasse}" />
+                            </p:column>
+                            <p:column headerText="Série Multisseriada" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.seriemulti}" />
+                            </p:column>
+                            <p:column headerText="Tipo Multisseriada" style="text-align: center; width: 125px;">
+                                <h:outputText value="#{consultaClasse.tipoensinomulti}" />
+                            </p:column>
+
+
+                        </p:dataTable>
+                    </p:tab>
+                    <p:tab id="tabHistorico" title="Histórico" >
+                        <p:dataTable id="dataTableHistorico"
+                                     value="#{consultarFichaAlunoMb.consultarFichaAlunoList}"
+                                     rows="10"
+                                     paginator="true"
+                                     paginatorPosition="bottom"
+                                     reflow="true"
+                                     var="registro" 
+                                     rowKey="#{registro.id}"
+                                     selectionMode="single" 
+                                     emptyMessage="Registro não encontrado.">
+
+                            <p:column headerText="Código">
+                                <h:outputText value="#{registro.id}" />
+                            </p:column>
+                            <p:column headerText="Processo ID">
+                                <h:outputText value="#{registro.consultarFichaAlunoResponse.outProcessoID}" />
+                            </p:column>
+                            <p:column headerText="Data Hora">
+                                <h:outputText value="#{registro.dataHora}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm"  />
+                                </h:outputText>
+                            </p:column>
+
+                        </p:dataTable>
+                    </p:tab>
+                </p:tabView>
+                <p:spacer/>
+                <h:panelGrid columns="2"  style="width: 100%">
+                    <h:panelGrid columns="5">
+                        <p:commandButton value="Inserir" 
+                                         action="#{consultaFormacaoClasseMb.inserir()}"
+                                         rendered="#{!consultaFormacaoClasseMb.modoTela.insercaoOrAlteracao}"
+                                         process="@this"
+                                         update="@form"
+                                         class="btn btn-primary"/>
+
+                        <p:commandButton value="Salvar" 
+                                         action="#{consultaFormacaoClasseMb.salvar()}" 
+                                         rendered="#{consultaFormacaoClasseMb.modoTela.insercaoOrAlteracao}"
+                                         class="btn btn-success"
+                                         process="@form"
+                                         update="@form"/>
+
+                        <p:commandButton value="Alterar" 
+                                         action="#{consultaFormacaoClasseMb.alterar()}"
+                                         rendered="#{consultaFormacaoClasseMb.modoTela.visualizacao}"
+                                         process="@this"
+                                         update="@form"
+                                         class="btn btn-warning" />
+
+                        <p:commandButton value="Excluir"
+                                         action="#{consultaFormacaoClasseMb.excluir()}"
+                                         rendered="#{consultaFormacaoClasseMb.modoTela.visualizacao}"
+                                         class="btn btn-info" />
+
+                        <p:commandButton value="Cancelar" 
+                                         action="#{consultaFormacaoClasseMb.cancelar()}"
+                                         class="btn btn-danger"
+                                         process="@this"
+                                         update="@form">
+                            <p:resetInput target="@form" />
+                        </p:commandButton>
+
+                    </h:panelGrid>
+                    <h:panelGrid style="text-align: right; width: 100%" >
+                        <p:commandButton value="Processar"
+                                         action="#{consultaFormacaoClasseMb.processar()}"
+                                         rendered="#{consultaFormacaoClasseMb.modoTela.visualizacao}"
+                                         process="@this"
+                                         update="@form"
+                                         class="btn btn-success" />
+                    </h:panelGrid>
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>    
+</html>
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restEvent>
+    <endDate>2022-03-10T11:35:48.312Z</endDate>
+    <id>Z15Dja</id>
+    <resourceName>cancelar-proposta</resourceName>
+    <startDate>2022-03-10T11:35:48.312Z</startDate>
+    <applicationId>GMbMAX</applicationId>
+    <methodId>ixlm3F</methodId>
+    <projectId>h1Ys8K</projectId>
+    <request>
+        <body></body>
+        <httpHeaders>
+            <httpHeader>
+                <name>user-agent</name>
+                <value>PostmanRuntime/7.29.0</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept</name>
+                <value>*/*</value>
+            </httpHeader>
+            <httpHeader>
+                <name>postman-token</name>
+                <value>0fb01f1b-0fd8-492d-900e-6c05f1bfa1e2</value>
+            </httpHeader>
+            <httpHeader>
+                <name>host</name>
+                <value>localhost:88</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept-encoding</name>
+                <value>gzip, deflate, br</value>
+            </httpHeader>
+            <httpHeader>
+                <name>connection</name>
+                <value>keep-alive</value>
+            </httpHeader>
+            <httpHeader>
+                <name>content-length</name>
+                <value>0</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpMethod>POST</httpMethod>
+        <httpParameters/>
+        <uri>/v2/contratos/22191857/cancelar-proposta</uri>
+    </request>
+    <resourceId>g1lL1z</resourceId>
+    <response>
+        <body>{
+    "indicadorCancelamentoRealizado": "S",
+    "textoErro": ""
+}</body>
+        <contentEncodings/>
+        <httpHeaders>
+            <httpHeader>
+                <name>content-type</name>
+                <value>application/json; charset=utf-8</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpStatusCode>200</httpStatusCode>
+        <mockResponseName>cancelar-proposta</mockResponseName>
+    </response>
+</restEvent>

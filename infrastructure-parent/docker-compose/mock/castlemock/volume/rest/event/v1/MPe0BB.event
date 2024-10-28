@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restEvent>
+    <endDate>2022-03-10T11:35:51.940Z</endDate>
+    <id>MPe0BB</id>
+    <resourceName>assinaturas</resourceName>
+    <startDate>2022-03-10T11:35:51.940Z</startDate>
+    <applicationId>GMbMAX</applicationId>
+    <methodId>Cwg1j4</methodId>
+    <projectId>h1Ys8K</projectId>
+    <request>
+        <body></body>
+        <httpHeaders>
+            <httpHeader>
+                <name>user-agent</name>
+                <value>PostmanRuntime/7.29.0</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept</name>
+                <value>*/*</value>
+            </httpHeader>
+            <httpHeader>
+                <name>postman-token</name>
+                <value>d266caae-2090-4e30-a098-13012729f03d</value>
+            </httpHeader>
+            <httpHeader>
+                <name>host</name>
+                <value>localhost:88</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept-encoding</name>
+                <value>gzip, deflate, br</value>
+            </httpHeader>
+            <httpHeader>
+                <name>connection</name>
+                <value>keep-alive</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpMethod>GET</httpMethod>
+        <httpParameters/>
+        <uri>/v2/propostas/22131105/assinaturas</uri>
+    </request>
+    <resourceId>DWMHfD</resourceId>
+    <response>
+        <body>{
+    "listaIntervenientes": [
+        {
+            "nome": "ELETRONIC HERNANDES DE SOUZA",
+            "indicadorPendenciaAssinatura": "S"
+        }
+    ],
+    "listaSignatarios": []
+}</body>
+        <contentEncodings/>
+        <httpHeaders>
+            <httpHeader>
+                <name>content-type</name>
+                <value>application/json; charset=utf-8</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpStatusCode>200</httpStatusCode>
+        <mockResponseName>200</mockResponseName>
+    </response>
+</restEvent>

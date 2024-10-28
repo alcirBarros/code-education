@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:cc="http://java.sun.com/jsf/composite"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:sw="http://java.sun.com/jsf/composite/jsf-components"
+                xmlns:p="http://primefaces.org/ui">
+
+    <cc:interface  >
+        <cc:attribute name="value" type="java.lang.Object" />
+        <cc:attribute name="completeMethod" required="true" method-signature="void completeMethod(java.lang.String)" />
+        <cc:attribute name="converter" />  
+        <cc:attribute name="controlador" />  
+
+        <cc:attribute name="actionUnlocked" /> 
+
+        <cc:attribute name="block" type="java.lang.Boolean" default="false" />
+        <cc:attribute name="disabled" type="java.lang.Boolean" default="false" />
+        <cc:attribute name="required" type="java.lang.Boolean" />
+        <cc:attribute name="requiredMessage" type="java.lang.String"  />
+
+        <cc:attribute name="update" type="java.lang.String"  />
+
+        <cc:attribute name="oncomplete" type="java.lang.String" />
+        <cc:attribute name="onblur" type="java.lang.String" />
+    </cc:interface>
+
+    <cc:implementation id="implementationCidade">
+
+
+        <p:panelGrid id="panelGridCidade" columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+            <p:outputLabel value="Cidade"  for="autoCompleteCidade" />
+            <h:panelGrid columns="2" columnClasses="w-100" style="width: 100%" >
+                <p:autoComplete id="autoCompleteCidade"
+                                value="#{cc.attrs.value}"
+                                widgetVar="widgetVarAutoCompletePessoa"
+                                placeholder="localizar cidade."
+                                completeMethod="#{cc.attrs.completeMethod}"
+                                converter="#{cc.attrs.converter}"
+                                requiredMessage="Informe o campo cidade."
+                                minQueryLength="3" 
+                                queryDelay="600"
+                                required="#{cc.attrs.required}"
+                                var="cidade" 
+                                itemValue="#{cidade}" 
+                                itemLabel="#{cidade.nome}"
+                                disabled="#{cc.attrs.disabled || cc.attrs.value.id != null}"
+                                scrollHeight="250"
+                                inputStyle="width:100%"
+                                style="width: 100%">
+
+                    <p:ajax event="query" global="false"/>
+                    <p:ajax event="itemSelect"
+                            listener="#{cc.attrs.controlador.selecionaCidade}"
+                            update="panelGridCidade"/>
+
+                    <p:column>
+                        <div style="text-align: left;">
+                            Código IBGE: #{cidade.codigoIBGE}<br />
+                            Cidade: #{cidade.nome}
+                        </div>
+                    </p:column>
+
+                </p:autoComplete>
+
+                <p:commandButton id="commandButtonActionLocalizarEvent"
+                                 widgetVar="widgetVarCommandButtonActionLocalizarEvent"
+                                 actionListener="#{cc.attrs.controlador.actionLocalizarEvent}"
+                                 rendered="#{!cc.attrs.disabled and cc.attrs.value.id == null}"
+                                 oncomplete="PF('widgetVarCidade').show()"
+                                 process="@this"
+                                 icon="ui-icon-search"
+                                 style="height: 35px; background-color: #dbe9f5;">
+                    <f:param name="paramCommandButtonActionLocalizar" value="true" />
+                    <f:attribute name="object" value="#{cc.attrs.value}" />
+                </p:commandButton>
+
+                <p:commandButton id="commandButtonUnlocked" 
+                                 widgetVar="widgetVarCommandButtonUnlocked"
+                                 rendered="#{cc.attrs.block == true}"
+                                 action="#{cc.attrs.controlador.actionUnlockedCidade}"
+                                 update="#{cc.attrs.update} panelGridCidade"
+                                 process="@this"
+                                 icon="ui-icon-unlocked" 
+                                 style="height: 35px; background-color: #dbe9f5;">
+                </p:commandButton>
+
+            </h:panelGrid>
+        </p:panelGrid>
+
+
+        <p:dialog id="dialogCidade" 
+                  header="Cidade" 
+                  widgetVar="widgetVarCidade" 
+                  resizable="false"
+                  modal="true"
+                  style="width: 100%">
+
+
+
+
+        </p:dialog>
+
+
+    </cc:implementation>
+</ui:composition>
+

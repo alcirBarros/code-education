@@ -1,0 +1,6 @@
+rootProject.name = 'gradle-parent'
+
+include 'library'
+include 'application'
+include 'aggregation'
+

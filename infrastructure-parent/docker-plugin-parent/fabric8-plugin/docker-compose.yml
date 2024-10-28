@@ -1,0 +1,27 @@
+version: "3.3"
+
+services:
+  educa-facil:
+    image: alcirbarros/educa-facil:latest
+    ports :
+      - 8080:8080
+
+  ubuntu:
+    image: ubuntu:latest
+
+  spring-boot:
+    container_name: spring-actuator
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: fabric8-plugin-0.0.1.jar
+#    profiles: ["dev"]
+#    environment:
+#      COMPOSE_PROFILES: "development"
+    ports :
+      - 8080:8080
+#    volumes:
+#      - type: bind
+#        source: ${HOME}/.m2
+#        target: /root/.m2

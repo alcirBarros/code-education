@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+  oracle-db:
+    image: oracleinanutshell/oracle-xe-11g:latest
+    restart: always
+    environment:
+      - "TZ=Europe/Amsterdam"
+      - "DBCA_TOTAL_MEMORY=1024"
+    ports:
+      - 1521:1521
+      - 5500:5500
+      - 8080:8080
+#    volumes:
+#      - /data/database/oracle/oracle11g1521/:/u01/app/oracle/
+
+
+#services:
+#  oracledb:
+#    image: gvenzl/oracle-xe:18.4.0-slim
+#    restart: unless-stopped
+#    ports:
+#      - 1521:1521
+#      - 5500:5500
+#    environment:
+#      ORACLE_PASSWORD: password#1
+#    volumes:
+#      - ./oradata:/opt/oracle/oradata

@@ -1,0 +1,16 @@
+version: '3'
+services:
+  # https://github.com/castlemock/castlemock
+  # https://castlemock.github.io/
+  # http://localhost:88/castlemock
+  castlemock:
+    image: castlemock/castlemock:latest
+    restart: always
+    ports:
+      - "88:8080"
+    volumes:
+      - ./volume/:/root/.castlemock
+
+
+
+

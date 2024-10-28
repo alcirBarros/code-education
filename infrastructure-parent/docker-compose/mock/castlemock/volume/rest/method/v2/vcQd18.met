@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restMethod>
+    <currentResponseSequenceIndex>0</currentResponseSequenceIndex>
+    <httpMethod>GET</httpMethod>
+    <id>vcQd18</id>
+    <name>consultar-parcelas</name>
+    <networkDelay>0</networkDelay>
+    <resourceId>ICMIEV</resourceId>
+    <responseStrategy>RANDOM</responseStrategy>
+    <simulateNetworkDelay>false</simulateNetworkDelay>
+    <status>MOCKED</status>
+</restMethod>

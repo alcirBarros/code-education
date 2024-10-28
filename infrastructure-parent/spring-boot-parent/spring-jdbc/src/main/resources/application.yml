@@ -1,0 +1,22 @@
+#spring:
+#  datasource:
+#    schema: classpath:schema.sql
+#    data: classpath:data.sql
+
+spring:
+  datasources:
+    one:
+      pool-name: DataSource-1
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5432/bm_br_payroll_esocial_processor
+      jdbc-url: jdbc:postgresql://localhost:5432/bm_br_payroll_esocial_processor
+      username: postgres
+      password: postgres
+
+    two:
+      pool-name: DataSource-2
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5431/bm_br_payroll_esocial_records
+      jdbc-url: jdbc:postgresql://localhost:5431/bm_br_payroll_esocial_records
+      username: postgres
+      password: postgres

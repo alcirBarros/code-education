@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restMockResponse>
+    <body>{
+    "contrato": 22131036,
+    "proposta": 22191656,
+    "valorContratado": 100000,
+    "valorAtraso": 0,
+    "dataSaldoDevedor": "24.02.2022",
+    "valorSaldoDevedor": 100000,
+    "dataContratacao": "23.02.2022",
+    "dataVencimento": "23.02.2023",
+    "lancamentos": [
+        {
+            "valor": 100000,
+            "data": "23.02.2022",
+            "tipo": 1,
+            "descricao": "CAPITAL"
+        },
+        {
+            "valor": 766.23,
+            "data": "23.02.2022",
+            "tipo": 1,
+            "descricao": "IOF"
+        },
+        {
+            "valor": 380,
+            "data": "23.02.2022",
+            "tipo": 1,
+            "descricao": "IOF"
+        },
+        {
+            "valor": 1146.23,
+            "data": "23.02.2022",
+            "tipo": 2,
+            "descricao": "REPOSICAO - MUTUARIO"
+        }
+    ],
+    "tarifas": [
+        {
+            "valor": 0,
+            "data": "23.02.2022",
+            "tipo": 1,
+            "descricao": "DEBITADA DO CLIENTE - VALOR A CONSULTAR"
+        },
+        {
+            "valor": 0,
+            "data": "23.02.2022",
+            "tipo": 1,
+            "descricao": "DEBITADA DO CLIENTE - VALOR A CONSULTAR"
+        }
+    ],
+    "indicadorContinuacaoPesquisa": "N",
+    "codigoControleRechamada": "200004"
+}</body>
+    <contentEncodings/>
+    <headerQueries/>
+    <httpHeaders>
+        <httpHeader>
+            <name>content-type</name>
+            <value>application/json; charset=utf-8</value>
+        </httpHeader>
+    </httpHeaders>
+    <httpStatusCode>200</httpStatusCode>
+    <id>MDiaQb</id>
+    <jsonPathExpressions/>
+    <methodId>A99wuD</methodId>
+    <name>200</name>
+    <parameterQueries/>
+    <status>ENABLED</status>
+    <usingExpressions>false</usingExpressions>
+    <xpathExpressions/>
+</restMockResponse>

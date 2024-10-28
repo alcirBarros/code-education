@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restMethod>
+    <currentResponseSequenceIndex>0</currentResponseSequenceIndex>
+    <httpMethod>POST</httpMethod>
+    <id>uuiynO</id>
+    <name>contratos</name>
+    <networkDelay>0</networkDelay>
+    <resourceId>L2LF9S</resourceId>
+    <responseStrategy>RANDOM</responseStrategy>
+    <simulateNetworkDelay>false</simulateNetworkDelay>
+    <status>MOCKED</status>
+</restMethod>

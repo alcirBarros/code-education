@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sd="http://io.github.jpenren/sd">
+<head>
+    <title>Thymeleaf Spring Data Dialect Demo</title>
+
+    <style>
+    </style>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+
+
+<div class="container">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>First name</th>
+            <th>Last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${userPage}">
+            <td th:text="${row.id}">Code</td>
+            <th scope="row" th:text="${row.username}">Username</th>
+            <td th:text="${row.firstName}">Name</td>
+            <td th:text="${row.lastName}">Last Name</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <div class="row">
+
+        <div class="col-sm-12">
+
+            <nav class="pull-right">
+
+
+
+                <ul class="pagination" sd:pagination="full"></ul>
+
+<!--                <ul class="pagination">-->
+<!--                    &lt;!&ndash; page number start with 0, totalPages returns actual number of pages &ndash;&gt;-->
+<!--                    <li th:classappend="${userPage.getNumber() == 0} ? disabled" class="page-item">-->
+<!--                        <a class="page-link" th:href="@{''(size=${userPage.getSize()}, page=0)}">&laquo;</a>-->
+<!--                    </li>-->
+<!--                    <li th:classappend="${userPage.getNumber() == 0} ? disabled" class="page-item">-->
+<!--                        <a class="page-link"-->
+<!--                           th:href="@{''(size=${userPage.getSize()}, page=${userPage.getNumber() -1})}">&larr;</a>-->
+<!--                    </li>-->
+<!--                    <li th:classappend="${userPage.getNumber() == (page  )} ? 'active pointer-disabled'"-->
+<!--                        th:each="page : ${#numbers.sequence(0, userPage.getTotalPages() -1)}" class="page-item">-->
+<!--                        <a class="page-link" th:href="@{''(size=${userPage.getSize()}, page=${page})}"-->
+<!--                           th:text="${page + 1}"></a>-->
+<!--                    </li>-->
+<!--                    <li th:classappend="${userPage.getNumber() + 1 == userPage.getTotalPages()} ? disabled"-->
+<!--                        class="page-item">-->
+<!--                        <a class="page-link"-->
+<!--                           th:href="@{''(size=${userPage.getSize()}, page=${userPage.getNumber() + 1})}">&rarr;</a>-->
+<!--                    </li>-->
+<!--                    <li th:classappend="${userPage.getNumber() + 1 == userPage.getTotalPages()} ? disabled"-->
+<!--                        class="page-item">-->
+<!--                        <a class="page-link"-->
+<!--                           th:href="@{''(size=${userPage.getSize()}, page=${userPage.getTotalPages()})}">&raquo;</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+
+
+            </nav>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

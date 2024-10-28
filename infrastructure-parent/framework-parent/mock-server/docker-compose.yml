@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  mockServer:
+    image: mockserver/mockserver:mockserver-5.11.1
+    ports:
+      - 1080:1080
+    environment:
+      MOCKSERVER_PROPERTY_FILE: /docker/mockserver/mockserver.properties
+      MOCKSERVER_INITIALIZATION_JSON_PATH: /docker/mockserver/initializer.json
+    volumes:
+      - ./docker/:/docker

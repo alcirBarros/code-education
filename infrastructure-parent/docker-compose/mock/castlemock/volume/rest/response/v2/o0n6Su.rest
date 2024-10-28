@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restMockResponse>
+    <body>{
+    "numeroSimulacao": "18903",
+    "dataPrimeiraParcelaReposicao": "01.03.2022",
+    "dataUltimaParcelaReposicao": "01.02.2023",
+    "valorTaxaEncargoCalculo": "2.629",
+    "listaCronogramaPagamentos": [
+        {
+            "data": "01.02.2022",
+            "valorReposicaoCapital": "0.00",
+            "valorEncargoAdicional": "0.00",
+            "valorSaldoDevedor": "100000.00",
+            "valorTotalParcela": "4146.23"
+        },
+        {
+            "data": "01.03.2022",
+            "valorReposicaoCapital": "9573.34",
+            "valorEncargoAdicional": "251.68",
+            "valorSaldoDevedor": "92803.98",
+            "valorTotalParcela": "9825.02"
+        },
+        {
+            "data": "01.04.2022",
+            "valorReposicaoCapital": "9328.10",
+            "valorEncargoAdicional": "496.92",
+            "valorSaldoDevedor": "85418.78",
+            "valorTotalParcela": "9825.02"
+        },
+        {
+            "data": "01.05.2022",
+            "valorReposicaoCapital": "9089.15",
+            "valorEncargoAdicional": "735.87",
+            "valorSaldoDevedor": "77839.42",
+            "valorTotalParcela": "9825.02"
+        },
+        {
+            "data": "01.06.2022",
+            "valorReposicaoCapital": "8856.31",
+            "valorEncargoAdicional": "968.71",
+            "valorSaldoDevedor": "70060.80",
+            "valorTotalParcela": "9825.02"
+        },
+        {
+            "data": "01.07.2022",
+            "valorReposicaoCapital": "8629.45",
+            "valorEncargoAdicional": "1195.57",
+            "valorSaldoDevedor": "62077.68",
+            "valorTotalParcela": "9825.02"
+        },
+        {
+            "data": "01.08.2022",
+            "valorReposicaoCapital": "8408.39",
+            "valorEncargoAdicional": "1416.63",
+            "valorSaldoDevedor": "53884.68",
+            "valorTotalParcela": "9825.02"
+        },
+        {
+            "data": "01.09.2022",
+            "valorReposicaoCapital": "8193.00",
+            "valorEncargoAdicional": "1632.02",
+            "valorSaldoDevedor": "45476.29",
+            "valorTotalParcela": "9825.02"
+        },
+        {
+            "data": "01.10.2022",
+            "valorReposicaoCapital": "7983.12",
+            "valorEncargoAdicional": "1841.90",
+            "valorSaldoDevedor": "36846.84",
+            "valorTotalParcela": "9825.02"
+        },
+        {
+            "data": "01.11.2022",
+            "valorReposicaoCapital": "7778.62",
+            "valorEncargoAdicional": "2046.40",
+            "valorSaldoDevedor": "27990.52",
+            "valorTotalParcela": "9825.02"
+        },
+        {
+            "data": "01.12.2022",
+            "valorReposicaoCapital": "7579.36",
+            "valorEncargoAdicional": "2245.66",
+            "valorSaldoDevedor": "18901.37",
+            "valorTotalParcela": "9825.02"
+        },
+        {
+            "data": "01.01.2023",
+            "valorReposicaoCapital": "7385.20",
+            "valorEncargoAdicional": "2439.82",
+            "valorSaldoDevedor": "9573.27",
+            "valorTotalParcela": "9825.02"
+        },
+        {
+            "data": "01.02.2023",
+            "valorReposicaoCapital": "7195.96",
+            "valorEncargoAdicional": "2629.06",
+            "valorSaldoDevedor": "0.00",
+            "valorTotalParcela": "9825.02"
+        }
+    ],
+    "listaDespesas": []
+}</body>
+    <contentEncodings/>
+    <headerQueries/>
+    <httpHeaders>
+        <httpHeader>
+            <name>content-type</name>
+            <value>application/json; charset=utf-8</value>
+        </httpHeader>
+    </httpHeaders>
+    <httpStatusCode>200</httpStatusCode>
+    <id>o0n6Su</id>
+    <jsonPathExpressions/>
+    <methodId>L71I70</methodId>
+    <name>200</name>
+    <parameterQueries/>
+    <status>ENABLED</status>
+    <usingExpressions>false</usingExpressions>
+    <xpathExpressions/>
+</restMockResponse>

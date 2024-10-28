@@ -1,0 +1,50 @@
+server:
+  forward-headers-strategy: framework
+  port: ${SERVER_PORT:8080}
+  application:
+    name: rest-api
+  servlet:
+    context-path: /context
+    charset: UTF-8
+    encoding:
+      enabled: true
+  tomcat:
+    max-connections:  2000  # Máximo de conexões
+    accept-count:  200  #
+
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  http:
+    charset: UTF-8
+    enabled: true
+    converters:
+      preferred-json-mapper: jackson
+  servlet:
+    multipart:
+      enabled: true
+
+  mvc:
+    format:
+      date: yyyy-MM-dd
+      date-time: yyyy-MM-dd HH:mm:ss
+      time: HH:mm:ss
+  jackson:
+    serialization.write_dates_as_timestamps: false
+    deserialization.adjust_dates_to_context_time_zone: true
+    time-zone: UTC
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd'T'HH:mm:ssZ
+  messages:
+    basename: i18n/messages
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          client:
+            RestTemplate: DEBUG
+
+someProperty: aaaaaaaaa

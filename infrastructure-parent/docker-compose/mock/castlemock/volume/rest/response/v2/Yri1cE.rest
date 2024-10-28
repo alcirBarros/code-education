@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restMockResponse>
+    <body>{
+    "listaIntervenientes": [
+        {
+            "nome": "ELETRONIC HERNANDES DE SOUZA",
+            "indicadorPendenciaAssinatura": "S"
+        }
+    ],
+    "listaSignatarios": []
+}</body>
+    <contentEncodings/>
+    <headerQueries/>
+    <httpHeaders>
+        <httpHeader>
+            <name>content-type</name>
+            <value>application/json; charset=utf-8</value>
+        </httpHeader>
+    </httpHeaders>
+    <httpStatusCode>200</httpStatusCode>
+    <id>Yri1cE</id>
+    <jsonPathExpressions/>
+    <methodId>Cwg1j4</methodId>
+    <name>200</name>
+    <parameterQueries/>
+    <status>ENABLED</status>
+    <usingExpressions>false</usingExpressions>
+    <xpathExpressions/>
+</restMockResponse>

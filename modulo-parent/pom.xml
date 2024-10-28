@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>educa-facil</groupId>
+        <artifactId>educa-facil-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>modulo-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>admin-template-parent</module>
+        <module>driver-parent</module>
+<!--        <module>evento-parent</module>-->
+<!--        <module>evento-automatico-parent</module>-->
+        <module>funcao-parent</module>
+        <module>auxiliar-parent</module>
+        <module>contato-parent</module>
+        <module>logradouro-parent</module>
+        <module>endereco-parent</module>
+        <module>instituicao-parent</module>
+        <module>municipio-parent</module>
+        <module>pessoa-parent</module>
+        <module>anamnese-parent</module>
+        <module>servico-externo-parent</module>
+        <module>role-parent</module>
+        <module>perfil-parent</module>
+<!--        <module>operador-parent</module>-->
+        <module>tipodocumento-parent</module>
+        <module>escola-parent</module>
+<!--        <module>estabelecimento-parent</module>-->
+<!--        <module>integracao-parent</module>-->
+<!--        <module>login-parent</module>-->
+<!--        <module>grupo-produto-parent</module>-->
+<!--        <module>produto-parent</module>-->
+<!--        <module>fornecedor-parent</module>-->
+<!--        <module>movimentacao-produto-parent</module>-->
+<!--        <module>backoffice-parent</module>-->
+    </modules>
+
+</project>

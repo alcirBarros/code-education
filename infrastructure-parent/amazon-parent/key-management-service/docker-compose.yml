@@ -1,0 +1,44 @@
+version: '3.1'
+
+services:
+#  postgres:
+#    image: postgres:13-alpine
+#    restart: always
+#    ports:
+#      - 5432:5432
+#    environment:
+#      POSTGRES_DB: postgres
+#      POSTGRES_USER: root
+#      POSTGRES_PASSWORD: root
+#    networks:
+#      - postgres-compose-network
+#
+#  pgadmin:
+#    image: dpage/pgadmin4
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: "root@root.com.br"
+#      PGADMIN_DEFAULT_PASSWORD: "root"
+#    ports:
+#      - "16543:80"
+#    depends_on:
+#      - postgres
+#    networks:
+#      - postgres-compose-network
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - '4566-4597:4566-4597'
+    environment:
+      - SERVICES=kms
+      - DEBUG=1
+      - DEFAULT_REGION=sa-east-1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - HOSTNAME_EXTERNAL=localstack
+    volumes:
+      - ./localstack:/docker-entrypoint-initaws.d/
+      - /var/run/docker.sock:/var/run/docker.sock
+
+#networks:
+#  postgres-compose-network:
+#    driver: bridge

@@ -1,0 +1,7 @@
+--DELETE FROM employee;
+--
+--INSERT INTO employee(uuid, "name") VALUES(uuid_generate_v4(), 'GUSTAVO');
+--INSERT INTO employee(uuid, "name") VALUES(uuid_generate_v4(), 'GABRIEL');
+--INSERT INTO employee(uuid, "name") VALUES(uuid_generate_v4(), 'RAFAEL');
+--INSERT INTO employee(uuid, "name") VALUES(uuid_generate_v4(), 'GUILHERME');
+--INSERT INTO employee(uuid, "name") VALUES(uuid_generate_v4(), 'DANIEL');

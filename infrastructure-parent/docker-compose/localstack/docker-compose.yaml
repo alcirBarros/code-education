@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+  localstack:
+    container_name: "localstack"
+    image: localstack/localstack
+    network_mode: bridge
+    ports:
+      - 4566:4566
+      - 47693:47693
+    environment:
+      - SERVICES=s3
+      - DEBUG=1
+      - LS_LOG=TRACE
+      - USE_SSL=0
+      - SSL=0
+      - AWS_CBOR_DISABLE=1
+      - AWS_DEFAULT_REGION=us-east-1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - CUSTOM_AWS_ACESS_KEY_ID=dummyKey
+      - CUSTOM_AWS_ACESS_KEY_SECRET=dummySecret
+      - CUSTOM_BUCKET_NAME=a205451-br-services-ci-us-east-1
+      - CUSTOM_ENDPOINT=http://localhost:4566
+      - CUSTOM_PROFILE=localstack
+      - KMS_PROVIDER=local-kms
+      - S3_DIR=/tmp/s3-buckets
+    volumes:
+      - ./aws/s3:/tmp/s3-buckets:Z
+    #  - ./aws/scripts/:/docker-entrypoint-initaws.d/
+    #  - ./docker/aws/scripts/:/etc/localstack/init/ready.d/
+      - /var/run/docker.sock:/var/run/docker.sock"

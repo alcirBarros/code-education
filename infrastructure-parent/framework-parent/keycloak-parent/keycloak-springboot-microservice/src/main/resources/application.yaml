@@ -1,0 +1,8 @@
+keycloak:
+  realm: realmkeycloak
+  auth-server-url: http://localhost:8180/auth
+  ssl-required: "external"
+  resource: login-app
+  credentials:
+    secret: f561848a-4457-4825-b7a1-fc25ef01769b
+  confidential-port: 0

@@ -1,0 +1,12 @@
+#spring:
+#  datasource:
+#    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerOracleDriver
+#    url: &arn sm-hml/usadq-meuestabelecimento
+#    username: *arn
+
+
+#spring:
+#  datasource:
+#    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerPostgreSQLDriver
+#    url: jdbc-secretsmanager:postgresql://localhost:5432/postgres
+#    username: arn:aws:secretsmanager:sa-east-1:224753950670:secret:dev/accredit/owadq-MRVxtd

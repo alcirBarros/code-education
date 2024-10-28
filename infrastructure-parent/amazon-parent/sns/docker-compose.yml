@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+  spring-boot:
+    container_name: spring-sns
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: sns-0.0.1-SNAPSHOT.jar
+    environment:
+      COMPOSE_PROFILES: "development,logging"
+      CLOUD_AWS_SNS_ARN: "arn:aws:sns:sa-east-1:000000000000:topic"
+    ports :
+      - "8080:8080"
+    volumes:
+      - type: bind
+        source: ${HOME}/.aws
+        target: /root/.aws
+
+
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restEvent>
+    <endDate>2022-03-09T22:26:18.405Z</endDate>
+    <id>KmjCqL</id>
+    <resourceName>contratos</resourceName>
+    <startDate>2022-03-09T22:26:18.405Z</startDate>
+    <applicationId>GMbMAX</applicationId>
+    <methodId>bSwZzX</methodId>
+    <projectId>h1Ys8K</projectId>
+    <request>
+        <body></body>
+        <httpHeaders>
+            <httpHeader>
+                <name>user-agent</name>
+                <value>PostmanRuntime/7.29.0</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept</name>
+                <value>*/*</value>
+            </httpHeader>
+            <httpHeader>
+                <name>postman-token</name>
+                <value>dedb0013-4afa-4914-bc59-ef62ffd4eb01</value>
+            </httpHeader>
+            <httpHeader>
+                <name>host</name>
+                <value>localhost:88</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept-encoding</name>
+                <value>gzip, deflate, br</value>
+            </httpHeader>
+            <httpHeader>
+                <name>connection</name>
+                <value>keep-alive</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpMethod>GET</httpMethod>
+        <httpParameters/>
+        <uri>/v2/contratos</uri>
+    </request>
+    <resourceId>L2LF9S</resourceId>
+    <response>
+        <body>{
+    "statusCode": 401,
+    "error": "Unauthorized",
+    "message": "Bad Response From Token Introspection Endpoint",
+    "attributes": {
+        "error": "Bad Response From Token Introspection Endpoint"
+    }
+}</body>
+        <contentEncodings/>
+        <httpHeaders>
+            <httpHeader>
+                <name>content-type</name>
+                <value>application/json; charset=utf-8</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpStatusCode>200</httpStatusCode>
+        <mockResponseName>401</mockResponseName>
+    </response>
+</restEvent>

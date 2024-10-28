@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/bm_br_payroll_esocial_processor
+    username: postgres
+    password: postgres
+
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/bm_br_payroll_esocial_processor
+    username: postgres
+    password: postgres
+
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true

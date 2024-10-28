@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restMockResponse>
+    <body>{
+    "indicadorContinuacaoPesquisa": "N",
+    "listaOperacoesCliente": [
+    ]
+}</body>
+    <contentEncodings/>
+    <headerQueries/>
+    <httpHeaders>
+        <httpHeader>
+            <name>content-type</name>
+            <value>application/json; charset=utf-8</value>
+        </httpHeader>
+    </httpHeaders>
+    <httpStatusCode>200</httpStatusCode>
+    <id>qUZToK</id>
+    <jsonPathExpressions/>
+    <methodId>bSwZzX</methodId>
+    <name>200</name>
+    <parameterQueries/>
+    <status>ENABLED</status>
+    <usingExpressions>false</usingExpressions>
+    <xpathExpressions/>
+</restMockResponse>

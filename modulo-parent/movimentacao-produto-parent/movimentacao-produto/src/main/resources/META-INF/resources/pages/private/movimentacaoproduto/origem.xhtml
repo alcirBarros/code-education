@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:panelGrid id="panelGroupOrigem">
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Origem" style="font-size: 30px"/>
+            <h:selectOneMenu id="selectOneMenuTipoDocumentoOrigem" 
+                             value="#{movimentacaoProdutoMb.movimentacaoProduto.origem.tipoDocumentoOrigem}"
+                             required="#{movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.exigirOrigem}"
+                             requiredMessage="Informe Origem"
+                             styleClass="ui-selectfield ui-state-default ui-corner-all #{ (movimentacaoProdutoMb.modo.id == 1 || movimentacaoProdutoMb.modo.id==2) || movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.tipoMovimentacaoEnum.value == 'SAIDA' || (!movimentacaoProdutoMb.movimentacaoProduto.produtoMovimentacaoList.isEmpty()) ? 'ui-state-disabled' : ''}"
+                             disabled="#{(movimentacaoProdutoMb.modo.id == 1 || movimentacaoProdutoMb.modo.id==2) || movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.tipoMovimentacaoEnum.value == 'SAIDA' || (!movimentacaoProdutoMb.movimentacaoProduto.produtoMovimentacaoList.isEmpty())}"
+                             converter="#{entityConverter}"
+                             style="width: 360px" >
+
+                <p:ajax event="change" 
+                        listener="#{movimentacaoProdutoMb.selecionaTipoDocumentoOrigem}"
+                        update="@form"/>
+                <f:selectItems value="#{movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.tipoDocumentoOrigemSelectItem}" />
+            </h:selectOneMenu>
+        </h:panelGrid>
+        <h:panelGrid >
+            <h:panelGrid id="panelGridEstabelecimentoOrigem" rendered="#{movimentacaoProdutoMb.movimentacaoProduto.origem.tipoDocumentoOrigem.tipoOrigemEnum.value.equals('ESTABELECIMENTO')}">
+                <h:panelGrid columns="2">
+                    <h:panelGrid>
+                        <h:outputLabel value="Nome Fantasia" />
+                        <h:panelGrid columns="2">
+                            <p:autoComplete value="#{movimentacaoProdutoMb.movimentacaoProduto.origem.estabelecimento}"
+                                            completeMethod="#{estabelecimentoMb.completeNomeFantasia}" 
+                                            var="estabelecimento" 
+                                            itemValue="#{estabelecimento}"
+                                            itemLabel="#{estabelecimento.instituicao.nomeFantasia}"
+                                            converter="#{estabelecimentoConverter}"
+                                            maxResults="8" 
+                                            forceSelection="true"
+                                            required="#{movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.exigirOrigem}"
+                                            requiredMessage="Informe o Nome Fantasia"
+                                            maxlength="20"
+                                            minQueryLength="3" 
+                                            queryDelay="1000"
+                                            tabindex="#{telaUtilMb.tabIndex()}" 
+                                            disabled="#{(movimentacaoProdutoMb.modo.id == 1 || movimentacaoProdutoMb.modo.id == 2) || movimentacaoProdutoMb.movimentacaoProduto.origem.estabelecimento.instituicao.id != null}"
+                                            inputStyle="#{(((movimentacaoProdutoMb.modo.id == 3 || movimentacaoProdutoMb.modo.id == 4) &amp;&amp; movimentacaoProdutoMb.movimentacaoProduto.origem.estabelecimento.instituicao.id != null ) &amp;&amp; movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.tipoMovimentacaoEnum.value == 'ENTRADA') ? 'width:317px':'width:350px'}">
+
+                                <p:ajax listener="#{movimentacaoProdutoMb.selecionaEstabelecimentoOrigem}"
+                                        event="itemSelect" update=":formEdicaoMovimentacaoProduto:tab:panelGridEstabelecimentoOrigem :messages"/>
+                                <p:column>
+                                    <div style="text-align:left;">
+                                        #{estabelecimento.instituicao.nomeFantasia}<br />
+                                        Cnes: #{estabelecimento.instituicao.cnes} - CNPJ- #{n.cnpj} - Bairro: #{estabelecimento.instituicao.endereco.logradouro.bairro.descricao} 
+                                    </div>
+                                </p:column>
+
+                            </p:autoComplete>
+                            <p:commandButton action="#{movimentacaoProdutoMb.desbloqueiaEstabelecimentoOrigem()}"
+                                             process="@this :formEdicaoMovimentacaoProduto:tab:panelGridEstabelecimentoOrigem"
+                                             icon="ui-icon-unlocked" 
+                                             tabindex="#{telaUtilMb.tabIndex()}"
+                                             rendered="#{((movimentacaoProdutoMb.modo.id == 3 || movimentacaoProdutoMb.modo.id == 4) &amp;&amp; movimentacaoProdutoMb.movimentacaoProduto.origem.estabelecimento.instituicao.id != null) &amp;&amp; movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.tipoMovimentacaoEnum.value == 'ENTRADA'}"
+                                             update=":formEdicaoMovimentacaoProduto:tab:panelGridEstabelecimentoOrigem :messages"
+                                             style="width: 30px; height: 22px" />
+                        </h:panelGrid>
+                    </h:panelGrid>
+                    <h:panelGrid>
+                        <h:outputLabel value="SubSetor"  />
+                        <h:selectOneMenu value="#{movimentacaoProdutoMb.movimentacaoProduto.origem.subsetor}"
+                                         converter="#{subSetorConverter}"
+                                         styleClass="ui-selectfield ui-state-default ui-corner-all #{ (movimentacaoProdutoMb.modo.id == 1 || movimentacaoProdutoMb.modo.id==2)  || (!movimentacaoProdutoMb.movimentacaoProduto.produtoMovimentacaoList.isEmpty() || movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.tipoMovimentacaoEnum.value == 'SAIDA') ? 'ui-state-disabled' : ''}"
+                                         disabled="#{(movimentacaoProdutoMb.modo.id == 1 || movimentacaoProdutoMb.modo.id==2) || (!movimentacaoProdutoMb.movimentacaoProduto.produtoMovimentacaoList.isEmpty() || movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.tipoMovimentacaoEnum.value == 'SAIDA')}"
+                                         style="width: 95px; height: 22px;"
+                                         tabindex="#{telaUtilMb.tabIndex()}">
+                            <p:ajax event="change" 
+                                    listener="#{movimentacaoProdutoMb.selecionaSubSetorOrigem}"/>
+                            <f:selectItems value="#{movimentacaoProdutoMb.movimentacaoProduto.origem.estabelecimento.getTSubSetorSelectItem()}" var="subSetor" itemLabel="#{subSetor.label}" />
+                        </h:selectOneMenu>
+                    </h:panelGrid>
+                </h:panelGrid>
+                <p:fieldset legend="Dados" toggleable="true" collapsed="true" >
+
+                </p:fieldset>
+            </h:panelGrid>
+
+            <h:panelGrid id="panelGridUsuarioOrigem" rendered="#{movimentacaoProdutoMb.movimentacaoProduto.origem.tipoDocumentoOrigem.tipoOrigemEnum.value.equals('USUARIO')}">
+                <h:panelGrid columns="3">
+                    <h:panelGrid>
+                        <h:outputText value="Pront. Digital" />
+                        <h:panelGrid columns="3">
+                            <p:inputText id="inputTextOrigem"
+                                         value="#{movimentacaoProdutoMb.movimentacaoProduto.origem.usuario.pessoa.id}"
+                                         tabindex="#{telaUtilMb.tabIndex()}"
+                                         onkeypress="return somenteNumeros(this);" 
+                                         disabled="#{movimentacaoProdutoMb.movimentacaoProduto.origem.usuario.pessoa.id != null}"
+                                         maxlength="10"
+                                         required="#{movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.exigirOrigem}"
+                                         requiredMessage="Informe o Pront. Digital"
+                                         style="width:80px">
+                                <p:ajax event="keydown"
+                                        onstart="return tabOnSearch3(event)"
+                                        process="@this" 
+                                        update="@form :messages"
+                                        listener="#{movimentacaoProdutoMb.carregarUsuarioOrigem}" />
+                            </p:inputText>
+                        </h:panelGrid>
+                    </h:panelGrid>
+                    <h:panelGrid>
+                        <h:outputText value="Nome" />
+                        <h:panelGrid columns="2">
+                            <p:autoComplete 
+                                value="#{movimentacaoProdutoMb.movimentacaoProduto.origem.usuario.pessoa}"
+                                completeMethod="#{pessoaMb.completePessoa}"
+                                converter="#{pessoaConverter}"
+                                placeholder="digite pelo menos 5 caracteres"
+                                maxResults="8"
+                                minQueryLength="5" 
+                                queryDelay="550"
+                                required="#{movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.exigirOrigem}"
+                                requiredMessage="Informe o Nome"
+                                var="pessoa" 
+                                itemValue="#{pessoa}"
+                                itemLabel="#{pessoa.display}"
+                                maxlength="80" 
+                                scrollHeight="250" 
+                                tabindex="#{telaUtilMb.tabIndex()}" 
+                                disabled="#{movimentacaoProdutoMb.movimentacaoProduto.origem.usuario.pessoa.id != null}"
+                                inputStyle="#{((movimentacaoProdutoMb.modo.id == 3 || movimentacaoProdutoMb.modo.id == 4) &amp;&amp; (movimentacaoProdutoMb.movimentacaoProduto.origem.usuario.pessoa.id != null &amp;&amp; movimentacaoProdutoMb.movimentacaoProduto.produtoMovimentacaoList.isEmpty())) ? 'width :204px':'width :235px'}" >
+
+                                <p:ajax event="query" 
+                                        global="false" />
+
+                                <p:ajax event="itemSelect"
+                                        listener="#{movimentacaoProdutoMb.selecionaUsuarioOrigem}"
+                                        process="@this"
+                                        update=":formEdicaoMovimentacaoProduto:tab:panelGridUsuarioOrigem :messages"/>
+
+                                <p:column style="text-align: left;">
+                                    #{pessoa.id} - #{pessoa.nome} #{pessoa.dataNascimentoString}<br />
+                                    <span style="font-size: 10px"> <h:outputText
+                                            value="MÃE: #{pessoa.nomeDaMae}"
+                                            rendered="#{not empty pessoa.nomeDaMae}" /> <h:outputText
+                                            value="MÃE: #{pessoa.nomeTemporarioMae}"
+                                            rendered="#{empty pessoa.nomeDaMae &amp;&amp; not empty pessoa.nomeTemporarioMae}" />
+                                    </span>
+                                </p:column>
+                            </p:autoComplete>
+
+
+                            <p:commandButton 
+                                action="#{movimentacaoProdutoMb.desbloqueiaUsuarioOrigem}"
+                                icon="ui-icon-unlocked" 
+                                immediate="true"
+                                tabindex="#{telaUtilMb.tabIndex()}"
+                                update=":formEdicaoMovimentacaoProduto:tab:panelGridUsuarioOrigem :messages"
+                                rendered="#{((movimentacaoProdutoMb.modo.id == 3 || movimentacaoProdutoMb.modo.id == 4) &amp;&amp; (movimentacaoProdutoMb.movimentacaoProduto.origem.usuario.pessoa.id != null &amp;&amp; movimentacaoProdutoMb.movimentacaoProduto.produtoMovimentacaoList.isEmpty()))}"
+                                style="width: 30px; height: 20px" />
+                        </h:panelGrid>
+                    </h:panelGrid>
+                    <h:panelGrid>
+                        <h:outputText value="Data de Nascimento" />
+                        <h:panelGrid columns="2">
+                            <p:calendar id="calendarDataNascimentoUsuarioOrigem"
+                                        value="#{movimentacaoProdutoMb.movimentacaoProduto.origem.usuario.pessoa.dataNascimento}"
+                                        inputStyle="width:86px" 
+                                        locale="pt" 
+                                        maxlength="10"
+                                        pattern="dd/MM/yyyy"
+                                        required="#{movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.exigirOrigem}"
+                                        requiredMessage="Informe a data de nascimento"
+                                        styleClass="calendario"
+                                        showOn="none"
+                                        onfocus="mascaraCalendario()"
+                                        onclick="mascaraCalendario()"
+                                        disabled="true"
+                                        tabindex="#{telaUtilMb.tabIndex()}">
+
+                                <p:ajax event="keydown"
+                                        onstart="return tabOnSearch2('formEdicaoMovimentacaoProduto:tab:calendarDataNascimentoUsuarioOrigem_input', event)"
+                                        process="@this" 
+                                        oncomplete="try { dialogDataModelPessoa.show(); } catch(err){}" />
+                            </p:calendar>
+
+                            <p:commandButton 
+                                process="@this"
+                                disabled="true"
+                                tabindex="#{telaUtilMb.tabIndex()}" 
+                                oncomplete="try { dialogDataModelPessoa.show(); } catch(err){}"
+                                icon="ui-icon ui-icon-search" style="height: 20px" />
+                        </h:panelGrid>
+                    </h:panelGrid>
+                </h:panelGrid>
+                <p:fieldset legend="Dados" toggleable="true" collapsed="true" >
+
+                </p:fieldset>
+            </h:panelGrid>
+
+            <h:panelGrid id="panelGridFornecedorOrigem" rendered="#{movimentacaoProdutoMb.movimentacaoProduto.origem.tipoDocumentoOrigem.tipoOrigemEnum.value.equals('FORNECEDOR')}">
+                <h:panelGrid columns="2">
+                    <h:panelGrid >
+                        <h:outputLabel value="Nome Fantasia ou Razão Social" />
+                        <h:panelGrid columns="2" >
+                            <p:autoComplete id="autoCompleteFornecedorOrigem"
+                                            value="#{movimentacaoProdutoMb.movimentacaoProduto.origem.fornecedor}"
+                                            completeMethod="#{fornecedorMb.completeMethodNomeFantasia}"
+                                            var="fornecedor"
+                                            itemValue="#{fornecedor}"
+                                            itemLabel="#{fornecedor.instituicao.nomeFantasia}"
+                                            converter="#{fornecedorConverter}"
+                                            maxResults="8"
+                                            forceSelection="true"
+                                            required="#{movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.exigirOrigem}"
+                                            requiredMessage="Informe o nome fantasia"
+                                            maxlength="20"
+                                            minQueryLength="3" 
+                                            queryDelay="1000"
+                                            tabindex="#{telaUtilMb.tabIndex()}" 
+                                            disabled="#{(movimentacaoProdutoMb.modo.id == 1 || movimentacaoProdutoMb.modo.id == 2) || movimentacaoProdutoMb.movimentacaoProduto.origem.fornecedor.instituicao.id != null || !movimentacaoProdutoMb.movimentacaoProduto.produtoMovimentacaoList.isEmpty()}"
+                                            inputStyle="#{((movimentacaoProdutoMb.modo.id == 3 || movimentacaoProdutoMb.modo.id == 4) &amp;&amp; (movimentacaoProdutoMb.movimentacaoProduto.origem.fornecedor.instituicao.id != null &amp;&amp; movimentacaoProdutoMb.movimentacaoProduto.produtoMovimentacaoList.isEmpty())) ? 'width: 292px;':'width: 325px;'}">
+
+                                <p:ajax event="itemSelect" update=":formEdicaoMovimentacaoProduto:tab:panelGridFornecedorOrigem :messages" />
+
+                                <p:column style="width: 350px; text-align: left;" >
+                                    Nome Fantasia: #{fornecedor.instituicao.nomeFantasia}<br/>
+                                    Razão Social: #{fornecedor.instituicao.razaoSocial}<br/>
+                                    CNPJ: #{fornecedor.instituicao.cnpj}<br/>
+                                </p:column>
+                            </p:autoComplete>
+                            <p:commandButton action="#{movimentacaoProdutoMb.desbloqueiaFornecedorOrigem()}"
+                                             process="@this"
+                                             icon="ui-icon-unlocked"
+                                             update=":formEdicaoMovimentacaoProduto:tab:panelGridFornecedorOrigem :messages" 
+                                             tabindex="#{telaUtilMb.tabIndex()}"
+                                             rendered="#{((movimentacaoProdutoMb.modo.id == 3 || movimentacaoProdutoMb.modo.id == 4) &amp;&amp; (movimentacaoProdutoMb.movimentacaoProduto.origem.fornecedor.instituicao.id != null &amp;&amp; movimentacaoProdutoMb.movimentacaoProduto.produtoMovimentacaoList.isEmpty()))}"
+                                             style="width: 30px; height: 22px" />
+                        </h:panelGrid>
+                    </h:panelGrid>
+                    <h:panelGrid > 
+                        <h:outputLabel value="CNPJ" />
+                        <h:panelGrid >
+                            <p:inputText id="inputTextCnpj" value="#{movimentacaoProdutoMb.movimentacaoProduto.origem.fornecedor.instituicao.cnpj}"
+                                         disabled="true"
+                                         styleClass="cnpj"
+                                         style="width: 115px">
+                            </p:inputText> 
+                        </h:panelGrid>
+                    </h:panelGrid>
+                </h:panelGrid>
+                <p:fieldset legend="Dados" toggleable="true" collapsed="true" >
+
+                </p:fieldset>
+            </h:panelGrid>
+        </h:panelGrid>
+    </h:panelGrid>
+</html>

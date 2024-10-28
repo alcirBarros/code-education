@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:metadata>
+        <f:viewAction action="#{uploadedFileMb.carregarTela()}"  />
+    </f:metadata>
+    <ui:composition template="/pages/templete/templete.xhtml">
+        <ui:define name="body">
+            <h:form id="formEdicao">
+                <p:tabView id="tabView">
+                    <p:tab title="Upload Arquivo" >
+
+                        <p:fileUpload id="fileUpload"
+                                      fileUploadListener="#{uploadedMb.upload}"
+                                      update=":formEdicao:tabView:dataTableUpdateFaile :formMessagens"
+                                      label="Escolher" 
+                                      uploadLabel="Enviar"
+                                      cancelLabel="Cancelar" 
+                                      sizeLimit="102400"
+                                      invalidSizeMessage="O tamanho máximo permitido é de 1KB."
+                                      fileLimitMessage="Só é possível escolher 1 arquivos por vez."
+                                      multiple="true" 
+                                      auto="false"
+                                      onstart="console.log('Iniciando envio de arquivo')"
+                                      onerror="console.log('Erro na requisição de envio')"
+                                      oncomplete="console.log('Envio concluído')" />
+                        <br/>
+
+                        <p:dataTable id="dataTableUpdateFaile" 
+                                     value="#{uploadedFileMb.registro.uploadedRegistroList}"
+                                     rowKey="#{uploadedRegistro.randomId}"
+                                     var="uploadedRegistro" 
+                                     emptyMessage="Registro não encontrado.">
+                            <p:column headerText="Nome">
+                                <h:outputText value="#{uploadedRegistro.uploaded.arquivo.name}" />
+                            </p:column>
+
+                            <p:column style="width: 100px ;text-align: center">
+                                <p:commandButton value="Baixar" ajax="false"
+                                                 actionListener="#{uploadedFileMb.descarregar(uploadedRegistro.uploaded)}">
+                                    <p:fileDownload value="#{uploadedFileMb.getStreamedContent}" />
+                                </p:commandButton>
+                            </p:column>
+                            <p:column style="width: 100px ;text-align: center">
+                                <p:commandButton value="Excluir" 
+                                                 action="#{uploadedFileMb.excluir(uploadedRegistro)}"
+                                                 process="@this"
+                                                 update="@form">
+                                </p:commandButton>
+                            </p:column>
+                        </p:dataTable>
+
+
+                    </p:tab>
+
+                </p:tabView>
+                <h:panelGrid columns="6" style="text-align: right; width: 100%;">
+
+                    <h:panelGrid columns="6">
+                        <p:commandButton value="Inserir" 
+                                         action="#{uploadedFileMb.inserir()}"
+                                         class="btn btn-primary" />
+
+                        <p:commandButton value="Salvar" 
+                                         action="#{uploadedFileMb.salvar()}" 
+                                         class="btn btn-success"
+                                         update="@form :formMessagens"/>
+
+                        <p:commandButton value="Alterar" 
+                                         action="#{uploadedFileMb.alterar()}"
+
+                                         class="btn btn-warning" />
+                        <p:commandButton value="Cancelar" 
+                                         action="#{uploadedFileMb.cancelar()}"
+                                         class="btn btn-info" />
+                        <p:commandButton value="Excluir"
+                                         action="#{uploadedFileMb.excluir()}"
+                                         class="btn btn-danger" />
+                        <p:commandButton value="Processar"
+                                         action="#{uploadedFileMb.processar()}"
+                                         class="btn btn-danger" 
+                                         update=":formMessagens:versionMessages"/>
+                    </h:panelGrid>
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>    
+</html>
+

@@ -1,0 +1,24 @@
+version: '3'
+services:
+
+  sqlite:
+    image: "${IMAGE}:ci-${BUILD_NUMBER}"
+    environment:
+      DEBUG: 'true'
+      LE_STAGING: 'true'
+      FORCE_COLOR: 1
+      DB_SQLITE_FILE: '/data/mydb.sqlite'
+      PUID: 1000
+      PGID: 1000
+      DISABLE_IPV6: 'true'
+    volumes:
+      - npm_data_sqlite:/data
+      - npm_le_sqlite:/etc/letsencrypt
+    expose:
+      - 81
+      - 80
+      - 443
+    healthcheck:
+      test: ["CMD", "/usr/bin/check-health"]
+      interval: 10s
+      timeout: 3s

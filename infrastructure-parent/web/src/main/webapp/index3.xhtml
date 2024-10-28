@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <h:outputScript name="jquery-1.11.2.min.js" />
+        <h:outputScript name="sockjs-0.3.4.min.js" />
+        <h:outputScript name="stomp.min.js" />
+        <h:outputScript name="app.js" />
+
+        <script>
+
+            /**
+             * Send an action to the server.
+             */
+            function sendAction(event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "/web/some-action",
+                    type: "POST"
+                });
+                return;
+            }
+
+            /**
+             * Init operations.
+             */
+            $(document).ready(function () {
+                $("#do-some-action").on("click", sendAction);
+            });
+
+        </script>
+    </h:head>
+
+    <h:body>
+        <p>
+            Click the button below to perform an action.
+            <br />
+            <strong>UserA</strong> will be notified via web socket.
+        </p>
+        <input id="do-some-action" type="button" value="Click me" />
+
+        <!-- Javascript functions -->
+
+
+
+    </h:body>
+</html>

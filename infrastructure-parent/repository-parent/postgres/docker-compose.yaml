@@ -1,0 +1,48 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:13-alpine
+    restart: always
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432
+    environment:
+      LC_CTYPE: pt_BR.UTF-8
+      LC_MESSAGES: pt_BR.UTF-8
+      LC_MONETARY: pt_BR.UTF-8
+      POSTGRES_DB: postgres
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    healthcheck:
+      test: [ 'CMD-SHELL', 'pg_isready -h localhost -U ${POSTGRES_USER} -d ${POSTGRES_DB}' ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - postgres-compose-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    user: root
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "root@root.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "root"
+    ports:
+      - "16543:80"
+    volumes:
+      - ./database/pgadmin:/var/lib/pgadmin
+#    volumes:
+#      - type: bind
+#        source: ${HOME}/.m2
+#        target: /root/.m2
+    depends_on:
+      - postgres
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge

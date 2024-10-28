@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restMockResponse>
+    <body>{
+    "numeroProposta": 22191474,
+    "codigoProximoProcedimento": 2
+}</body>
+    <contentEncodings/>
+    <headerQueries/>
+    <httpHeaders>
+        <httpHeader>
+            <name>content-type</name>
+            <value>application/json; charset=utf-8</value>
+        </httpHeader>
+    </httpHeaders>
+    <httpStatusCode>200</httpStatusCode>
+    <id>RsF57f</id>
+    <jsonPathExpressions/>
+    <methodId>uuiynO</methodId>
+    <name>200</name>
+    <parameterQueries/>
+    <status>ENABLED</status>
+    <usingExpressions>false</usingExpressions>
+    <xpathExpressions/>
+</restMockResponse>

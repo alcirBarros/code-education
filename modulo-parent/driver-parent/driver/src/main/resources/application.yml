@@ -1,0 +1,5 @@
+server:
+  application:
+    name: driver
+  servlet:
+    context-path: /driver

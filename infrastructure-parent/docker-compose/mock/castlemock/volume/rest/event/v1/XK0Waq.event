@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restEvent>
+    <endDate>2022-03-09T22:21:57.625Z</endDate>
+    <id>XK0Waq</id>
+    <resourceName>contratos</resourceName>
+    <startDate>2022-03-09T22:21:57.621Z</startDate>
+    <applicationId>GMbMAX</applicationId>
+    <methodId>bSwZzX</methodId>
+    <projectId>h1Ys8K</projectId>
+    <request>
+        <body></body>
+        <httpHeaders>
+            <httpHeader>
+                <name>user-agent</name>
+                <value>PostmanRuntime/7.29.0</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept</name>
+                <value>*/*</value>
+            </httpHeader>
+            <httpHeader>
+                <name>postman-token</name>
+                <value>6a525b8b-1452-4649-b57e-db11f5137af4</value>
+            </httpHeader>
+            <httpHeader>
+                <name>host</name>
+                <value>localhost:88</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept-encoding</name>
+                <value>gzip, deflate, br</value>
+            </httpHeader>
+            <httpHeader>
+                <name>connection</name>
+                <value>keep-alive</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpMethod>GET</httpMethod>
+        <httpParameters/>
+        <uri>/v2/contratos</uri>
+    </request>
+    <resourceId>L2LF9S</resourceId>
+    <response>
+        <body>{
+    "indicadorContinuacaoPesquisa": "N",
+    "listaOperacoesCliente": [
+    ]
+}</body>
+        <contentEncodings/>
+        <httpHeaders/>
+        <httpStatusCode>200</httpStatusCode>
+        <mockResponseName>sucesso</mockResponseName>
+    </response>
+</restEvent>

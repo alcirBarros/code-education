@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restMockResponse>
+    <body>{
+    "statusCode": 401,
+    "error": "Unauthorized",
+    "message": "Bad Response From Token Introspection Endpoint",
+    "attributes": {
+        "error": "Bad Response From Token Introspection Endpoint"
+    }
+}</body>
+    <contentEncodings/>
+    <headerQueries/>
+    <httpHeaders>
+        <httpHeader>
+            <name>content-type</name>
+            <value>application/json; charset=utf-8</value>
+        </httpHeader>
+    </httpHeaders>
+    <httpStatusCode>200</httpStatusCode>
+    <id>WFUpBr</id>
+    <jsonPathExpressions/>
+    <methodId>bSwZzX</methodId>
+    <name>401</name>
+    <parameterQueries/>
+    <status>DISABLED</status>
+    <usingExpressions>false</usingExpressions>
+    <xpathExpressions/>
+</restMockResponse>

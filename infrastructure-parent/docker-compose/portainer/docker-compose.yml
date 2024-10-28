@@ -1,0 +1,59 @@
+version: "3.7"
+
+services:
+
+  agent:
+    image: portainer/agent:latest
+    ports:
+      - "9001:9001"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+    depends_on:
+      - portainer
+    networks:
+      - brotheroots
+    deploy:
+      mode: global
+      placement:
+        constraints: [ node.platform.os == linux ]
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    command: -H unix:///var/run/docker.sock
+    ports:
+      - "8000:8000"
+      - "9443:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - brotheroots
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints: [ node.role == manager ]
+      labels:
+        - "traefik.enable=true"
+        - "traefik.docker.network=brotheroots"
+        - "traefik.http.routers.portainer.rule=Host(`portainer.brotheroots.com.br`)"
+        - "traefik.http.routers.portainer.entrypoints=websecure"
+        - "traefik.http.routers.portainer.priority=1"
+        - "traefik.http.routers.portainer.tls.certresolver=letsencryptresolver"
+        - "traefik.http.routers.portainer.service=portainer"
+        - "traefik.http.services.portainer.loadbalancer.server.port=8000"
+
+networks:
+  public:
+    external: true
+  brotheroots:
+    external: true
+    attachable: true
+    driver: bridge
+    name: brotheroots
+
+volumes:
+  portainer_data:
+    external: true
+    name: portainer_data

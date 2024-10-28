@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AvisoTerminoAbra" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="079a63d7-f0f5-4b7a-9746-b7ad477d6abb">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="imagem" class="java.io.ByteArrayInputStream"/>
+	<field name="protocolo" class="java.lang.String"/>
+	<field name="assinaturaDigital" class="java.lang.String"/>
+	<field name="anotacaoResponsabilidadeTecnica" class="java.lang.String"/>
+	<field name="dataInforme" class="java.lang.String"/>
+	<field name="situacao" class="java.lang.String"/>
+	<field name="dataTermino" class="java.lang.String"/>
+	<field name="declaracao" class="java.lang.String"/>
+	<field name="dataHoraImpressao" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement x="70" y="0" width="485" height="20" uuid="2723de61-3fe6-4e43-ac00-5a9a45cf851e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aviso de Término de Obra e Serviços em Vias Públicas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="21" width="485" height="26" uuid="cc7b0e15-2531-43dd-9232-ee36615d29c0">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Justified"/>
+				<text><![CDATA[ÚNICA COMUNICAÇÃO (SUBPREFEITURA/DS-CET/CONVIAS) ANTES DO INÍCIO DE OBRAS OU SERVIÇO NAS VIAS PÚBLICAS DE SÃO PAULO]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="70" height="70" uuid="9e185360-3788-473c-9b35-4ca308d9218d"/>
+				<imageExpression><![CDATA[$F{imagem}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="123">
+			<staticText>
+				<reportElement x="0" y="2" width="555" height="17" uuid="ff7bc58d-11f5-499e-91bf-53f9c9bbf362">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box leftPadding="0"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dados da Obra]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="21" width="445" height="17" uuid="1eb8af12-fb9c-410d-8df1-a715afa31de4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{protocolo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="21" width="110" height="17" uuid="b668e399-6a9c-433f-b11c-f038f3d86a1f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Protocolo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="39" width="110" height="17" uuid="c6cb4df7-d272-489f-a819-5da87ced865a">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ART:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="57" width="110" height="17" uuid="6a4c5acf-9fd1-4c87-8fc0-3e05ecc78123">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Informe:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="75" width="110" height="17" uuid="5d379580-1054-456f-962c-bcad33acaa87">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Situação:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="93" width="110" height="17" uuid="e91316e9-5561-455d-807b-de84babcf339">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data de Término:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="39" width="445" height="17" uuid="dfccb433-d2b2-4da2-adde-e0dd97bc3ac3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{anotacaoResponsabilidadeTecnica}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="57" width="445" height="17" uuid="9060778a-6e47-41c2-ac6f-96d38032c295">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{dataInforme}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="75" width="445" height="17" uuid="eb6d44e7-756d-4993-b1e3-23e418f68cf8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{situacao}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="93" width="445" height="17" uuid="cad8e91c-6a9d-40d7-9732-c02e0ed80cd3">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{dataTermino};]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="50">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="555" height="50" uuid="e1c389a8-36f8-4963-9257-ecd4103463a3"/>
+				<textFieldExpression><![CDATA[$F{declaracao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="37">
+			<staticText>
+				<reportElement x="0" y="2" width="554" height="17" uuid="de9797b3-6cb4-42fa-ad4b-a7b8d7f25114">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assinatura digital:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="21" width="438" height="15" uuid="2403155f-13c4-41c6-b933-f232c1a47010">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2"/>
+				<textFieldExpression><![CDATA[$F{assinaturaDigital}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="440" y="21" width="112" height="15" uuid="cb9eb748-b60b-46eb-9e2b-06344603ae8b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box leftPadding="2"/>
+				<textFieldExpression><![CDATA[$F{dataHoraImpressao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - '4566-4597:4566-4597'
+    environment:
+      - SERVICES=sqs
+      - DEBUG=1
+      - DEFAULT_REGION=sa-east-1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - HOSTNAME_EXTERNAL=localstack
+    volumes:
+      - ./src/test/resources/localstack:/docker-entrypoint-initaws.d/
+      - /var/run/docker.sock:/var/run/docker.sock

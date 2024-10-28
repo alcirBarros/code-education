@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restEvent>
+    <endDate>2022-03-10T11:36:03.188Z</endDate>
+    <id>RSIUGd</id>
+    <resourceName>lancamentos</resourceName>
+    <startDate>2022-03-10T11:36:03.188Z</startDate>
+    <applicationId>GMbMAX</applicationId>
+    <methodId>A99wuD</methodId>
+    <projectId>h1Ys8K</projectId>
+    <request>
+        <body></body>
+        <httpHeaders>
+            <httpHeader>
+                <name>user-agent</name>
+                <value>PostmanRuntime/7.29.0</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept</name>
+                <value>*/*</value>
+            </httpHeader>
+            <httpHeader>
+                <name>postman-token</name>
+                <value>7fa62337-299b-40a4-8e4c-9fb11fddb6e7</value>
+            </httpHeader>
+            <httpHeader>
+                <name>host</name>
+                <value>localhost:88</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept-encoding</name>
+                <value>gzip, deflate, br</value>
+            </httpHeader>
+            <httpHeader>
+                <name>connection</name>
+                <value>keep-alive</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpMethod>GET</httpMethod>
+        <httpParameters/>
+        <uri>/v2/contratos/20220546350991140/lancamentos</uri>
+    </request>
+    <resourceId>0DWqvX</resourceId>
+    <response>
+        <body>{
+    "contrato": 22131036,
+    "proposta": 22191656,
+    "valorContratado": 100000,
+    "valorAtraso": 0,
+    "dataSaldoDevedor": "24.02.2022",
+    "valorSaldoDevedor": 100000,
+    "dataContratacao": "23.02.2022",
+    "dataVencimento": "23.02.2023",
+    "lancamentos": [
+        {
+            "valor": 100000,
+            "data": "23.02.2022",
+            "tipo": 1,
+            "descricao": "CAPITAL"
+        },
+        {
+            "valor": 766.23,
+            "data": "23.02.2022",
+            "tipo": 1,
+            "descricao": "IOF"
+        },
+        {
+            "valor": 380,
+            "data": "23.02.2022",
+            "tipo": 1,
+            "descricao": "IOF"
+        },
+        {
+            "valor": 1146.23,
+            "data": "23.02.2022",
+            "tipo": 2,
+            "descricao": "REPOSICAO - MUTUARIO"
+        }
+    ],
+    "tarifas": [
+        {
+            "valor": 0,
+            "data": "23.02.2022",
+            "tipo": 1,
+            "descricao": "DEBITADA DO CLIENTE - VALOR A CONSULTAR"
+        },
+        {
+            "valor": 0,
+            "data": "23.02.2022",
+            "tipo": 1,
+            "descricao": "DEBITADA DO CLIENTE - VALOR A CONSULTAR"
+        }
+    ],
+    "indicadorContinuacaoPesquisa": "N",
+    "codigoControleRechamada": "200004"
+}</body>
+        <contentEncodings/>
+        <httpHeaders>
+            <httpHeader>
+                <name>content-type</name>
+                <value>application/json; charset=utf-8</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpStatusCode>200</httpStatusCode>
+        <mockResponseName>200</mockResponseName>
+    </response>
+</restEvent>

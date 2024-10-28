@@ -1,0 +1,11 @@
+server:
+  port: 8282
+  application:
+    name: pessoa
+  servlet:
+    context-path: /pessoa
+
+logging:
+  level:
+    org.apache: ERROR
+    org.hibernate: ERROR

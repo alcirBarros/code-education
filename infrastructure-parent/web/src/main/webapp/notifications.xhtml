@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <h:outputScript name="jquery-1.11.2.min.js" />
+        <h:outputScript name="sockjs-0.3.4.min.js" />
+        <h:outputScript name="stomp.min.js" />
+        <h:outputScript name="app.js" />
+
+        <script>
+
+            /**
+             * Open the web socket connection and subscribe the "/notify" channel.
+             */
+            function connect1() {
+
+                // Create and init the SockJS object
+                var socket = new SockJS('/web/ws');
+                var stompClient = Stomp.over(socket);
+
+                // Subscribe the '/notify' channell
+                stompClient.connect({}, function (frame) {
+
+                    console.log('Connected: ' + frame);
+
+                    stompClient.subscribe('/topic/queue/notify', function (notification) {
+                        // Call the notify function when receive a notification
+                        notify(JSON.parse(notification.body).content);
+
+                    });
+                    stompClient.subscribe('/topic/greetings', function (greeting) {
+                        $("#greetings").append("<tr><td>" + JSON.parse(greeting.body).content + "</td></tr>");
+                    });
+                });
+
+
+//                stompClient.connect({}, function (frame) {
+//                    setConnected(true);
+//                    console.log('Connected: ' + frame);
+//                    stompClient.subscribe('/topic/greetings', function (greeting) {
+//                        $("#greetings").append("<tr><td>" + JSON.parse(greeting.body).content + "</td></tr>");
+//                    });
+//                });
+                return;
+            } // function connect
+
+            /**
+             * Display the notification message.
+             */
+            function notify(message) {
+                $("#notifications-area").append(message + "\n");
+                return;
+            }
+
+            /**
+             * Init operations.
+             */
+            $(document).ready(function () {
+                // Start the web socket connection.
+                connect1();
+//                connect();
+
+            });
+
+        </script>
+
+    </h:head>
+
+    <h:body>
+
+        <p>
+            Notifications received on the web socket channel will be displayed below:
+        </p>
+        <textarea id="notifications-area" cols="60" rows="10" readonly="readonly"></textarea>
+
+        <br/>
+
+        <div class="row">
+            <div class="col-md-12">
+                <table id="conversation" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Greetings</th>
+                        </tr>
+                    </thead>
+                    <tbody id="greetings">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </h:body>
+
+</html>

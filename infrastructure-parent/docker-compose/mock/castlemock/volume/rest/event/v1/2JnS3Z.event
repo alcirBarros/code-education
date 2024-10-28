@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restEvent>
+    <endDate>2022-03-09T22:36:52.219Z</endDate>
+    <id>2JnS3Z</id>
+    <resourceName>simulacoes</resourceName>
+    <startDate>2022-03-09T22:36:52.219Z</startDate>
+    <applicationId>GMbMAX</applicationId>
+    <methodId>L71I70</methodId>
+    <projectId>h1Ys8K</projectId>
+    <request>
+        <body></body>
+        <httpHeaders>
+            <httpHeader>
+                <name>user-agent</name>
+                <value>PostmanRuntime/7.29.0</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept</name>
+                <value>*/*</value>
+            </httpHeader>
+            <httpHeader>
+                <name>postman-token</name>
+                <value>d644e5b3-79fe-4ea5-9c6f-b30e5955878f</value>
+            </httpHeader>
+            <httpHeader>
+                <name>host</name>
+                <value>localhost:88</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept-encoding</name>
+                <value>gzip, deflate, br</value>
+            </httpHeader>
+            <httpHeader>
+                <name>connection</name>
+                <value>keep-alive</value>
+            </httpHeader>
+            <httpHeader>
+                <name>content-length</name>
+                <value>0</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpMethod>POST</httpMethod>
+        <httpParameters/>
+        <uri>/v2/simulacoes</uri>
+    </request>
+    <resourceId>MtvCqp</resourceId>
+    <response>
+        <body></body>
+        <contentEncodings/>
+        <httpHeaders/>
+        <httpStatusCode>200</httpStatusCode>
+        <mockResponseName>200</mockResponseName>
+    </response>
+</restEvent>

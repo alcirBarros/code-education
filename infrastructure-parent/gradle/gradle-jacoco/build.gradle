@@ -1,0 +1,76 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'jacoco'
+    id 'java'
+}
+
+group = 'br.com.context'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+
+springBoot  {
+    buildInfo()
+}
+
+processResources {
+    expand(project.properties)
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy {
+        jacocoTestReport
+    }
+    jacoco {
+        enabled = true
+        destinationFile = layout.buildDirectory.file("jacoco/${name}.exec").get().asFile
+    }
+}
+
+check {
+    dependsOn jacocoTestCoverageVerification
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+
+        html.enabled true
+        html.destination file("${buildDir}/jacoco")
+    }
+
+    afterEvaluate {
+        getClassDirectories().setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [ '**/Application*' ])
+        }))
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.50
+            }
+        }
+    }
+
+    afterEvaluate {
+        getClassDirectories().setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [ '**/Application/*' ])
+        }))
+    }
+}

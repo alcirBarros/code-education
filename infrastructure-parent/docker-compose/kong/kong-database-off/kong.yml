@@ -1,0 +1,20 @@
+_format_version: "2.1"
+
+services:
+  - name: my-service
+    connect_timeout: 60000
+    path: "/"
+    retries: 5
+    url: https://www.globo.com
+    plugins: []
+    routes:
+      - name: my-route
+        methods:
+          - GET
+          - POST
+        protocols:
+          - http
+          - https
+        paths:
+          - /
+

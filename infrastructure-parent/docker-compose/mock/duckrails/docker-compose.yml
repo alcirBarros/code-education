@@ -1,0 +1,9 @@
+version: '3'
+services:
+  castlemock:
+    image: iridakos/duckrails:latest
+    restart: always
+    ports:
+      - "88:3000"
+
+

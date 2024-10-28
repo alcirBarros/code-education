@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="liquibase" id="1">
+        <sql>
+            
+  
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('CORDEIRO DE FARIAS MARECHAL EMEF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('ALBERTO FERNANDES DE ARAUJO EMEF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('ARACARIGUAMA');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('SETE BARRAS');
+            
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('MATERNAL ESCOLA MUNICIPAL DE EDUCACAO INFANTIL');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('TEMPO FELIZ EMEI');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('ABERTINO DE SOUZA VEREADOR EMEI');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('DURVAL DE CASTRO PROF EMEF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('ELVIRA DE MELO SOUZA PROFA EMEF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('ARMANDO DE SALLES OLIVEIRA GOVERNADOR EMEIF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('BAIRRO RIBEIRAO DA SERRA EMEI');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('PINTANDO O 7 EMEI');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('ESCOLA MUN DE ENS FUNDAMENTAL BAIRRO GUAPIRUVU');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('BAIRRO ALTO GUAPIRUVU EMEIF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('BAIRRO IPIRANGA EMEF R');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('BAIRRO ONCA PARDA EMEIF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('BAIRRO RIO PRETO EMEIF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('CARLOS RODRIGUES EMEIF');
+            
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('ESCOLA MUNICIPAL DE EDUCAÇÃO INFANTIL E FUNDAMENTAL ALEX DIONIZIO DA SILVA');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('ESCOLA MUNICIPAL DE EDUCAÇÃO INFANTIL E ENSINO FUNDAMENTAL DALCINA PEREIRA MOREIRA');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('EMEI PROFESSORA ALZIRA DE CARVALHO GUEDES');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('BAIRRO DO IGAVETA EMEIF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('PRACA DA BIBLIA EMEI');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('ROSALINA SILVESTRINI BONIFACIO EMEIF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('THEREZA DE CAMPOS CASTRO PROFESSORA EMEF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('ANTONIETA CHAVES CINTRA GORDINHO EMEF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('LEANDRO JOSE SOARES EMEIF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('MANOEL AMARO DE ANDRADE EMEIEF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('BAIRRO RIO ACIMA EMEIEF R');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('RADA SMAILI EMEIF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('GOTINHAS DE VIDA CEMEI E CRECHE');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('CRISTIANO OZORIO ZAPAROLLI EMEIF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('JORGE AMADO EMEIF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('LAZARA APARECIDA MORAES ANDRADE PROFESSORA EMEI');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('DESPERTAR CENTRO EDUCACIONAL INTEGRADO EMEIF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('JUSCELINO KUBISTSCHEK EMEF');
+            INSERT INTO `admin_company`.`ins_instituicao` (`ins_nome_fantasia`) VALUES ('ILDA VIEIRA DE MORAES EMEIF');
+            
+            INSERT INTO `admin_company`.`mnc_municipio` (`mnc_id`) VALUES ('3');
+            INSERT INTO `admin_company`.`mnc_municipio` (`mnc_id`) VALUES ('4');
+            
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('277423', '2', '3');           
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('339805', '1', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('61451', '5', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('147072', '6', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('242883', '7', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('278178', '8', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('278185', '9', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('429557', '10', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('443074', '11', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('499705', '12', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('579634', '13', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('664480', '14', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('664546', '15', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('664571', '16', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('664595', '17', '4');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('664613', '18', '4');
+            
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('4330', '19', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('4400', '20', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('5059', '21', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('5342', '22', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('95230', '23', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('106409', '24', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('216773', '25', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('228837', '26', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('229003', '27', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('229015', '28', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('229027', '29', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('229039', '30', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('236159', '31', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('241416', '32', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('275815', '33', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('301395', '34', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('394075', '35', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('422502', '36', '3');
+            INSERT INTO `admin_company`.`scl_escola` (`scl_codigo_escola`, `ins_id`, `mnc_id`) VALUES ('659460', '37', '3');
+
+            INSERT INTO `admin_company`.`tcf_tipo_consulta_ficha_aluno` (`tcf_tipo_consultar_ficha_aluno_enum`) VALUES ('REGISTRO_GERAL');
+            INSERT INTO `admin_company`.`tcf_tipo_consulta_ficha_aluno` (`tcf_tipo_consultar_ficha_aluno_enum`) VALUES ('CADASTRO_PESSOA_FISICA');
+            INSERT INTO `admin_company`.`tcf_tipo_consulta_ficha_aluno` (`tcf_tipo_consultar_ficha_aluno_enum`) VALUES ('INSTITUTO_NACIONAL_DE_ESTUDOS_E_PESQUISAS');
+            INSERT INTO `admin_company`.`tcf_tipo_consulta_ficha_aluno` (`tcf_tipo_consultar_ficha_aluno_enum`) VALUES ('NUMERO_DE_IDENTIFICACAO_SOCIAL');
+            INSERT INTO `admin_company`.`tcf_tipo_consulta_ficha_aluno` (`tcf_tipo_consultar_ficha_aluno_enum`) VALUES ('CERTIDAO_NASCIMENTO');
+            INSERT INTO `admin_company`.`tcf_tipo_consulta_ficha_aluno` (`tcf_tipo_consultar_ficha_aluno_enum`) VALUES ('ALUNO_NOME_COMPLETO');
+            INSERT INTO `admin_company`.`tcf_tipo_consulta_ficha_aluno` (`tcf_tipo_consultar_ficha_aluno_enum`) VALUES ('DATA_NASCIMENTO');
+            INSERT INTO `admin_company`.`tcf_tipo_consulta_ficha_aluno` (`tcf_tipo_consultar_ficha_aluno_enum`) VALUES ('MAE');
+            INSERT INTO `admin_company`.`tcf_tipo_consulta_ficha_aluno` (`tcf_tipo_consultar_ficha_aluno_enum`) VALUES ('CONSULTAR_REGISTRO_ALUNO');
+            
+            INSERT INTO `admin_company`.`sxt_servico_externo` (`sxt_tipo_servico_externo`) VALUES ('PRODESP');
+            
+            INSERT INTO `admin_company`.`asx_authorization_servico_externo` (`asx_data_hora`, `sxt_id`, `asx_password`, `asx_url`, `asx_username`) VALUES (CURRENT_TIMESTAMP(), 1, 'h7r6fu54;eU?', 'https://homologacaointegracaosed.educacao.sp.gov.br/educacao/Sec.BS.SecretariaMunicipal.cls', 'SME665');  
+            INSERT INTO `admin_company`.`asx_authorization_servico_externo` (`asx_data_hora`, `sxt_id`, `asx_password`, `asx_url`, `asx_username`) VALUES (CURRENT_TIMESTAMP(), 1, 'f1s0ev92\\oK-', 'https://homologacaointegracaosed.educacao.sp.gov.br/educacao/Sec.BS.SecretariaMunicipal.cls', 'SME734');
+            
+            
+            INSERT INTO `admin_company`.`pss_pessoa` (`pss_nome`) VALUES ('ADMIN');
+            INSERT INTO `admin_company`.`pss_pessoa` (`pss_nome`) VALUES ('USER');
+
+            
+            INSERT INTO `admin_company`.`opr_operador` (`opr_id`, `opr_password`, `opr_user_name`) VALUES ('1', '$2a$16$h6zfpndZqr9hKlR2QoEiOeKE3lSy9HMB0hJcNmd.JDU07UdEivjF2', 'admin');
+            INSERT INTO `admin_company`.`opr_operador` (`opr_id`, `opr_password`, `opr_user_name`) VALUES ('2', '$2a$16$h6zfpndZqr9hKlR2QoEiOeKE3lSy9HMB0hJcNmd.JDU07UdEivjF2', 'user'); 
+                       
+            INSERT INTO `admin_company`.`vpf_vinculo_profissional` (`asx_id`, `mnc_id`, `opr_id`) VALUES ('1', '4', '1');
+            INSERT INTO `admin_company`.`vpf_vinculo_profissional` (`asx_id`, `mnc_id`, `opr_id`) VALUES ('2', '3', '2');
+            
+            INSERT INTO `admin_company`.`act_acesso_ativo` (`vpf_id`) VALUES ('1');
+            UPDATE `admin_company`.`opr_operador` SET `act_id`='1' WHERE `opr_id`='1';
+            
+
+            INSERT INTO `admin_company`.`act_acesso_ativo` (`vpf_id`) VALUES ('2');
+            UPDATE `admin_company`.`opr_operador` SET `act_id`='2' WHERE `opr_id`='2';
+			
+            INSERT INTO `admin_company`.`trn_tipo_turno` (`trn_codigo`, `trn_descricao`, `trn_tipo_turno_enum`) VALUES ('1', 'MANHÃ', 'MANHA');
+            INSERT INTO `admin_company`.`trn_tipo_turno` (`trn_codigo`, `trn_descricao`, `trn_tipo_turno_enum`) VALUES ('2', 'INTERMEDIARIO', 'INTERMEDIARIO');
+            INSERT INTO `admin_company`.`trn_tipo_turno` (`trn_codigo`, `trn_descricao`, `trn_tipo_turno_enum`) VALUES ('3', 'TARDE', 'TARDE');
+            INSERT INTO `admin_company`.`trn_tipo_turno` (`trn_codigo`, `trn_descricao`, `trn_tipo_turno_enum`) VALUES ('4', 'VESPERTINO', 'VESPERTINO');
+            INSERT INTO `admin_company`.`trn_tipo_turno` (`trn_codigo`, `trn_descricao`, `trn_tipo_turno_enum`) VALUES ('5', 'NOITE', 'NOITE');
+            INSERT INTO `admin_company`.`trn_tipo_turno` (`trn_codigo`, `trn_descricao`, `trn_tipo_turno_enum`) VALUES ('6', 'INTEGRAL', 'INTEGRAL');
+
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('MU', '1', 'MULTISSERIADA', 'MULTISSERIADA');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('SM', '2', 'PRESENÇA FLEXÍVEL –SEMI PRESENCIAL ', 'PRESENCA_FLEXIVEL_SEMI_PRESENCIAL');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('AC', '3', 'ACELERAÇÃO', 'ACELERACAO');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('FL', '4', 'FLEXIBILIZADA', 'FLEXIBILIZADA');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('RC', '5', 'RECUPERAÇÃO DE CICLO', 'RECUPERACAO_DE_CICLO');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('SR', '6', 'SALA DE RECURSO', 'SALA_DE_RECURSO');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('PP', '7', 'PROGRAMA PROFISSÃO', 'PROGRAMA_PROFISSAO');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('CO', '8', 'CONVENIADA (APAE)', 'CONVENIADA_APAE');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('RM', '9', 'RECUPERAÇÃO DE CICLO MISTA', 'RECUPERACAO_DE_CICLO_MISTA');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('PIC', '10', 'PIC - PROJETO INTENSIVO NO CICLO', 'PIC_PROJETO_INTENSIVO_NO_CICLO');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('ITI', '11', 'ITINERANTE', 'ITINERANTE');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('TL1', '12', 'TELETEC 1', 'TELETEC_1');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('TL2', '13', 'TELETEC 2', 'TELETEC_2');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('TPR', '14', 'TELECURSO PRESENCIAL', 'TELECURSO_PRESENCIAL');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('MF', '15', 'MULTIFUNCIONAL', 'MULTIFUNCIONAL');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('EPS', '16', 'EDUCAÇÃO PROFISSIONAL AOS SÁBADOS', 'EDUCACAO_PROFISSIONAL_AOS_SABADOS');
+            INSERT INTO `admin_company`.`cls_tipo_classe` (`cls_abreviacao`, `cls_codigo`, `cls_descricao`, `cls_tipo_classe_enum`) VALUES ('EI', '17', 'ENSINO INTEGRAL', 'ENSINO_INTEGRAL');
+
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('1', 'ENSINO FUNDAMENTAL', 'ENSINO_FUNDAMENTAL');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('2', 'ENSINO MEDIO', 'ENSINO_MEDIO');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('3', 'EJA FUNDAMENTAL – ANOS INICIAIS', 'EJA_FUNDAMENTAL_ANOS_INICIAIS');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('4', 'EJA FUNDAMENTAL – ANOS FINAIS', 'EJA_FUNDAMENTAL_ANOS_FINAIS');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('5', 'EJA ENSINO MEDIO', 'EJA_ENSINO_MEDIO');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('6', 'EDUCACAO INFANTIL', 'EDUCACAO_INFANTIL');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('7', 'EDUCACAO ESPECIAL - DA', 'EDUCACAO_ESPECIAL_DA');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('8', 'EDUCACAO ESPECIAL - DF', 'EDUCACAO_ESPECIAL_DF');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('9', 'DEFICIENCIA INTELECTUAL', 'DEFICIENCIA_INTELECTUAL');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('10', 'EDUCACAO ESPECIAL - DV', 'EDUCACAO_ESPECIAL_DV');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('13', 'CURSO NORMAL', 'CURSO_NORMAL');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('14', 'ENSINO FUNDAMENTAL DE 9 ANOS', 'ENSINO_FUNDAMENTAL_DE_9_ANOS');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('15', 'ENSINO DE LINGUAS', 'ENSINO_DE_LINGUAS');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('16', 'DEFICIENCIA MULTIPLA – DMU', 'DEFICIENCIA_MULTIPLA_DMU');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('17', 'PAI – PROGRAMA DE ALFABETIZACAO E INCLUSAO', 'PAI_PROGRAMA_DE_ALFABETIZACAO_E_INCLUSAO');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('18', 'PEJ - PROJETO ESCOLA DA JUVENTUDE', 'PEJ_PROJETO_ESCOLA_DA_JUVENTUDE');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('25', 'ENSINO MEDIO INTEGRADO A EDUCACAO PROFISSIONAL', 'ENSINO_MEDIO_INTEGRADO_A_EDUCACAO_PROFISSIONAL');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('26', 'COMPLEMENTAÇÃO EDUCACIONAL', 'COMPLEMENTACAO_EDUCACIONAL');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('30', 'ENSINO FUNDAMENTAL - N1 PRTE', 'ENSINO_FUNDAMENTAL_N1_PRTE');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('31', 'ATIVIDADES CURRICULARES DESPORTIVAS (ACD)', 'ATIVIDADES_CURRICULARES_DESPORTIVAS_ACD');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('32', 'ATENDIMENTO EDUCACIONAL ESPECIALIZADO', 'ATENDIMENTO_EDUCACIONAL_ESPECIALIZADO');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('33', 'EDUCAÇÃO ESPECIAL EXCLUSIVA', 'EDUCACAO_ESPECIAL_EXCLUSIVA');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('34', 'ESPANHOL', 'ESPANHOL');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('35', 'EDUCACAO PROFISSIONAL', 'EDUCACAO_PROFISSIONAL');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('36', 'PROEJA – ENSINO FUNDAMENTAL', 'PROEJA_ENSINO_FUNDAMENTAL');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('37', 'PROEJA – ENSINO MÉDIO', 'PROEJA_ENSINO_MEDIO');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('38', 'PROJOVEM URBANO', 'PROJOVEM_URBANO');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('39', 'TRANSTORNO DO ESPECTRO DO AUTISMO', 'TRANSTORNO_DO_ESPECTRO_DO_AUTISMO');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('40', 'ENSINO FUNDAMENTAL - N2 PRTE', 'ENSINO_FUNDAMENTAL_N2_PRTE');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('46', 'EJA TÉCNICO INTEGRADO COM A EDUCAÇÃO PROFISSIONAL - ENSINO FUNDAMENTAL', 'EJA_TECNICO_INTEGRADO_COM_A_EDUCACAO_PROFISSIONAL_ENSINO_FUNDAMENTAL');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('47', 'EJA TÉCNICO INTEGRADO COM A EDUCAÇÃO PROFISSIONAL - ENSINO MEDIO', 'EJA_TECNICO_INTEGRADO_COM_A_EDUCACAO_PROFISSIONAL_ENSINO_MEDIO');
+            INSERT INTO `admin_company`.`esn_tipo_ensino` (`esn_codigo`, `esn_descricao`, `esn_tipo_ensino_enum`) VALUES ('50', 'ENSINO MEDIO - N3 PRTE', 'ENSINO_MEDIO_N3_PRTE');
+                  
+            INSERT INTO `admin_company`.`plv_tipo_periodo_letivo` (`plv_descricao`, `plv_tipo_periodo_letivo_enum`) VALUES ('Primeiro semestre', 'PRIMEIRO_SEMESTRE');
+            INSERT INTO `admin_company`.`plv_tipo_periodo_letivo` (`plv_descricao`, `plv_tipo_periodo_letivo_enum`) VALUES ('Segundo semestre', 'SEGUNDO_SEMESTRE');
+            
+
+            INSERT INTO `admin_company`.`txp_tipo_exige_preenchimento` (`txp_descricao`, `txp_tipo_exige_preenchimento_enum`) VALUES ('Número nota', 'NUMERO_NOTA');
+            INSERT INTO `admin_company`.`txp_tipo_exige_preenchimento` (`txp_descricao`, `txp_tipo_exige_preenchimento_enum`) VALUES ('Valor Unitário', 'VALOR_UNITARIO');
+            INSERT INTO `admin_company`.`txp_tipo_exige_preenchimento` (`txp_descricao`, `txp_tipo_exige_preenchimento_enum`) VALUES ('Número Lote', 'NUMERO_LOTE');
+            INSERT INTO `admin_company`.`txp_tipo_exige_preenchimento` (`txp_descricao`, `txp_tipo_exige_preenchimento_enum`) VALUES ('Data Validade', 'DATA_VALIDADE');
+            INSERT INTO `admin_company`.`txp_tipo_exige_preenchimento` (`txp_descricao`, `txp_tipo_exige_preenchimento_enum`) VALUES ('Observação', 'OBSERVAÇÃO');
+            
+            INSERT INTO `admin_company`.`tdc_tipo_documento` (`tdc_ativo`, `tdc_descricao`, `tdc_tipo_documento_enum`, `tdc_tipo_movimento`) VALUES (1, 'Nota Fiscal', 'NOTA_FISCAL', 'ENTRADA');
+
+            INSERT INTO `admin_company`.`gpd_grupo_produto` (`gpd_descricao`) VALUES ('MEDICAMENTO');
+            INSERT INTO `admin_company`.`pdt_produto` (`pdt_descricao`, `gpd_id`) VALUES ('DIPIRONA', '1');
+
+            INSERT INTO `admin_company`.`fnc_funcao` (`fnc_nome`, `fnc_fipo_funcao_enum`, `fnc_descricao`) VALUES ('INCLUIR_COLETA_CLASSE', 'Consulta Classe Aluno Por Escola', 'A finalidade desse serviço é a geração de uma relação de classes de uma escola por ano letivo, optando pelo retorno de todas as classes ou filtrando pelo tipo de ensino, serie turno e turma');
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,15 @@
+cloud:
+  aws:
+    region:
+      static: sa-east-1
+    stack:
+      auto: false
+    credentials:
+      profile-name: default
+      access-key: foo
+      secret-key: bar
+    sns:
+      enabled: true
+      arn: arn:aws:sns:sa-east-1:000000000000:topic-name
+    sqs:
+      endpoint: http://localhost:4566

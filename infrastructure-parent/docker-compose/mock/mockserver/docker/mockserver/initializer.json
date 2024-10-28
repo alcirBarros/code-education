@@ -1,0 +1,323 @@
+[
+  {
+    "httpRequest": {
+      "method" : "GET",
+      "path": "/healthcheck"
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type" : [ "application/json" ]
+      },
+      "statusCode" : 200,
+      "body": "{\"health_check\":\"OK\"}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path": "/security/oauth/token",
+      "body" : "grant_type=client_credentials&scope=capital-giro.info"
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type" : [ "application/json" ]
+      },
+      "body": "{\n    \"access_token\": \"QdzDWpGcvYg5eS7DfwykOGSpX5XHs4keXkA3FkYPIOLZDe-L9O227ou__x1gHK-wTbdsWytJGPmrcJlXKsJeHg.Zxe9ZTMYg2AaXz_5SWJ0QiVPi2m5dDfuZLAKtqrS6obLbLZXjm8r8Npl1UiJ_w8IovMBvnSnPLFGHze1etCIXJBQ-f5HNSMYB2UFWoeUUikkfYSxxoq0Df_fcUUAMVA6syAmYpXTXNQTHpnccaGPZjdJKmE7pcz62tjPH8qfBCsBnlWVOzOq0mLz7C5fcc789gZtvictN_mskM2Zj57k8nl53Jr67xeZpGusbeHhihEINI2kmTQtxt2oAnGAMO5UE5NND4kehnxsym761E4EBpz8upBgWJBkAFpnPsN_MrDEMtnJ-_MG2kDQLv3liQD8Fhhno5noDZr8NTw1BZg3r4oe05kQ0v8Vmyb10dT2WHU4jCWKIIvlbDWH6eTJXLbEPX_Qn5WegkXzMjh0MejbN1dEmfu02EAIpDEZ58sZOZ8GGkF5cwbe0Jj4SUS7BxqpEO7Kwlz7X0poJylTtlsHc47DCJXzbfSfFZUCiIZuweDuAUiDKdeHj2ipbWRDM-RAc3rzSkIoorARfsDdS5XESIp_E7RFUhnr_l5ZB4awwPr3i1GpwarGkp03010sfdFmZ-18rcxrT3ViUwNQ08AKUNoneezAdfLpnsfVTo2r63GFgQdiBkRer1ahLu59QKOxX5VXTf_csmgigouFxRtCtjMomxojgi6U6KOpttTdc4HxKqQbaI3GFBCyKgj1z2FAM52yW8msPJFSQ4CUe9vCEnwXRTS9l1dqq28z4V08UjCZNsuDiHO-Y5KxM95yBf3ejRw_0owiYCMeL-jsLXyh5hShpF7TEIa2YE4kYWISvh0kyTVQQadJ3b8EP8Ez_s-gbY9XuoUINPpNRmgP0log0yeSN-J0eusPKII72rHDa_ss4QC6QhVQCFRicP_tl1gdYkKvef_VLHi0Yep8lExM1IKofCC2RDgb1HLT5TSmf46-ZPYOsW0ppdQYF2LbEUDozSHdqvcWzsx3aAMaz5_HZU3uyxdQWJyr8co1R-fzwhYUAOR_FQHzlcyHrbPVlWYNiDGMfpdy-1yKBh7pzCyjzw.VDL994K3KtX7JKL8wliEx1h-SPGm5Z2B4si1eB7OEiAX0ZVTJp3i4op18ZFd0m8gR-BhU7bEB53g8RkRVMzS3Q\",\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 600\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path": "/security/oauth/token"
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type" : [ "application/json" ]
+      },
+      "body": "{\n    \"access_token\": \"Sw9cMVb2HlnShNctTeLRaqvGY0WpWGKp1_lNKBogUiVVLfdmoaonMq6fxiwKGbb1mRo793-Natc_WSXAOfs-WQ.sX0834RiSHbeV3H7ENWk4e9SdpChvlywaWaqnQKsCD7uipuJYl_ODMwV3ohsd9C1wxkiFZCFR24XpGMkAlTdap1g1px3qKZpOD4zROB0--hmCI1WPeXBGlgVWdEwwYlhWnYBLOodhRiL8oaZPZ91gDFgw4MBR7DZEYsP1-MxCGe-pDDxDuukcttAIsUN5ra91aZrAEGQEz-MrtgJ8DJN-nc2cbitOPcBvJMPN_kl1QUMj4h_ZHhg4NqTyUhHw0Snz_2hmhG2JTMpzf3UOO9IIguW7lV0Cgn589wfURIGXeWNfec_sqIUlM949kGGuVj5b2sk1JI42VxrgkXbAoEdqyTvG5_u7_OafAMa8enzpmt9cHRB0md0QlKKXAKW8Oiaxkh-gN8rZ4uENXyBmU5v14Ymos7Hn26-X5LTY7IbuhptqxhW_gHYnDgkBu2MvwqEEOXgkJL4jy5JE-TPVeccB3XaPj7YR-Ri3QF3ktxPquJhdApMiQlD4wB663Az9wb8p5NJ23sWHgzsKuAWiuZn4xGQiubt5ToogSjYpjdcs6e9YyCUpn2tmrdPLSPTMrC25kJ2FmDn2vpmDjI9mxQgzcXXDh94FtdERpg672bwUCYQNjkun7zWiAzqZbaYiy3Sla-uJzW7YSBhM96i2YMwfqTqSE6XSoCWZuRCAlru4cHXvwo47rUm3HYfv3J6lRFyDgJZR5PveoPacBHjBn_HT8B9PSxxjyG4DEQJV5iQGuSd_JXsWQMHzSl6I0MA2sOwpAFWbKLsdAvAaIpV0r2Ky5-mED8-TiTF7jPTHhhIEkQQ2HtqXm49dkc2mvuxx5iWeA6T_r9cIYYxJQeTQ8J2F0JNDuC1_yfhrah_JveQvgBHxBPu8mP9l0PcjMOjKNlxEQ6RmeQtHPSzL4JpH10snoMJdGHfPwxwmJraZVizR1xdghHmjbGHaVU72oJccWXpzfltwUvhyalewxcd0aWvel2JdYQtKWFwMeldaRYyncSbcXS91esu3C21XkUc2fQQdKZQ8G4hnsAzo2Ry36dF32MpYGwfHsPKFxHo9cVSkEr8iHnCGQhkzeKlfDXBGRy2nRh6eQGPBwbHHekp1tmlrD0XVcv9H6IjIlY2sPWRqIBQ_P4BnbH_7Qp7QIQLW1WltzqXF_IRDO0_9nz5LtG9dwLBY7y8AHF7ysx6YExaisgjtcGzy8ont2KFj3O7yWC73aXQy5U1cLfzopQmoxnLdYNApWfOgDYhCl9IVB9k-Vvq5rRE4UZO5UWJ-NL_0IAlBuHiGi13SFFpJ9hOrqgGh5eLtH1nEbg7HvDb8gD-Lts1k5mrbhXT5jB8gttZKR0O9kPFcIa03ZF-05tPnpCD9kz32EJlacPo9WsmMn66fJsj82mgMOAseZjIt2R1Yz_ELod4dp_psECOcT-KW8o9RWSjcwzcOjLcUy-UMsrFhaqVm647p_r_r9uVFE-0BLSLNwZUvNjyhXIFbrefa5QMjxb_Cgy9MWAl1FyvwKHAGXwCMntxLNpQF0Jcpgb0dzYjn5OZREhaG7bgDD7vIBTL_rOdPlnzO2A7-QNldFCdxBX59xGWeeJNU9IPOjC2tKqQkvJIbC5MRTbsnv2VYoBzTJ0Bw6p31h4aJK08l8UiR85-G2PdRjqxeb74IBxal4rLM0vM4aFseFc89ex1gfErYM_AhBT5SeNTD0Mn0orIZ8rfIGnzMC9FMvM4ccendgtMTMFNUs6njOWPAqhuvZLC40bJQ-IPIoPG0E49se-ZdUPp7CIwojyoxWLpAWBwhOrf8zx_H-y5V1WzafJLdt5VlK-i1Wg9oXyk_Ej8pRBAcnRUlnBIOVXB-CSNdZQLwDL16GvFxQ1W2k3qjDS1ud4HBIcAYGYNnPPa6MVUedWjDjdqrlNF5DDEi1vnHPXJgWIqffzjjnlKtCTf6zuYlH8SOGsL1sDTJEp6EYpxxMI1xtVE3SV8gLSem6Tv_9lAsqtXYv8j6scNhoT9AskVGUP1iVQvYhPJUkvd0ZmKwcV-FmH9pe45mgky8vOyYK2Bs8j0UkjdZIiDPKJpuAWzJZtzR6isZSJ_Xh2anaG8JvS9n7LKTB2Ed4NiHrBlapoSEpjlMlVDnW9xcWjMtZBeBFR4nJfOKtY01BaO9QR1sooezCKFULr58zBEDnKhU0C_8xUTb75jxQSkqviFIKJGRESGwqujpXP8mIvcQT1pZhNWd6ew02fJymcGrIULCT1zcjI2uK5auuMVbmgRvHDbWBl2eoQ8tlg1kmPZKFUYjepR9RqkiIVBBIKT_YVVeXmWopvwEJ7ydiq95t0TtmKPa5W6M44-dOOYb3CjyE5sO7u0WCaqoCGYqAoCGl6RMgLCvEjQKomATWXc0I3EBe5j5nx2-WiBavQtPELUEtLopbibptI9eyeVNkMVdE0Q4Kf-21m2hsK5cTRLA2j9J2npPLJIa9J_qRpZl_36Epf7UPi7surySNMTIr-IE_nIqdMrnnicHXrQEBAppZr9Jvp8Ctp3hjBKFODYbwEaOJRcdq2o0IUNGIafBpyS4OX4-FWAs588YigfPHSq1wgpnQXFRVaGS6LaAYjuiPN8L4Ryekyvarc6Is8LSZvq_7KRdWUAXgKLOoD1JPG7SBYskJdifuCmtmVwNZBxU0sADH_0XRms4884SNXRBi6u3PGC8JJT6w3fLy-CMEN2nS3jzy_KmlrBBeYhy9-1VHQn4ikodh7C2Ohxr0L6iLwxcHe4IVQv8vpGv5_HZ4RuqwaFU6Efh-XVpFdLtUU68Q_xHRcn1rwo_YL9pyHXtWzQQZ6tLi5zcuWGskkhLtRIYM7Hmyuv397fF8je0ehW41onfzcsJj0QQWBMIVGSYGLtZ0-Ou2LsFbvtRKzYZx83ePb5txfTZVn4QYpzIHiJ58UTMZgajHQPyPYK7K348BhKk0BHLIWhqFR8LHvlYJ8IiQHuAQV0o3TQCUgGSCSrhxA5-2w5PQ0Z9M6N-9jSe2ek9M7V1SzFigukQQXHDE3xf0S3HlRVZfke1tuLjK6mpZGAwUXTdGVEb4i4dBOUT7jZYDnCGsPH20SZH9nYQiT2fgySv5qAXzQWNDRad_R-UQ1hTSmRBfMIZHRIYFs1UL2xv4Mvi-SkGMdjDmZrYSzQa98W-SxXS4m3wLKQR3VHFrhx6Aef6wHnRwb_TZAlCPy0iGJoraJAKN-yLn6E9ucxUcq22O2aCdmdlgJmHOBK-BOLhJjumwnkp9-Cy-zrweqhwM3BFjKMYx6xnGbKeVaQnKbPHrB6J4n9-OD2X1pLXNGcXU3xNYZnF_DuZxEwnTsnpRnA1TppCeavJfaIQUxvlj-kHLxwoSiKwrKlGooRSBtWDrywUTGkf46AO5ZwXGjLI-0CqaFWaMUxufkQuRl4fiOxPSzvS1o0UIv_wLNEoVUfUWvY1bEjsLYlpuCF4yVHFhNE-ebYBWJI7VFQb4FTXSAnNRql_P4DGVOKmfKdxmuyA_oNfv4_igjDN0n7-3Oa9PbeDXwiOBXGyDAuAbqjNEXWJHjKEt0UT7M5VYhq3UNYZpdiZBOnPlKn_QiPUgC4LzZF0htp2fRUfCeelMfvyOS4s0avpZmhBAro_oK0xWCO3QX8Dj2jb1TJztb51jECiQU8Ve3xPFAuoJZsyavl23WhdXJHW81HZOSTGETE7FsV9FZZfZEnTzuREZ7dOHILLgo-Jnu3nbJXJuTEvCgCIV_4vrFRGdM1uZ_KgjpgG8EX26N-TpS_xbPIs-vM_AJHK7pIIjv57k0Ozl0nVQtPnWbI0DmyFBx6lcWZDa9Ss1ducMEywhsWPcdnxyDA7BNQ7nAbrt0Ddp_FCs10OH6roA12GV5_3Lq4yEi_7ckdUM9RBXaNr260LCYFEndAdoLZLrDfAvC9UN_hNDVyDfhRWxIp4Adwlv92L3RtmCTYEFpi-nPkXQf8TXiFc7cYjiMdwzMe_S4g3qw07Fm87S1TwJbFi_bVgjUjKSd81lDz6Qz7sysEC6GmlqzNNMBm2ZUW9lwwLBR8qp1KVizCNije-fOOQr3Trp5OxZuRIIZEqikfe70jM4osONpAk_W97YAQRFwXfK5xjHiyYrBFYju6JNZ1qb9xTKWdFfMZ59qU8sWWMhcx2GDqgMggT6t8NgGHTawyZc4gR224aJ_GTaCNSTuC5aSQFnPjQGb4VWkdr8TspBp1lnVyrpMKqlsMIcHiIEJGN11dxwHDwHJeiz5uMZDfLoNaIkYKXNphkIHAqSvEvUyy-WXb_A5yKaBBInVpUkaXJxp4jUoPezd-MqBbTdQ2jFcvQooXKiKB7A94BpEG7sjnsVlIIIJEpkJGgYwRelFCxGpXOrih6m1kreWuuyxvWmA380nYjnBzs18tNG-tGrkprhsMZ4Rc8MNXDDIRvdQsy5hxDNkEMma_VJksxumoBvzoNEzoIcxgP6-7PMfNg7ml3vd7bt6wF6ta2jhTpHS1ODv8AatEvv6NzWrS_sTNcRox75AR7M6O5irBrGo-1P_ckZPGeTaobQesVWhgx8V5bn991xjcJH1HDQoklDDxZ8IXTykyxRW2ZZ0l0UtGn7ZwH6h8F-RDliRD9r7m2deR1loFwxgLvJWyUI2B_p1pZNHiOE-L11Nf8OYBeYqEj0_LNkEp_ASXOeVmSSSVnKv2lon2W14pyuwNWaruTDPZMaFPiM7tNPrqlWZjsqSSw8BqkDV10fes7nJ1na5b1DEDh4vrr3tuOyPF0pprRMYmB1tU7952hPpiNS6lnHFEQWvgQPZp7Z8YJSndkBB33zjfzjK6BAIVih3NdmwNxHOqKj-Enz7JL6KWKkg7wnZPvjO_jlaiElr7PZblKDuII2uvS-qU1IJyV2AGruSuELVYjZVWMOlas7Wr0BGVI2m7vYHMbYPtTg9gdjkWJetIaZdlKJqp96PgRCqWibbwt8roQ6Rr06tBDqzUmOOeH7V_UlrcHlfHAzXDmUqH4dQ3AxDeEj4Yc8Ar8oyAIX7SpqaorhefG_F8Ro8VKKXSEroaxOVETrXhYy6NxVt5UoZF2MautnSAvB8C_kSU7C4lbpuwjQQ_Fha7Ed6icHRrTrQnSxJ9Aj1NGe_LfD5taMdk0tVCAihPS631HhN85QhYBnBsiV-bSYgW0UVNg4OqTa51K6_nyjXme6oEHARCinmHmoVmbQ2lC8ssbMZp4Xt0OOZ0jx2apb_WzBWFBXPpGBB7h1_34H2ubCfcXOiGrKdAjYIQ4ui7LgK9pR-zZNkG7wdrP3APV69-cwqpR42Ahdpskj-6PQ33g7P33kdg-vk54c2WV5FvIyDxZR_l3BeoXiBobmEbSRQ2gvxoUcvvyuthqduMx5UgMyX82M2UE52jZx3x85q-hRgyJPkIKbZN1GaTC2nrDzummrBPuVjlmk1XH_mko6RFUmTUc7wQXw1TtBFvQv3-mQsi8FALvd5Ld68eCjqcS-z457jtrNgcYDBOH8p6CaJUJ87etG--e8VOJHDIaOSO-c5nCm2ma85PprqodeHn59G8gWgVvnBtfJooedg60ITtJ1sVJinD50R9zrjwxmiXPQmjMLyLK0mdCkAc4kHI5zoKnAOO9cCU7_JCYhe-h47GH4eva4_i4AASnU7uIKzQ2PhY5bNW5Z22InbFMSkza87GqQ.b3hG1Oa847G5lz09RaQAPq338gMQ2MEvgbELT-CY_RmvpMayXAdr4TCcmBs_U3yr9DVAsrBtl6i7Ii5ZS6_AwQ\",\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 600,\n    \"refresh_token\": \"eyJpZCI6IjYxZjkyMGQ2YmJmMzFjNGI4MTE0NDkyMSIsInZlcnNhbyI6MiwiYW1iaWVudGUiOiJIT01PTE9HQUNBTyJ9\"\n}"
+    }
+  },
+
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path": "/v1/simulacoes",
+      "queryStringParameters" : {
+        "gw-app-key" : [ "d3f69ca08898013868e0005056b91a5b" ]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type" : [ "application/json" ]
+      },
+      "body": "{\n    \"numeroSimulacao\": \"18903\",\n    \"dataPrimeiraParcelaReposicao\": \"01.03.2022\",\n    \"dataUltimaParcelaReposicao\": \"01.02.2023\",\n    \"valorTaxaEncargoCalculo\": \"2.629\",\n    \"listaCronogramaPagamentos\": [\n        {\n            \"data\": \"01.02.2022\",\n            \"valorReposicaoCapital\": \"0.00\",\n            \"valorEncargoAdicional\": \"0.00\",\n            \"valorSaldoDevedor\": \"100000.00\",\n            \"valorTotalParcela\": \"4146.23\"\n        },\n        {\n            \"data\": \"01.03.2022\",\n            \"valorReposicaoCapital\": \"9573.34\",\n            \"valorEncargoAdicional\": \"251.68\",\n            \"valorSaldoDevedor\": \"92803.98\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.04.2022\",\n            \"valorReposicaoCapital\": \"9328.10\",\n            \"valorEncargoAdicional\": \"496.92\",\n            \"valorSaldoDevedor\": \"85418.78\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.05.2022\",\n            \"valorReposicaoCapital\": \"9089.15\",\n            \"valorEncargoAdicional\": \"735.87\",\n            \"valorSaldoDevedor\": \"77839.42\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.06.2022\",\n            \"valorReposicaoCapital\": \"8856.31\",\n            \"valorEncargoAdicional\": \"968.71\",\n            \"valorSaldoDevedor\": \"70060.80\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.07.2022\",\n            \"valorReposicaoCapital\": \"8629.45\",\n            \"valorEncargoAdicional\": \"1195.57\",\n            \"valorSaldoDevedor\": \"62077.68\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.08.2022\",\n            \"valorReposicaoCapital\": \"8408.39\",\n            \"valorEncargoAdicional\": \"1416.63\",\n            \"valorSaldoDevedor\": \"53884.68\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.09.2022\",\n            \"valorReposicaoCapital\": \"8193.00\",\n            \"valorEncargoAdicional\": \"1632.02\",\n            \"valorSaldoDevedor\": \"45476.29\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.10.2022\",\n            \"valorReposicaoCapital\": \"7983.12\",\n            \"valorEncargoAdicional\": \"1841.90\",\n            \"valorSaldoDevedor\": \"36846.84\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.11.2022\",\n            \"valorReposicaoCapital\": \"7778.62\",\n            \"valorEncargoAdicional\": \"2046.40\",\n            \"valorSaldoDevedor\": \"27990.52\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.12.2022\",\n            \"valorReposicaoCapital\": \"7579.36\",\n            \"valorEncargoAdicional\": \"2245.66\",\n            \"valorSaldoDevedor\": \"18901.37\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.01.2023\",\n            \"valorReposicaoCapital\": \"7385.20\",\n            \"valorEncargoAdicional\": \"2439.82\",\n            \"valorSaldoDevedor\": \"9573.27\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.02.2023\",\n            \"valorReposicaoCapital\": \"7195.96\",\n            \"valorEncargoAdicional\": \"2629.06\",\n            \"valorSaldoDevedor\": \"0.00\",\n            \"valorTotalParcela\": \"9825.02\"\n        }\n    ],\n    \"listaDespesas\": []\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path": "/v2/simulacoes",
+      "queryStringParameters" : {
+        "gw-app-key" : [ "d3f69ca08898013868e0005056b91a5b" ]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type" : [ "application/json" ]
+      },
+      "body": "{\n    \"numeroSimulacao\": \"18903\",\n    \"dataPrimeiraParcelaReposicao\": \"01.03.2022\",\n    \"dataUltimaParcelaReposicao\": \"01.02.2023\",\n    \"valorTaxaEncargoCalculo\": \"2.629\",\n    \"listaCronogramaPagamentos\": [\n        {\n            \"data\": \"01.02.2022\",\n            \"valorReposicaoCapital\": \"0.00\",\n            \"valorEncargoAdicional\": \"0.00\",\n            \"valorSaldoDevedor\": \"100000.00\",\n            \"valorTotalParcela\": \"4146.23\"\n        },\n        {\n            \"data\": \"01.03.2022\",\n            \"valorReposicaoCapital\": \"9573.34\",\n            \"valorEncargoAdicional\": \"251.68\",\n            \"valorSaldoDevedor\": \"92803.98\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.04.2022\",\n            \"valorReposicaoCapital\": \"9328.10\",\n            \"valorEncargoAdicional\": \"496.92\",\n            \"valorSaldoDevedor\": \"85418.78\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.05.2022\",\n            \"valorReposicaoCapital\": \"9089.15\",\n            \"valorEncargoAdicional\": \"735.87\",\n            \"valorSaldoDevedor\": \"77839.42\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.06.2022\",\n            \"valorReposicaoCapital\": \"8856.31\",\n            \"valorEncargoAdicional\": \"968.71\",\n            \"valorSaldoDevedor\": \"70060.80\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.07.2022\",\n            \"valorReposicaoCapital\": \"8629.45\",\n            \"valorEncargoAdicional\": \"1195.57\",\n            \"valorSaldoDevedor\": \"62077.68\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.08.2022\",\n            \"valorReposicaoCapital\": \"8408.39\",\n            \"valorEncargoAdicional\": \"1416.63\",\n            \"valorSaldoDevedor\": \"53884.68\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.09.2022\",\n            \"valorReposicaoCapital\": \"8193.00\",\n            \"valorEncargoAdicional\": \"1632.02\",\n            \"valorSaldoDevedor\": \"45476.29\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.10.2022\",\n            \"valorReposicaoCapital\": \"7983.12\",\n            \"valorEncargoAdicional\": \"1841.90\",\n            \"valorSaldoDevedor\": \"36846.84\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.11.2022\",\n            \"valorReposicaoCapital\": \"7778.62\",\n            \"valorEncargoAdicional\": \"2046.40\",\n            \"valorSaldoDevedor\": \"27990.52\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.12.2022\",\n            \"valorReposicaoCapital\": \"7579.36\",\n            \"valorEncargoAdicional\": \"2245.66\",\n            \"valorSaldoDevedor\": \"18901.37\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.01.2023\",\n            \"valorReposicaoCapital\": \"7385.20\",\n            \"valorEncargoAdicional\": \"2439.82\",\n            \"valorSaldoDevedor\": \"9573.27\",\n            \"valorTotalParcela\": \"9825.02\"\n        },\n        {\n            \"data\": \"01.02.2023\",\n            \"valorReposicaoCapital\": \"7195.96\",\n            \"valorEncargoAdicional\": \"2629.06\",\n            \"valorSaldoDevedor\": \"0.00\",\n            \"valorTotalParcela\": \"9825.02\"\n        }\n    ],\n    \"listaDespesas\": []\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path": "/v1/contratos",
+      "queryStringParameters" : {
+        "gw-app-key" : [ "d3f69ca08898013868e0005056b91a5b" ]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type" : [ "application/json" ]
+      },
+      "body": "{\n    \"numeroProposta\": 22191474,\n    \"codigoProximoProcedimento\": 2\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path": "/v2/contratos",
+      "queryStringParameters" : {
+        "gw-app-key" : [ "d3f69ca08898013868e0005056b91a5b" ]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type" : [ "application/json" ]
+      },
+      "body": "{\n    \"numeroProposta\": 22191474,\n    \"codigoProximoProcedimento\": 2\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "GET",
+      "path": "/v1/contratos",
+      "queryStringParameters" : {
+        "gw-app-key" : [ "d3f69ca08898013868e0005056b91a5b" ],
+        "cnpj" : [ "98563428000147" ]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json; charset=utf-8"]
+      },
+      "body": "{\n    \"indicadorContinuacaoPesquisa\": \"N\",\n    \"listaOperacoesCliente\": [\n        {\n            \"identificadorUnico\": 20220663523991154,\n            \"contrato\": 22131096,\n            \"numeroProposta\": 22191847,\n            \"dataContratacao\": \"07.03.2022\",\n            \"dataVencimento\": \"07.03.2023\",\n            \"valorContratado\": 100000.00,\n            \"estado\": 2,\n            \"indicadorExistenciaPendencia\": \"N\",\n            \"descricaoPendencia\": \"\",\n            \"dataLimiteSolucaoPendencia\": \"\",\n            \"listaAcoesExecutar\": [\n                {\n                    \"codigo\": \"E\"\n                },\n                {\n                    \"codigo\": \"P\"\n                }\n            ]\n        }\n    ]\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "GET",
+      "path": "/v2/contratos",
+      "queryStringParameters" : {
+        "gw-app-key" : [ "d3f69ca08898013868e0005056b91a5b" ],
+        "cnpj" : [ "98563428000147" ]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json; charset=utf-8"]
+      },
+      "body": "{\n    \"hasNext\": false,\n    \"contracts\": [\n        {\n            \"uniqueIdentifier\": 20192883949091872,\n            \"contractNumber\": 150516016,\n            \"proposalNumber\": 150532261,\n            \"hiringDate\": \"2019-10-14\",\n            \"dueDate\": \"2021-10-14\",\n            \"valueHired\": 100000,\n            \"status\": 2,\n            \"pendencyExistence\": false,\n            \"pendencyDescription\": \"\",\n            \"executionActionList\": [\n                {\n                    \"code\": \"E\"\n                },\n                {\n                    \"code\": \"P\"\n                }\n            ]\n        }\n    ]\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path": "/v2/simulacoes-oferta-ativa",
+      "queryStringParameters" : {
+        "gw-app-key" : [ "d3f69ca08898013868e0005056b91a5b" ]
+      },
+      "body" : {
+        "cnpj" : "98563428000147",
+        "quantidadeParcelaReposicao" : 1
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": "{\n    \"quantidadeMinimaParcelasSimulacao\": 1,\n    \"valorMinimoSimulacao\": 1000,\n    \"ofertaAtivaCurtoPrazo\": {\n        \"numeroSimulacao\": 19131,\n        \"dataPrimeiraParcelaReposicao\": \"23.03.2022\",\n        \"dataUltimaParcelaReposicao\": \"23.02.2023\",\n        \"quantidadeRegistroListaParcela\": 13,\n        \"quantidadeRegistroListaDespesa\": 3,\n        \"valorCredito\": 100000,\n        \"valorPrimeiraParcelaReposicao\": 9825.02,\n        \"valorJuros\": 2.629,\n        \"valorUltimaParcelaReposicao\": 9825.02,\n        \"listaCronogramaPagamentos\": [\n            {\n                \"data\": \"23.02.2022\",\n                \"valorReposicaoCapital\": 0,\n                \"valorEncargoAdicional\": 4146.23,\n                \"valorSaldoDevedor\": 100000,\n                \"valorTotalParcela\": 4146.23\n            },\n            {\n                \"data\": \"23.03.2022\",\n                \"valorReposicaoCapital\": 9573.34,\n                \"valorEncargoAdicional\": 251.68,\n                \"valorSaldoDevedor\": 92803.98,\n                \"valorTotalParcela\": 9825.02\n            },\n            {\n                \"data\": \"23.04.2022\",\n                \"valorReposicaoCapital\": 9328.1,\n                \"valorEncargoAdicional\": 496.92,\n                \"valorSaldoDevedor\": 85418.78,\n                \"valorTotalParcela\": 9825.02\n            },\n            {\n                \"data\": \"23.05.2022\",\n                \"valorReposicaoCapital\": 9089.15,\n                \"valorEncargoAdicional\": 735.87,\n                \"valorSaldoDevedor\": 77839.42,\n                \"valorTotalParcela\": 9825.02\n            },\n            {\n                \"data\": \"23.06.2022\",\n                \"valorReposicaoCapital\": 8856.31,\n                \"valorEncargoAdicional\": 968.71,\n                \"valorSaldoDevedor\": 70060.8,\n                \"valorTotalParcela\": 9825.02\n            },\n            {\n                \"data\": \"23.07.2022\",\n                \"valorReposicaoCapital\": 8629.45,\n                \"valorEncargoAdicional\": 1195.57,\n                \"valorSaldoDevedor\": 62077.68,\n                \"valorTotalParcela\": 9825.02\n            },\n            {\n                \"data\": \"23.08.2022\",\n                \"valorReposicaoCapital\": 8408.39,\n                \"valorEncargoAdicional\": 1416.63,\n                \"valorSaldoDevedor\": 53884.68,\n                \"valorTotalParcela\": 9825.02\n            },\n            {\n                \"data\": \"23.09.2022\",\n                \"valorReposicaoCapital\": 8193,\n                \"valorEncargoAdicional\": 1632.02,\n                \"valorSaldoDevedor\": 45476.29,\n                \"valorTotalParcela\": 9825.02\n            },\n            {\n                \"data\": \"23.10.2022\",\n                \"valorReposicaoCapital\": 7983.12,\n                \"valorEncargoAdicional\": 1841.9,\n                \"valorSaldoDevedor\": 36846.84,\n                \"valorTotalParcela\": 9825.02\n            },\n            {\n                \"data\": \"23.11.2022\",\n                \"valorReposicaoCapital\": 7778.62,\n                \"valorEncargoAdicional\": 2046.4,\n                \"valorSaldoDevedor\": 27990.52,\n                \"valorTotalParcela\": 9825.02\n            },\n            {\n                \"data\": \"23.12.2022\",\n                \"valorReposicaoCapital\": 7579.36,\n                \"valorEncargoAdicional\": 2245.66,\n                \"valorSaldoDevedor\": 18901.37,\n                \"valorTotalParcela\": 9825.02\n            },\n            {\n                \"data\": \"23.01.2023\",\n                \"valorReposicaoCapital\": 7385.2,\n                \"valorEncargoAdicional\": 2439.82,\n                \"valorSaldoDevedor\": 9573.27,\n                \"valorTotalParcela\": 9825.02\n            },\n            {\n                \"data\": \"23.02.2023\",\n                \"valorReposicaoCapital\": 7195.96,\n                \"valorEncargoAdicional\": 2629.06,\n                \"valorSaldoDevedor\": 0,\n                \"valorTotalParcela\": 9825.02\n            }\n        ],\n        \"listaDespesas\": [\n            {\n                \"nomeDespesa\": \"Tarifa de contratação\",\n                \"valorDespesa\": 3000\n            },\n            {\n                \"nomeDespesa\": \"Despesa - IOF\",\n                \"valorDespesa\": 766.23\n            },\n            {\n                \"nomeDespesa\": \"Despesa - Adicional IOF\",\n                \"valorDespesa\": 380\n            }\n        ]\n    },\n    \"ofertaAtivaLongoPrazo\": {}\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path" : "/v1/contratos/22191857/cancelar-proposta",
+      "queryStringParameters" : {
+        "gw-app-key": ["d3f69ca08898013868e0005056b91a5b"]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": "{\n    \"indicadorCancelamentoRealizado\": \"S\",\n    \"textoErro\": \"\"\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path" : "/v2/contratos/22191857/cancelar-proposta",
+      "queryStringParameters" : {
+        "gw-app-key": ["d3f69ca08898013868e0005056b91a5b"]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": "{\n    \"indicadorCancelamentoRealizado\": \"S\",\n    \"textoErro\": \"\"\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "GET",
+      "path": "/v1/propostas/22131105/assinaturas",
+      "queryStringParameters" : {
+        "gw-app-key": ["d3f69ca08898013868e0005056b91a5b"]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": "{\n    \"listaIntervenientes\": [\n        {\n            \"nome\": \"ELETRONIC HERNANDES DE SOUZA\",\n            \"indicadorPendenciaAssinatura\": \"S\"\n        }\n    ],\n    \"listaSignatarios\": []\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "GET",
+      "path": "/v2/propostas/22131105/assinaturas",
+      "queryStringParameters" : {
+        "gw-app-key": ["d3f69ca08898013868e0005056b91a5b"]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": "{\n    \"listaIntervenientes\": [\n        {\n            \"nome\": \"ELETRONIC HERNANDES DE SOUZA\",\n            \"indicadorPendenciaAssinatura\": \"S\"\n        }\n    ],\n    \"listaSignatarios\": []\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "GET",
+      "path": "/v1/contratos/consultar-parcelas",
+      "queryStringParameters" : {
+        "gw-app-key": ["d3f69ca08898013868e0005056b91a5b"]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": "{\n    \"dataDebitoParcela\": \"21.03.2022\",\n    \"indicadorContinuacaoPesquisa\": \"N\",\n    \"quantidadeOperacoesCliente\": 1,\n    \"listaParcelas\": [\n        {\n            \"identificadorUnico\": 20210206416791119,\n            \"contrato\": 55122894,\n            \"dataContratacao\": \"01.04.2021\",\n            \"instituicaoFinanceira\": 1,\n            \"agencia\": 551,\n            \"digitoVerificadorAgencia\": \"7\",\n            \"conta\": 120396,\n            \"digitoVerificadorConta\": \"7\",\n            \"valorContratado\": 5400,\n            \"valorParcela\": 0,\n            \"dataVencimento\": \"21.03.2022\",\n            \"indicadorOperacaoLiquidada\": \"N\"\n        }\n    ]\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "GET",
+      "path": "/v2/contratos/consultar-parcelas",
+      "queryStringParameters" : {
+        "gw-app-key": ["d3f69ca08898013868e0005056b91a5b"]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": "{\n    \"dataDebitoParcela\": \"21.03.2022\",\n    \"indicadorContinuacaoPesquisa\": \"N\",\n    \"quantidadeOperacoesCliente\": 1,\n    \"listaParcelas\": [\n        {\n            \"identificadorUnico\": 20210206416791119,\n            \"contrato\": 55122894,\n            \"dataContratacao\": \"01.04.2021\",\n            \"instituicaoFinanceira\": 1,\n            \"agencia\": 551,\n            \"digitoVerificadorAgencia\": \"7\",\n            \"conta\": 120396,\n            \"digitoVerificadorConta\": \"7\",\n            \"valorContratado\": 5400,\n            \"valorParcela\": 0,\n            \"dataVencimento\": \"21.03.2022\",\n            \"indicadorOperacaoLiquidada\": \"N\"\n        }\n    ]\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "GET",
+      "path": "/v2/contratos/20220546350991140/lancamentos",
+      "queryStringParameters" : {
+        "gw-app-key": ["d3f69ca08898013868e0005056b91a5b"]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": "{\n    \"contrato\": 22131036,\n    \"proposta\": 22191656,\n    \"valorContratado\": 100000,\n    \"valorAtraso\": 0,\n    \"dataSaldoDevedor\": \"24.02.2022\",\n    \"valorSaldoDevedor\": 100000,\n    \"dataContratacao\": \"23.02.2022\",\n    \"dataVencimento\": \"23.02.2023\",\n    \"lancamentos\": [\n        {\n            \"valor\": 100000,\n            \"data\": \"23.02.2022\",\n            \"tipo\": 1,\n            \"descricao\": \"CAPITAL\"\n        },\n        {\n            \"valor\": 766.23,\n            \"data\": \"23.02.2022\",\n            \"tipo\": 1,\n            \"descricao\": \"IOF\"\n        },\n        {\n            \"valor\": 380,\n            \"data\": \"23.02.2022\",\n            \"tipo\": 1,\n            \"descricao\": \"IOF\"\n        },\n        {\n            \"valor\": 1146.23,\n            \"data\": \"23.02.2022\",\n            \"tipo\": 2,\n            \"descricao\": \"REPOSICAO - MUTUARIO\"\n        }\n    ],\n    \"tarifas\": [\n        {\n            \"valor\": 0,\n            \"data\": \"23.02.2022\",\n            \"tipo\": 1,\n            \"descricao\": \"DEBITADA DO CLIENTE - VALOR A CONSULTAR\"\n        },\n        {\n            \"valor\": 0,\n            \"data\": \"23.02.2022\",\n            \"tipo\": 1,\n            \"descricao\": \"DEBITADA DO CLIENTE - VALOR A CONSULTAR\"\n        }\n    ],\n    \"indicadorContinuacaoPesquisa\": \"N\",\n    \"codigoControleRechamada\": \"200004\"\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path": "/v2/contratos/20220546350991140/liquidar-operacao",
+      "queryStringParameters" : {
+        "gw-app-key": ["d3f69ca08898013868e0005056b91a5b"]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": "{\n    \"valorLiquidado\": 0,\n    \"listaMensages\": [\n        {\n            \"mensagem\": \"\"\n        }\n    ]\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path" : "/v1/contratos/20220546350991140/liberar",
+      "queryStringParameters" : {
+        "gw-app-key": ["d3f69ca08898013868e0005056b91a5b"]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json; charset=utf-8"]
+      },
+      "statusCode" : 500,
+      "body": "{\n    \"transferRealizedIndicator\": \"\",\n    \"executionMessage\": \"\",\n    \"financialEntryList\": [],\n    \"occurrenceList\": []\n}"
+    }
+  },
+
+  {
+    "httpRequest": {
+      "method" : "POST",
+      "path" : "/v2/contratos/20220546350991140/liberar",
+      "queryStringParameters" : {
+        "gw-app-key": ["d3f69ca08898013868e0005056b91a5b"]
+      }
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json; charset=utf-8"]
+      },
+      "statusCode" : 500,
+      "body": "{\n    \"transferRealizedIndicator\": \"\",\n    \"executionMessage\": \"\",\n    \"financialEntryList\": [],\n    \"occurrenceList\": []\n}"
+    }
+  }
+]

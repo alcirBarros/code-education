@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="mobile-web-app-capable" content="yes"/>
+
+        <style type="text/css">
+
+
+
+        </style>
+
+
+    </h:head>
+
+    <h:body>
+        <h:form>
+
+            <p:growl severity="info, warn, error" >
+                <p:autoUpdate/>
+            </p:growl> 
+
+
+            <p:messages id="messages" 
+                        severity="fatal" showDetail="true" >
+                <p:autoUpdate/>
+            </p:messages>
+
+            <h:panelGrid style="width: 100%">
+                <h:panelGrid style="width: 100%"> 
+                    <p:outputLabel value="Número Sala" />
+                    <p:inputText id="inputTextNumeroSala" required="true"
+                                 requiredMessage="Informe o 'Número Sala'"
+                                 style="width: 100%"/>
+                </h:panelGrid>
+                <h:panelGrid style="width: 100%">
+                    <p:outputLabel value="Calendar" />
+                    <p:calendar required="true"
+                                requiredMessage="Informe o campo calendar" />
+
+                    <p:calendar  required="true"
+                                 requiredMessage="Informe o campo calendar"
+                                 pattern="HH:mm"
+                                 mask="true"
+                                 timeOnly="true" 
+                                 showOn="button" />
+                </h:panelGrid>
+                <p:commandButton id="submitButton" 
+                                 value="Submit" 
+                                 update="@form" />
+            </h:panelGrid> 
+
+
+            <h:panelGrid columns="5">
+                <p:commandButton action="#{menssagesMb.warn()}"
+                                 value="Warn"
+                                 process="@this"
+                                 class="btn btn-warning" />
+
+                <p:commandButton action="#{menssagesMb.info()}"
+                                 value="Info"
+                                 process="@this"
+                                 class="btn btn-info"/>
+
+                <p:commandButton action="#{menssagesMb.error()}"
+                                 value="Error"
+                                 process="@this"
+                                 class="btn btn-danger"/>
+
+                <p:commandButton action="#{menssagesMb.fatal()}"
+                                 value="Fatal"
+                                 process="@this"
+                                 class="btn btn-fatal"/>
+
+                <p:commandButton value="Defalt" 
+                                 process="@this"
+                                 class="btn btn-defalt"/>
+            </h:panelGrid>
+
+
+        </h:form>   
+    </h:body>
+
+</html>

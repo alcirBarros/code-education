@@ -1,0 +1,24 @@
+plugins {
+    id 'jacoco-report-aggregation'
+}
+
+repositories {
+    mavenCentral()
+}
+
+bootJar {
+    enabled = false
+}
+
+dependencies {
+    jacocoAggregation project(':application')
+}
+
+reporting {
+    reports {
+        testCodeCoverageReport(JacocoCoverageReport) {
+            testType = TestSuiteType.UNIT_TEST
+        }
+    }
+}
+

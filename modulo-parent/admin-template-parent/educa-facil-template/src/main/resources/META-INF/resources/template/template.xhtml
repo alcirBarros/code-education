@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="#{layoutMB.template}">
+
+    <ui:define name="head">
+        <title>Starter</title>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon.ico']}"/>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon-16x16.png']}" sizes="16x16"/>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon-32x32.png']}" sizes="32x32"/>
+        <link rel="shortcut icon" type="image/x-icon" href="#{resource['favicon/favicon-96x96.png']}" sizes="96x96"/>
+        <meta name="theme-color" content="#444"/>
+        <meta name="mobile-web-app-capable" content="yes"/>
+        <!--<f:loadBundle var="msg" basename="starter"/>-->
+        <!--<h:outputStylesheet library="css" name="starter.css"/>-->
+        <h:outputStylesheet library="css" name="layout.css"/>
+        <h:outputStylesheet library="css" name="input.css"/>
+    </ui:define>
+
+    <ui:define name="head-websocket">
+        <h:outputScript library="websocket" name="jquery-1.10.2.min.js" target="head"/>
+        <h:outputScript library="websocket" name="websocket.js" target="head"/>
+        <h:outputScript library="websocket" name="websocketMenu.js" target="head"/>
+    </ui:define>
+
+    <ui:define name="head-end">
+        
+    </ui:define>
+
+    <ui:define name="logo">
+        Starter
+    </ui:define>
+
+    <ui:define name="logo-mini">
+        Starter
+    </ui:define>
+
+    <ui:define name="menu">
+        <ui:include src="../includes/menu.xhtml"/>
+    </ui:define>
+
+    <ui:define name="top-menu">
+        <ui:include src="../includes/top-bar.xhtml"/>
+    </ui:define>
+
+    <!-- below is just an example on how to define more tabs for control sidebar --> 
+    <ui:define name="controlsidebar-tabs">
+        <li><a href="#control-sidebar-home-tab" data-toggle="tab">
+                <i class="fa fa-home">
+                    
+                </i>
+            </a>
+        </li>
+        <li><a href="#control-sidebar-settings-tab" data-toggle="tab">
+                <i class="fa fa-gears">
+                    
+                </i>
+            </a>
+        </li>
+    </ui:define>
+
+    <ui:define name="controlsidebar-content">
+        <ui:include src="../includes/controlsidebar-tabs-content.xhtml"/>
+    </ui:define>
+
+
+
+
+    <ui:define name="body"/>
+
+    <ui:define name="footer">
+
+
+        <p:repeat value="#{versaoMb.versaoList}" var="versao">
+            <h:panelGrid columns="2" style="width:100%">
+                <p:outputPanel>
+                    <a>
+                        Copyright (C) 2017 - Admin
+                    </a>
+                    <div class="pull-right hidden-xs" style="color: gray">
+
+                    </div>
+                </p:outputPanel>
+                <p:outputPanel style="width: 100%">
+                    <h:panelGrid  style="width: 100%; ">
+                        <h:panelGrid columns="2" style="width: 100%;text-align: right">
+                            <h:outputText value="Versão : #{versao.descricao}" style="font-weight: bold"/>
+                        </h:panelGrid>
+                    </h:panelGrid>
+                </p:outputPanel>
+            </h:panelGrid>
+            <hr />
+        </p:repeat>
+        <script type="text/javascript">
+            if (isMobile()) {
+                $('a.ui-link').click(function () {
+                    $(this).prop('disabled', true);
+                    showBar();
+                });
+            }
+        </script>
+    </ui:define>
+
+
+</ui:composition>

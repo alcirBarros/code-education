@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/admin_company?useSSL=false&createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      javax.persistence.create-database-schemas: true
+      hibernate:
+        default_schema: admin_company
+        show_sql: true
+        format_sql: true

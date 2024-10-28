@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres:12.8-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: postgres
+    ports:
+      - "5431:5432"
+    networks:
+      - web-net
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "postgres@postgres.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+    ports:
+      - "16543:80"
+    networks:
+      - web-net
+    depends_on:
+      - postgres
+
+networks:
+  web-net:

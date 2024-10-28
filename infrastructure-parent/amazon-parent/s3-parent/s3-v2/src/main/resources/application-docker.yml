@@ -1,0 +1,8 @@
+cloud:
+  aws:
+    credentials:
+      accessKey: dummyKey
+      secretKey: dummySecret
+    s3:
+      region: us-east-1
+      endpoint: http://localstack:4566

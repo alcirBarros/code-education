@@ -1,0 +1,7 @@
+prodesp:
+  driver: com.mysql.jdbc.Driver
+  uri: jdbc:mysql://homologacao.multfacilcomercial.com.br:3306/educafacil_setebarras?useSSl=false
+  username: root
+  password: root
+  
+

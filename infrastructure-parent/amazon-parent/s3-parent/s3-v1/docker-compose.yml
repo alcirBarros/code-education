@@ -1,0 +1,53 @@
+version: '3'
+services:
+
+  s3:
+    build: .
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - LOCALSTACK_HOST=localstack
+      - LOCALSTACK_PORT=4566
+    image: spring/s3
+    depends_on:
+      localstack:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    networks:
+      s3_default:
+
+  #http://localhost:4566/a205451-br-services-ci-us-east-1/localhost/b12e129e-daae-47e3-a2f0-7d7120d34307/esocial/6e45254a-b425-4c60-8bfe-2f2a44140e3a/38f7bb5b-48ed-43f4-8df9-856ea8ac3ca7/ID140048406000002023022409451200001.xml
+  #https://gist.github.com/sats17/493d05d8d4dfd16b7dad399163075156
+  localstack:
+    image: localstack/localstack
+    environment:
+      - SERVICES=s3,kms
+      - DEBUG=1
+      - LS_LOG=TRACE
+      - USE_SSL=0
+      - SSL=0
+      - AWS_CBOR_DISABLE=1
+      - DEFAULT_REGION=us-east-1
+      - AWS_DEFAULT_REGION=us-east-1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - CUSTOM_AWS_ACESS_KEY_ID=dummyKey
+      - CUSTOM_AWS_ACESS_KEY_SECRET=dummySecret
+      - CUSTOM_BUCKET_NAME=a205451-br-services-ci-us-east-1
+      - CUSTOM_ENDPOINT=http://localhost:4566
+      - CUSTOM_PROFILE=localstack
+      - HOSTNAME_EXTERNAL=localstack
+      - KMS_PROVIDER=local-kms
+      - S3_DIR=/tmp/s3-buckets
+    ports:
+      - "4566:4566"
+      - "47693:47693"
+    volumes:
+      - ./docker/aws/s3:/tmp/s3-buckets:Z
+      - ./docker/aws/scripts/:/etc/localstack/init/ready.d/
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      s3_default:
+
+networks:
+  s3_default:
+    driver: bridge

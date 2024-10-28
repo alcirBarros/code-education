@@ -1,0 +1,2771 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="liquibase" id="1">
+        <sql>
+            -- MySQL dump 10.16  Distrib 10.1.37-MariaDB, for debian-linux-gnu (x86_64)
+            --
+            -- Host: 127.0.0.1    Database: prodesp
+            -- ------------------------------------------------------
+            -- Server version	10.1.37-MariaDB-0+deb9u1
+
+            /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+            /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+            /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+            /*!40101 SET NAMES utf8 */;
+            /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+            /*!40103 SET TIME_ZONE='+00:00' */;
+            /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+            /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+            /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+            /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+            --
+            -- Table structure for table `DATABASECHANGELOG`
+            --
+
+            DROP TABLE IF EXISTS `DATABASECHANGELOG`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `DATABASECHANGELOG` (
+            `ID` varchar(255) NOT NULL,
+            `AUTHOR` varchar(255) NOT NULL,
+            `FILENAME` varchar(255) NOT NULL,
+            `DATEEXECUTED` datetime NOT NULL,
+            `ORDEREXECUTED` int(11) NOT NULL,
+            `EXECTYPE` varchar(10) NOT NULL,
+            `MD5SUM` varchar(35) DEFAULT NULL,
+            `DESCRIPTION` varchar(255) DEFAULT NULL,
+            `COMMENTS` varchar(255) DEFAULT NULL,
+            `TAG` varchar(255) DEFAULT NULL,
+            `LIQUIBASE` varchar(20) DEFAULT NULL,
+            `CONTEXTS` varchar(255) DEFAULT NULL,
+            `LABELS` varchar(255) DEFAULT NULL,
+            `DEPLOYMENT_ID` varchar(10) DEFAULT NULL
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `DATABASECHANGELOG`
+            --
+
+            LOCK TABLES `DATABASECHANGELOG` WRITE;
+            /*!40000 ALTER TABLE `DATABASECHANGELOG` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `DATABASECHANGELOG` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `DATABASECHANGELOGLOCK`
+            --
+
+            DROP TABLE IF EXISTS `DATABASECHANGELOGLOCK`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `DATABASECHANGELOGLOCK` (
+            `ID` int(11) NOT NULL,
+            `LOCKED` bit(1) NOT NULL,
+            `LOCKGRANTED` datetime DEFAULT NULL,
+            `LOCKEDBY` varchar(255) DEFAULT NULL,
+            PRIMARY KEY (`ID`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `DATABASECHANGELOGLOCK`
+            --
+
+            LOCK TABLES `DATABASECHANGELOGLOCK` WRITE;
+            /*!40000 ALTER TABLE `DATABASECHANGELOGLOCK` DISABLE KEYS */;
+            INSERT INTO `DATABASECHANGELOGLOCK` VALUES (1,'\0',NULL,NULL);
+            /*!40000 ALTER TABLE `DATABASECHANGELOGLOCK` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `acc_alterar_coleta_classe`
+            --
+
+            DROP TABLE IF EXISTS `acc_alterar_coleta_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `acc_alterar_coleta_classe` (
+            `acc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `acc_atendimento_educacional_especializado` varchar(0) DEFAULT NULL,
+            `acc_atc` varchar(0) DEFAULT NULL,
+            `acc_ano` varchar(4) DEFAULT NULL,
+            `acc_capacidade_fisica` varchar(2) DEFAULT NULL,
+            `acc_codigo_inep` varchar(7) DEFAULT NULL,
+            `acc_curso_semestral_1` varchar(1) DEFAULT NULL,
+            `acc_curso_semestral_2` varchar(1) DEFAULT NULL,
+            `acc_dia_inicio_aula` varchar(2) DEFAULT NULL,
+            `acc_dia_termino_aula` varchar(2) DEFAULT NULL,
+            `acc_flag_convenio_estado` varchar(1) DEFAULT NULL,
+            `acc_hora_final` varchar(4) DEFAULT NULL,
+            `acc_hora_inicial` varchar(4) DEFAULT NULL,
+            `acc_mes_inicio_aula` varchar(2) DEFAULT NULL,
+            `acc_mes_termino_aula` varchar(2) DEFAULT NULL,
+            `acc_numero_classe` varchar(9) DEFAULT NULL,
+            `acc_numero_sala` varchar(3) DEFAULT NULL,
+            `acc_programa_mais_educacao` varchar(1) DEFAULT NULL,
+            `acc_serie_ano` varchar(2) DEFAULT NULL,
+            `acc_tipo_classe` varchar(2) DEFAULT NULL,
+            `acc_tipo_ensino` varchar(2) DEFAULT NULL,
+            `acc_turma` varchar(2) DEFAULT NULL,
+            `acc_turno` varchar(1) DEFAULT NULL,
+            `lcr_id` int(11) DEFAULT NULL,
+            `dsm_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`acc_id`),
+            KEY `FKhn9u33pp6ako68nm4pg9d5ma7` (`lcr_id`),
+            KEY `FKamxp1ud4obonxfyegudb780kt` (`dsm_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `acc_alterar_coleta_classe`
+            --
+
+            LOCK TABLES `acc_alterar_coleta_classe` WRITE;
+            /*!40000 ALTER TABLE `acc_alterar_coleta_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `acc_alterar_coleta_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `acr_mensagem_alterar_coleta_classe_response`
+            --
+
+            DROP TABLE IF EXISTS `acr_mensagem_alterar_coleta_classe_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `acr_mensagem_alterar_coleta_classe_response` (
+            `lcr_id` int(11) NOT NULL,
+            `mac_id` int(11) NOT NULL,
+            KEY `fk_acr_mac_id` (`mac_id`),
+            KEY `fk_acr_lcr_id` (`lcr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `acr_mensagem_alterar_coleta_classe_response`
+            --
+
+            LOCK TABLES `acr_mensagem_alterar_coleta_classe_response` WRITE;
+            /*!40000 ALTER TABLE `acr_mensagem_alterar_coleta_classe_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `acr_mensagem_alterar_coleta_classe_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `adr_alterar_dados_pessoais_ficha_aluno_response`
+            --
+
+            DROP TABLE IF EXISTS `adr_alterar_dados_pessoais_ficha_aluno_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `adr_alterar_dados_pessoais_ficha_aluno_response` (
+            `afa_id` int(11) NOT NULL AUTO_INCREMENT,
+            `mac_erro` text,
+            `ear_codigo_processo` text,
+            `ear_sucesso` text,
+            PRIMARY KEY (`afa_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `adr_alterar_dados_pessoais_ficha_aluno_response`
+            --
+
+            LOCK TABLES `adr_alterar_dados_pessoais_ficha_aluno_response` WRITE;
+            /*!40000 ALTER TABLE `adr_alterar_dados_pessoais_ficha_aluno_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `adr_alterar_dados_pessoais_ficha_aluno_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `afa_alterar_dados_pessoais_ficha_aluno`
+            --
+
+            DROP TABLE IF EXISTS `afa_alterar_dados_pessoais_ficha_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `afa_alterar_dados_pessoais_ficha_aluno` (
+            `afa_id` int(11) NOT NULL AUTO_INCREMENT,
+            `afa_altas_hab_super_dotacao` text,
+            `afa_ano_nascimento` text,
+            `afa_autisca_classico` text,
+            `afa_auxilio_leitor` text,
+            `afa_lna_registro_aluno` text,
+            `afa_baixa_visao` text,
+            `afa_bolsa_familia` text,
+            `afa_cegueira` text,
+            `afa_cor_raca` text,
+            `afa_dia_nascimento` text,
+            `afa_digito_registro_aluno` text,
+            `afa_email` text,
+            `afa_fisica_cadeirante` text,
+            `afa_fisica_outros` text,
+            `afa_fisica_paralisia_cerebral` text,
+            `afa_gemeo` text,
+            `afa_guia_interprete` text,
+            `afa_intelectual` text,
+            `afa_interprete_libras` text,
+            `afa_irmao_digito_registro_aluno` text,
+            `afa_irmao_registro_aluno` text,
+            `afa_irmao_uf_registro_aluno` text,
+            `afa_leitura_labial` text,
+            `afa_mes_nascimento` text,
+            `afa_mobilidade_reduzida` text,
+            `afa_multipla` text,
+            `afa_nec_especial` text,
+            `afa_nenhum` text,
+            `afa_nome_aluno` text,
+            `afa_nome_mae` text,
+            `afa_nome_pai` text,
+            `afa_nome_social` text,
+            `afa_permanente` text,
+            `afa_prova_ampliada` text,
+            `afa_prava_brasil` text,
+            `afa_quilombola` text,
+            `afa_registro_aluno` text,
+            `afa_sexo` text,
+            `afa_sindrome_asperger` text,
+            `afa_sindrome_down` text,
+            `afa_sindrome_rett` text,
+            `afa_surdez_leve_moderada` text,
+            `afa_surcez_severa_profunda` text,
+            `afa_surdocegueira` text,
+            `afa_tam_16` text,
+            `afa_tam_20` text,
+            `afa_tam_24` text,
+            `afa_temporaria` text,
+            `afa_trans_desintegrativo_inf` text,
+            `afa_uf_registro_aluno` text,
+            `afa_ano_emissao` text,
+            `afa_ano_entrada_brasil` text,
+            `afa_cadastro_pessoa_fisica` text,
+            `afa_dia_emissao` text,
+            `afa_dia_entrada_brasil` text,
+            `afa_digito_registro_geral` text,
+            `afa_mes_emissao` text,
+            `afa_mes_entrada_brasil` text,
+            `afa_municipio_nascimento` text,
+            `afa_nascionalidade` text,
+            `afa_numero_nis` text,
+            `afa_pais_origem` text,
+            `afa_rgrne_01` text,
+            `afa_rgrne_02` text,
+            `afa_rgrne_03` text,
+            `afa_uf_nascimento` text,
+            `afa_uf_registro_geral` text,
+            `lcr_id` int(11) DEFAULT NULL,
+            `dfa_id` int(11) DEFAULT NULL,
+            `cta_id` int(11) DEFAULT NULL,
+            `cnv_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`afa_id`),
+            KEY `FK399gtddhhwoo7qi0aac9iui07` (`lcr_id`),
+            KEY `FKir6evxfnitcj11j0e8n0w4gs7` (`dfa_id`),
+            KEY `FKlk6j71tc331ct6jjlri759avs` (`cta_id`),
+            KEY `FK5wr9e0npwslvdktypmfdo5385` (`cnv_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `afa_alterar_dados_pessoais_ficha_aluno`
+            --
+
+            LOCK TABLES `afa_alterar_dados_pessoais_ficha_aluno` WRITE;
+            /*!40000 ALTER TABLE `afa_alterar_dados_pessoais_ficha_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `afa_alterar_dados_pessoais_ficha_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `asx_authorization_servico_externo`
+            --
+
+            DROP TABLE IF EXISTS `asx_authorization_servico_externo`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `asx_authorization_servico_externo` (
+            `asx_id` int(11) NOT NULL AUTO_INCREMENT,
+            `asx_data_hora` datetime DEFAULT NULL,
+            `asx_password` text,
+            `asx_url` text,
+            `asx_username` text,
+            `sxt_id` int(11) NOT NULL,
+            PRIMARY KEY (`asx_id`),
+            KEY `fk_asx_sxt_id` (`sxt_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `asx_authorization_servico_externo`
+            --
+
+            LOCK TABLES `asx_authorization_servico_externo` WRITE;
+            /*!40000 ALTER TABLE `asx_authorization_servico_externo` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `asx_authorization_servico_externo` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cae_consultar_classe_aluno_por_escola`
+            --
+
+            DROP TABLE IF EXISTS `cae_consultar_classe_aluno_por_escola`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cae_consultar_classe_aluno_por_escola` (
+            `cae_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cae_ano_letivo` text,
+            `cae_codigo_escola` text,
+            `cae_semestre` text,
+            `cae_serie_ano` text,
+            `cae_tipo_ensino` text,
+            `cae_turma` text,
+            `cae_turno` text,
+            `cer_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`cae_id`),
+            KEY `FK4o3w6i877yjhlu5iqb7p08wm3` (`cer_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cae_consultar_classe_aluno_por_escola`
+            --
+
+            LOCK TABLES `cae_consultar_classe_aluno_por_escola` WRITE;
+            /*!40000 ALTER TABLE `cae_consultar_classe_aluno_por_escola` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cae_consultar_classe_aluno_por_escola` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `ccc_consulta_coleta_classe`
+            --
+
+            DROP TABLE IF EXISTS `ccc_consulta_coleta_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `ccc_consulta_coleta_classe` (
+            `ccc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `ccc_ano` varchar(4) DEFAULT NULL,
+            `ccc_numero_classe` varchar(9) DEFAULT NULL,
+            `ccr_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`ccc_id`),
+            KEY `FKg3u35po5cftahshdng4tpy46y` (`ccr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `ccc_consulta_coleta_classe`
+            --
+
+            LOCK TABLES `ccc_consulta_coleta_classe` WRITE;
+            /*!40000 ALTER TABLE `ccc_consulta_coleta_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `ccc_consulta_coleta_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `ccr_consultar_coleta_classe_response`
+            --
+
+            DROP TABLE IF EXISTS `ccr_consultar_coleta_classe_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `ccr_consultar_coleta_classe_response` (
+            `ccr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `ccr_codigo_processo` varchar(255) DEFAULT NULL,
+            PRIMARY KEY (`ccr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `ccr_consultar_coleta_classe_response`
+            --
+
+            LOCK TABLES `ccr_consultar_coleta_classe_response` WRITE;
+            /*!40000 ALTER TABLE `ccr_consultar_coleta_classe_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `ccr_consultar_coleta_classe_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cdc_consulta_documentos`
+            --
+
+            DROP TABLE IF EXISTS `cdc_consulta_documentos`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cdc_consulta_documentos` (
+            `cdc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cdc_cadastro_pessoa_fisica` varchar(14) DEFAULT NULL,
+            `cdc_digito_registro_geral` varchar(2) DEFAULT NULL,
+            `cdc_folha_certidao_nascimento` varchar(6) DEFAULT NULL,
+            `cdc_livro_certidao_nascimento` varchar(6) DEFAULT NULL,
+            `cdc_numero_certidao_nascimento` varchar(8) DEFAULT NULL,
+            `cdc_numero_certidao_nova` varchar(33) DEFAULT NULL,
+            `cdc_numero_inep` varchar(13) DEFAULT NULL,
+            `cdc_numero_nis` varchar(13) DEFAULT NULL,
+            `cdc_numero_registro_geral` varchar(16) DEFAULT NULL,
+            `cdc_unidade_federativa_registro_geral` varchar(2) DEFAULT NULL,
+            PRIMARY KEY (`cdc_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cdc_consulta_documentos`
+            --
+
+            LOCK TABLES `cdc_consulta_documentos` WRITE;
+            /*!40000 ALTER TABLE `cdc_consulta_documentos` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cdc_consulta_documentos` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cec_consultar_escola`
+            --
+
+            DROP TABLE IF EXISTS `cec_consultar_escola`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cec_consultar_escola` (
+            `cer_id` int(11) NOT NULL,
+            `csc_id` int(11) NOT NULL,
+            KEY `fk_cer_csc_id` (`csc_id`),
+            KEY `fk_cer_cer_id` (`cer_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cec_consultar_escola`
+            --
+
+            LOCK TABLES `cec_consultar_escola` WRITE;
+            /*!40000 ALTER TABLE `cec_consultar_escola` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cec_consultar_escola` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cer_consultar_classe_aluno_por_escola_response`
+            --
+
+            DROP TABLE IF EXISTS `cer_consultar_classe_aluno_por_escola_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cer_consultar_classe_aluno_por_escola_response` (
+            `cer_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cer_erro` text,
+            `cer_codigo_processo` text,
+            PRIMARY KEY (`cer_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cer_consultar_classe_aluno_por_escola_response`
+            --
+
+            LOCK TABLES `cer_consultar_classe_aluno_por_escola_response` WRITE;
+            /*!40000 ALTER TABLE `cer_consultar_classe_aluno_por_escola_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cer_consultar_classe_aluno_por_escola_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cer_consultar_escola_cie_response`
+            --
+
+            DROP TABLE IF EXISTS `cer_consultar_escola_cie_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cer_consultar_escola_cie_response` (
+            `cer_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cer_codigo_processo` varchar(16) DEFAULT NULL,
+            PRIMARY KEY (`cer_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cer_consultar_escola_cie_response`
+            --
+
+            LOCK TABLES `cer_consultar_escola_cie_response` WRITE;
+            /*!40000 ALTER TABLE `cer_consultar_escola_cie_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cer_consultar_escola_cie_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cfc_consulta_formacao_classe`
+            --
+
+            DROP TABLE IF EXISTS `cfc_consulta_formacao_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cfc_consulta_formacao_classe` (
+            `cfc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cfc_numero_classe` text,
+            `fcr_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`cfc_id`),
+            KEY `FKbruydsynsog2qy5abvvsky9w` (`fcr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cfc_consulta_formacao_classe`
+            --
+
+            LOCK TABLES `cfc_consulta_formacao_classe` WRITE;
+            /*!40000 ALTER TABLE `cfc_consulta_formacao_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cfc_consulta_formacao_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cfl_consultar_ficha_aluno`
+            --
+
+            DROP TABLE IF EXISTS `cfl_consultar_ficha_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cfl_consultar_ficha_aluno` (
+            `cfl_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cfl_dataHora` datetime DEFAULT NULL,
+            `cdc_id` int(11) DEFAULT NULL,
+            `cfn_id` int(11) DEFAULT NULL,
+            `cnc_id` int(11) DEFAULT NULL,
+            `cra_id` int(11) DEFAULT NULL,
+            `far_id` int(11) DEFAULT NULL,
+            `tcf_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`cfl_id`),
+            KEY `FK3scwws47tugqy37uv60rqocr0` (`cdc_id`),
+            KEY `FKepm9g5alaw203ficusttncioe` (`cfn_id`),
+            KEY `FKnrr2w13xj2pr9xc3b9it6wwy2` (`cnc_id`),
+            KEY `FKljf5qhj7g08f8wmqfykweg7a1` (`cra_id`),
+            KEY `FKfsvdhn7ysdlrvre98xm04nd25` (`far_id`),
+            KEY `FKdth16m3yap0n0rouhc5ptbth7` (`tcf_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cfl_consultar_ficha_aluno`
+            --
+
+            LOCK TABLES `cfl_consultar_ficha_aluno` WRITE;
+            /*!40000 ALTER TABLE `cfl_consultar_ficha_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cfl_consultar_ficha_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cfn_consulta_fonetica`
+            --
+
+            DROP TABLE IF EXISTS `cfn_consulta_fonetica`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cfn_consulta_fonetica` (
+            `cfn_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cfn_data_nascimento` date DEFAULT NULL,
+            `cnc_ano_nascimento` varchar(4) DEFAULT NULL,
+            `cnc_dia_nacimento` varchar(2) DEFAULT NULL,
+            `cnc_mes_nascimento` varchar(2) DEFAULT NULL,
+            `cnc_nome_aluno` varchar(60) DEFAULT NULL,
+            `cnc_nome_mae` varchar(60) DEFAULT NULL,
+            `cnc_nome_social` varchar(50) DEFAULT NULL,
+            PRIMARY KEY (`cfn_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cfn_consulta_fonetica`
+            --
+
+            LOCK TABLES `cfn_consulta_fonetica` WRITE;
+            /*!40000 ALTER TABLE `cfn_consulta_fonetica` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cfn_consulta_fonetica` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cma_consultar_matricula_registro_aluno`
+            --
+
+            DROP TABLE IF EXISTS `cma_consultar_matricula_registro_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cma_consultar_matricula_registro_aluno` (
+            `cma_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cma_ano_letivo` varchar(4) DEFAULT NULL,
+            `cma_codigo_escola` varchar(9) DEFAULT NULL,
+            `cma_data_matricula` varchar(10) DEFAULT NULL,
+            `cma_habilitacao` varchar(4) DEFAULT NULL,
+            `cma_numero_aluno` varchar(2) DEFAULT NULL,
+            `cma_numero_classe` varchar(11) DEFAULT NULL,
+            `aluno_matricula` varchar(7) DEFAULT NULL,
+            `cma_aluno_matricula_det` varchar(7) DEFAULT NULL,
+            `cma_out_ano_letivo` varchar(4) DEFAULT NULL,
+            `cma_ano_letivo_02` varchar(7) DEFAULT NULL,
+            `cma_ano_letivo_03` varchar(7) DEFAULT NULL,
+            `cma_ano_letivo_05` varchar(7) DEFAULT NULL,
+            `cma_ano_letivo_07` varchar(7) DEFAULT NULL,
+            `cma_atende_07` varchar(7) DEFAULT NULL,
+            `cma_bairro_07` varchar(7) DEFAULT NULL,
+            `cma_bairro_aluno_02` varchar(7) DEFAULT NULL,
+            `cma_bairro_matricula_02` varchar(7) DEFAULT NULL,
+            `cma_carga_hora` varchar(7) DEFAULT NULL,
+            `cma_cep_07` varchar(7) DEFAULT NULL,
+            `cma_cep_aluno_02` varchar(7) DEFAULT NULL,
+            `cma_cep_matricula_02` varchar(7) DEFAULT NULL,
+            `cma_cidade_07` varchar(7) DEFAULT NULL,
+            `cma_cidade_aluno_02` varchar(7) DEFAULT NULL,
+            `cma_cidade_matricula_02` varchar(7) DEFAULT NULL,
+            `cma_codigo_escola_02` varchar(7) DEFAULT NULL,
+            `cma_codigo_escola_03` varchar(7) DEFAULT NULL,
+            `cma_codigo_escola_04` varchar(7) DEFAULT NULL,
+            `cma_codigo_escola_05` varchar(7) DEFAULT NULL,
+            `cma_codigo_escola_07` varchar(7) DEFAULT NULL,
+            `cma_codigo_escola_aloc_07` varchar(7) DEFAULT NULL,
+            `cma_codigo_escola_sugestao_07` varchar(7) DEFAULT NULL,
+            `cma_municipio_02` varchar(7) DEFAULT NULL,
+            `cma_icc_dia_inicio_aula` varchar(7) DEFAULT NULL,
+            `cma_codigo_situacao_aluno_04` varchar(7) DEFAULT NULL,
+            `cma_cod_unidade_05` varchar(7) DEFAULT NULL,
+            `cma_ddd_aluno_02` varchar(7) DEFAULT NULL,
+            `cma_data` varchar(10) DEFAULT NULL,
+            `cma_data_aloc_07` varchar(7) DEFAULT NULL,
+            `cma_data_alteracao` varchar(7) DEFAULT NULL,
+            `cma_data_alteracao_03` varchar(7) DEFAULT NULL,
+            `cma_data_alteracao_04` varchar(7) DEFAULT NULL,
+            `cma_data_alteracao_05` varchar(7) DEFAULT NULL,
+            `cma_data_fim` varchar(10) DEFAULT NULL,
+            `cma_data_fim_03` varchar(7) DEFAULT NULL,
+            `cma_data_fim_04` varchar(7) DEFAULT NULL,
+            `cma_data_fim_matricula_05` varchar(7) DEFAULT NULL,
+            `cma_data_inclusao_censo` varchar(7) DEFAULT NULL,
+            `cma_data_inicio` varchar(10) DEFAULT NULL,
+            `cma_data_inicio_03` varchar(7) DEFAULT NULL,
+            `cma_data_inicio_04` varchar(7) DEFAULT NULL,
+            `cma_data_inicio_matricula_05` varchar(7) DEFAULT NULL,
+            `cma_data_inscricao_02` varchar(7) DEFAULT NULL,
+            `cma_data_inscricao_07` varchar(7) DEFAULT NULL,
+            `cma_data_nascimento` varchar(10) DEFAULT NULL,
+            `cma_data_nascimento_02` varchar(7) DEFAULT NULL,
+            `cma_data_nascimento_03` varchar(7) DEFAULT NULL,
+            `cma_data_nascimento_04` varchar(7) DEFAULT NULL,
+            `cma_data_nascimento_05` varchar(7) DEFAULT NULL,
+            `cma_data_nascimento_07` varchar(7) DEFAULT NULL,
+            `cma_desc_hab` varchar(7) DEFAULT NULL,
+            `cma_desc_hab_03` varchar(7) DEFAULT NULL,
+            `cma_desc_hab_04` varchar(7) DEFAULT NULL,
+            `cma_desc_hab_nivel_03` varchar(7) DEFAULT NULL,
+            `cma_desc_hora_final` varchar(7) DEFAULT NULL,
+            `cma_desc_hora_final_03` varchar(7) DEFAULT NULL,
+            `cma_desc_hora_inicial` varchar(7) DEFAULT NULL,
+            `cma_desc_hora_inicial_03` varchar(7) DEFAULT NULL,
+            `cma_desc_hora_inicial_02` varchar(7) DEFAULT NULL,
+            `cma_desc_nivel_ensino_03` varchar(7) DEFAULT NULL,
+            `cma_desc_nivel_serie_03` varchar(7) DEFAULT NULL,
+            `cma_desc_rend` varchar(7) DEFAULT NULL,
+            `cma_desc_serie_02` varchar(7) DEFAULT NULL,
+            `cma_desc_serie_03` varchar(7) DEFAULT NULL,
+            `cma_desc_serie_04` varchar(7) DEFAULT NULL,
+            `cma_desc_serie_05` varchar(7) DEFAULT NULL,
+            `cma_desc_serie_07` varchar(7) DEFAULT NULL,
+            `cma_desc_situacao_05` varchar(7) DEFAULT NULL,
+            `cma_desc_tipo_ensino` varchar(40) DEFAULT NULL,
+            `cma_desc_tipo_ensino_02` varchar(7) DEFAULT NULL,
+            `cma_desc_tipo_ensino_03` varchar(7) DEFAULT NULL,
+            `cma_desc_tipo_ensino_04` varchar(7) DEFAULT NULL,
+            `cma_desc_tipo_ensino_05` varchar(7) DEFAULT NULL,
+            `cma_desc_tipo_ensino_07` varchar(7) DEFAULT NULL,
+            `cma_desc_turma` varchar(7) DEFAULT NULL,
+            `cma_desc_turma_03` varchar(7) DEFAULT NULL,
+            `cma_desc_turno_03` varchar(7) DEFAULT NULL,
+            `cma_desc_turno_07` varchar(7) DEFAULT NULL,
+            `cma_descricao_turno` varchar(40) DEFAULT NULL,
+            `cma_digito_registro_aluno` varchar(1) DEFAULT NULL,
+            `cma_digito_registro_aluno_02` varchar(7) DEFAULT NULL,
+            `cma_digito_registro_aluno_03` varchar(7) DEFAULT NULL,
+            `cma_digito_registro_aluno_04` varchar(7) DEFAULT NULL,
+            `cma_digito_registro_aluno_05` varchar(7) DEFAULT NULL,
+            `cma_digito_registro_aluno_07` varchar(7) DEFAULT NULL,
+            `cma_domingo` varchar(7) DEFAULT NULL,
+            `cma_data_confirmada_04` varchar(7) DEFAULT NULL,
+            `cma_end_matricula_02` varchar(7) DEFAULT NULL,
+            `cma_end_uf_07` varchar(7) DEFAULT NULL,
+            `cma_endereco_aluno_02` varchar(7) DEFAULT NULL,
+            `cma_endereco_07` varchar(7) DEFAULT NULL,
+            `cma_erro` text,
+            `cma_escola` varchar(53) DEFAULT NULL,
+            `cma_fase_02` varchar(7) DEFAULT NULL,
+            `cma_fase_07` varchar(7) DEFAULT NULL,
+            `cma_out_habilitacao` varchar(4) DEFAULT NULL,
+            `cma_hab_03` varchar(7) DEFAULT NULL,
+            `cma_hora_altera` varchar(7) DEFAULT NULL,
+            `cma_hora_alteracao_03` varchar(7) DEFAULT NULL,
+            `cma_hora_alteracao_04` varchar(7) DEFAULT NULL,
+            `cma_hora_alteracao_05` varchar(7) DEFAULT NULL,
+            `cma_hora_fim_domingo_05` varchar(7) DEFAULT NULL,
+            `cma_hora_fim_quarta_05` varchar(7) DEFAULT NULL,
+            `cma_hora_fim_quinta_05` varchar(7) DEFAULT NULL,
+            `cma_hora_fim_sabado_05` varchar(7) DEFAULT NULL,
+            `cma_hora_fim_segunda_05` varchar(7) DEFAULT NULL,
+            `cma_hora_fim_sexta_05` varchar(7) DEFAULT NULL,
+            `cma_hora_fim_terca_05` varchar(7) DEFAULT NULL,
+            `cma_hora_final` varchar(5) DEFAULT NULL,
+            `cma_hora_final_03` varchar(7) DEFAULT NULL,
+            `cma_hora_inicio_domingo_05` varchar(7) DEFAULT NULL,
+            `cma_hora_inicio_quarta_05` varchar(7) DEFAULT NULL,
+            `cma_hora_inicio_quinta_05` varchar(7) DEFAULT NULL,
+            `cma_hora_inicio_sabado_05` varchar(7) DEFAULT NULL,
+            `cma_hora_inicio_segunda_05` varchar(7) DEFAULT NULL,
+            `cma_hora_inicio_sexta_05` varchar(7) DEFAULT NULL,
+            `cma_hora_inicio_terca_05` varchar(7) DEFAULT NULL,
+            `cma_hora_inicial` varchar(5) DEFAULT NULL,
+            `cma_hora_inicial_03` varchar(7) DEFAULT NULL,
+            `cma_ident_hab_04` varchar(7) DEFAULT NULL,
+            `cma_ident_hab_nivel_03` varchar(7) DEFAULT NULL,
+            `cma_ident_serie_04` varchar(7) DEFAULT NULL,
+            `cma_lit_censo` varchar(7) DEFAULT NULL,
+            `cma_lit_classe_07` varchar(7) DEFAULT NULL,
+            `cma_lit_hab_04` varchar(7) DEFAULT NULL,
+            `cma_lit_serie_04` varchar(7) DEFAULT NULL,
+            `cma_lit_situacao_05` varchar(7) DEFAULT NULL,
+            `lit_transf` varchar(7) DEFAULT NULL,
+            `cma_lit_transf_03` varchar(7) DEFAULT NULL,
+            `cma_lit_transf_04` varchar(7) DEFAULT NULL,
+            `cma_lit_transp` varchar(35) DEFAULT NULL,
+            `cma_mensagem_compartilhado` varchar(7) DEFAULT NULL,
+            `cma_mensagem_compartilhado_det` varchar(7) DEFAULT NULL,
+            `cma_nivel_ensina_03` varchar(7) DEFAULT NULL,
+            `cma_nome_02` varchar(7) DEFAULT NULL,
+            `cma_nome_abrev_escola_03` varchar(7) DEFAULT NULL,
+            `cma_nome_abrev_escola_04` varchar(7) DEFAULT NULL,
+            `cma_nome_abrev_escola_05` varchar(7) DEFAULT NULL,
+            `cma_nome_aluno` varchar(70) DEFAULT NULL,
+            `cma_nome_aluno_03` varchar(7) DEFAULT NULL,
+            `cma_nome_aluno_04` varchar(7) DEFAULT NULL,
+            `cma_nome_aluno_05` varchar(7) DEFAULT NULL,
+            `cma_nome_aluno_07` varchar(7) DEFAULT NULL,
+            `cma_nome_escola_02` varchar(7) DEFAULT NULL,
+            `cma_nome_escola_07` varchar(7) DEFAULT NULL,
+            `cma_nome_escola_aloc_07` varchar(7) DEFAULT NULL,
+            `cma_nome_escola_sugestao_07` varchar(7) DEFAULT NULL,
+            `cma_nome_mae` varchar(7) DEFAULT NULL,
+            `cma_nome_mae_02` varchar(60) DEFAULT NULL,
+            `cma_nome_mae_03` varchar(7) DEFAULT NULL,
+            `cma_nome_mae_04` varchar(7) DEFAULT NULL,
+            `cma_nome_mae_05` varchar(7) DEFAULT NULL,
+            `cma_nome_mae_07` varchar(7) DEFAULT NULL,
+            `cma_nome_municipio_07` varchar(7) DEFAULT NULL,
+            `cma_nome_pai` varchar(60) DEFAULT NULL,
+            `cma_nome_pai_02` varchar(7) DEFAULT NULL,
+            `cma_nome_pai_03` varchar(7) DEFAULT NULL,
+            `cma_nome_pai_04` varchar(7) DEFAULT NULL,
+            `cma_nome_pai_05` varchar(7) DEFAULT NULL,
+            `cma_nome_pai_07` varchar(7) DEFAULT NULL,
+            `cma_nome_unidade_05` varchar(7) DEFAULT NULL,
+            `cma_out_numero_aluno` varchar(2) DEFAULT NULL,
+            `cma_numero_aluno_03` varchar(7) DEFAULT NULL,
+            `cma_numero_aluno_05` varchar(7) DEFAULT NULL,
+            `cma_out_numero_classe` varchar(11) DEFAULT NULL,
+            `cma_numero_classe_03` varchar(7) DEFAULT NULL,
+            `cma_numero_classe_05` varchar(7) DEFAULT NULL,
+            `cma_numero_classe_Aloc_07` varchar(7) DEFAULT NULL,
+            `cma_observacao` varchar(7) DEFAULT NULL,
+            `cma_observacao_04` varchar(7) DEFAULT NULL,
+            `cma_observacao_07` varchar(7) DEFAULT NULL,
+            `cma_opcao_alteracao` varchar(7) DEFAULT NULL,
+            `cma_opcao_alteracao_03` varchar(7) DEFAULT NULL,
+            `cma_pronatec` varchar(14) DEFAULT NULL,
+            `cma_quantidade_hora_hab` varchar(7) DEFAULT NULL,
+            `cma_quarta_feira` varchar(7) DEFAULT NULL,
+            `cma_quinta_feira` varchar(7) DEFAULT NULL,
+            `cma_registro_aluno` varchar(12) DEFAULT NULL,
+            `cma_registro_aluno_02` varchar(7) DEFAULT NULL,
+            `cma_registro_aluno_03` varchar(7) DEFAULT NULL,
+            `cma_registro_aluno_04` varchar(7) DEFAULT NULL,
+            `cma_registro_aluno_05` varchar(7) DEFAULT NULL,
+            `cma_registro_aluno_07` varchar(7) DEFAULT NULL,
+            `cma_sabado` varchar(7) DEFAULT NULL,
+            `cma_segunda_feira` varchar(7) DEFAULT NULL,
+            `cma_out_serie` varchar(2) DEFAULT NULL,
+            `cma_serie_02` varchar(2) DEFAULT NULL,
+            `cma_serie_03` varchar(7) DEFAULT NULL,
+            `cma_serie_05` varchar(7) DEFAULT NULL,
+            `cma_serie_07` varchar(7) DEFAULT NULL,
+            `cma_sexta_feira` varchar(7) DEFAULT NULL,
+            `cma_situacao_04` varchar(7) DEFAULT NULL,
+            `cma_sugestao_07` varchar(7) DEFAULT NULL,
+            `cma_telefone_residencial_02` varchar(7) DEFAULT NULL,
+            `cma_terca_feira` varchar(7) DEFAULT NULL,
+            `cma_tipo_classe` varchar(7) DEFAULT NULL,
+            `cma_tipo_classe_03` varchar(7) DEFAULT NULL,
+            `cma_out_tipo_ensino` varchar(2) DEFAULT NULL,
+            `cma_tipo_ensino_02` varchar(7) DEFAULT NULL,
+            `cma_tipo_ensino_03` varchar(7) DEFAULT NULL,
+            `cma_tipo_ensino_04` varchar(7) DEFAULT NULL,
+            `cma_tipo_ensino_05` varchar(7) DEFAULT NULL,
+            `cma_tipo_ensino_07` varchar(7) DEFAULT NULL,
+            `cma_out_turma` varchar(2) DEFAULT NULL,
+            `cma_turma_03` varchar(7) DEFAULT NULL,
+            `cma_turma_05` varchar(7) DEFAULT NULL,
+            `cma_out_turno` varchar(1) DEFAULT NULL,
+            `cma_turno_03` varchar(7) DEFAULT NULL,
+            `cma_turno_07` varchar(7) DEFAULT NULL,
+            `cma_uf` varchar(2) DEFAULT NULL,
+            `cma_uf_02` varchar(7) DEFAULT NULL,
+            `cma_uf_03` varchar(7) DEFAULT NULL,
+            `cma_uf_04` varchar(7) DEFAULT NULL,
+            `cma_uf_05` varchar(7) DEFAULT NULL,
+            `cma_uf_07` varchar(7) DEFAULT NULL,
+            `cma_uf_aluno_02` varchar(7) DEFAULT NULL,
+            `cma_uf_matricula_02` varchar(7) DEFAULT NULL,
+            `cma_serie` varchar(7) DEFAULT NULL,
+            `cma_situacao_matricula` varchar(2) DEFAULT NULL,
+            `cma_tipo_ensino` varchar(2) DEFAULT NULL,
+            `cma_turma` varchar(7) DEFAULT NULL,
+            `cma_turno` varchar(7) DEFAULT NULL,
+            PRIMARY KEY (`cma_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cma_consultar_matricula_registro_aluno`
+            --
+
+            LOCK TABLES `cma_consultar_matricula_registro_aluno` WRITE;
+            /*!40000 ALTER TABLE `cma_consultar_matricula_registro_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cma_consultar_matricula_registro_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cnc_consulta_nome_completo`
+            --
+
+            DROP TABLE IF EXISTS `cnc_consulta_nome_completo`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cnc_consulta_nome_completo` (
+            `cnc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cnc_nome_aluno` varchar(60) DEFAULT NULL,
+            `cnc_nome_mae` varchar(60) DEFAULT NULL,
+            `cnc_nome_pai` varchar(60) DEFAULT NULL,
+            PRIMARY KEY (`cnc_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cnc_consulta_nome_completo`
+            --
+
+            LOCK TABLES `cnc_consulta_nome_completo` WRITE;
+            /*!40000 ALTER TABLE `cnc_consulta_nome_completo` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cnc_consulta_nome_completo` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cnv_certidao_nova`
+            --
+
+            DROP TABLE IF EXISTS `cnv_certidao_nova`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cnv_certidao_nova` (
+            `cnv_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cnv_ano_emissao_certidao_matricula` varchar(4) DEFAULT NULL,
+            `cnv_matricula_01` varchar(6) DEFAULT NULL,
+            `cnv_matricula_02` varchar(2) DEFAULT NULL,
+            `cnv_matricula_03` varchar(2) DEFAULT NULL,
+            `cnv_matricula_04` varchar(4) DEFAULT NULL,
+            `cnv_matricula_05` varchar(1) DEFAULT NULL,
+            `cnv_matricula_06` varchar(5) DEFAULT NULL,
+            `cnv_matricula_07` varchar(3) DEFAULT NULL,
+            `cnv_matricula_08` varchar(7) DEFAULT NULL,
+            `cnv_matricula_09` varchar(2) DEFAULT NULL,
+            `cnv_dia_emissao_certificado` varchar(2) DEFAULT NULL,
+            `cnv_mes_emissao_certificado` varchar(2) DEFAULT NULL,
+            PRIMARY KEY (`cnv_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cnv_certidao_nova`
+            --
+
+            LOCK TABLES `cnv_certidao_nova` WRITE;
+            /*!40000 ALTER TABLE `cnv_certidao_nova` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cnv_certidao_nova` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cqr_consultar_quadro_resumo`
+            --
+
+            DROP TABLE IF EXISTS `cqr_consultar_quadro_resumo`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cqr_consultar_quadro_resumo` (
+            `cqr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cqr_ano_letivo` text,
+            `cqr_codigo_escola` text,
+            `ccr_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`cqr_id`),
+            KEY `FKn46vl4fsbqvy2s84u1qy6khwi` (`ccr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cqr_consultar_quadro_resumo`
+            --
+
+            LOCK TABLES `cqr_consultar_quadro_resumo` WRITE;
+            /*!40000 ALTER TABLE `cqr_consultar_quadro_resumo` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cqr_consultar_quadro_resumo` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cra_consulta_registro_aluno`
+            --
+
+            DROP TABLE IF EXISTS `cra_consulta_registro_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cra_consulta_registro_aluno` (
+            `cra_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cra_digito_registro_aluno` varchar(2) DEFAULT NULL,
+            `cra_registro_aluno` varchar(12) DEFAULT NULL,
+            `cra_unidade_federativa` varchar(2) DEFAULT NULL,
+            PRIMARY KEY (`cra_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cra_consulta_registro_aluno`
+            --
+
+            LOCK TABLES `cra_consulta_registro_aluno` WRITE;
+            /*!40000 ALTER TABLE `cra_consulta_registro_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cra_consulta_registro_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `crp_certidao_responsavel`
+            --
+
+            DROP TABLE IF EXISTS `crp_certidao_responsavel`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `crp_certidao_responsavel` (
+            `crp_id` int(11) NOT NULL AUTO_INCREMENT,
+            `crp_matricola_01` text,
+            `crp_matricola_02` text,
+            `crp_matricola_03` text,
+            `crp_matricola_04` text,
+            `crp_matricola_05` text,
+            `crp_matricola_06` text,
+            `crp_matricola_07` text,
+            `crp_matricola_08` text,
+            `crp_matricola_09` text,
+            PRIMARY KEY (`crp_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `crp_certidao_responsavel`
+            --
+
+            LOCK TABLES `crp_certidao_responsavel` WRITE;
+            /*!40000 ALTER TABLE `crp_certidao_responsavel` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `crp_certidao_responsavel` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `crt_consultar_matriculas_registro_aluno`
+            --
+
+            DROP TABLE IF EXISTS `crt_consultar_matriculas_registro_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `crt_consultar_matriculas_registro_aluno` (
+            `crt_id` int(11) NOT NULL AUTO_INCREMENT,
+            `crt_digito_aluno` varchar(2) DEFAULT NULL,
+            `crt_registro_aluno` varchar(12) DEFAULT NULL,
+            `crt_uf` varchar(2) DEFAULT NULL,
+            `ccr_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`crt_id`),
+            KEY `FK8fthqxhl64sq9idyqrcwfhcyx` (`ccr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `crt_consultar_matriculas_registro_aluno`
+            --
+
+            LOCK TABLES `crt_consultar_matriculas_registro_aluno` WRITE;
+            /*!40000 ALTER TABLE `crt_consultar_matriculas_registro_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `crt_consultar_matriculas_registro_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `csc_consultar_escola_cie`
+            --
+
+            DROP TABLE IF EXISTS `csc_consultar_escola_cie`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `csc_consultar_escola_cie` (
+            `csc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `csc_quantidade_aluno` text,
+            `csc_ano_historico_escolar` text,
+            `csc_quanidade_classe` text,
+            `csc_quantidade_aluno_ensino_especial` text,
+            `csc_quantidade_aluno_educacao_infantil` text,
+            `csc_quantidade_aluno_ensino_fundamental_eja` text,
+            `csc_quantidade_aluno_ensino_medio_eja` text,
+            `csc_quantidade_aluno_ensino_fundamental_1a4` text,
+            `csc_quantidade_aluno_ensino_fundamental_5a8` text,
+            `csc_quantidade_aluno_ensino_fundamental_9` text,
+            `csc_quantidade_aluno_ensino_medio` text,
+            `csc_ano_letivo` text,
+            `csc_ano_munc` text,
+            `csc_bairro` text,
+            `csc_caixa_postal` text,
+            `csc_categoria_escola` text,
+            `csc_cep` text,
+            `csc_cep_caixa_postal` text,
+            `csc_codigo_distrito` text,
+            `csc_codigo_escola_municipio` text,
+            `csc_codigo_escola` text,
+            `csc_codigo_escola_vinculadora` text,
+            `csc_codigo_identificacao_municipio` text,
+            `csc_codigo_unidade_administrativa` text,
+            `csc_total_area_construida_escola` text,
+            `csc_codigo_ddd_escola` text,
+            `csc_data_alterecao` text,
+            `csc_desc_adicional` text,
+            `csc_descricao_dependencia_administrativa` text,
+            `csc_descricao_diretoria_01` text,
+            `csc_descricao_diretoria_02` text,
+            `csc_descricao_ensino_01` text,
+            `csc_descricao_ensino_02` text,
+            `csc_descricao_ensino_03` text,
+            `csc_descricao_ensino_04` text,
+            `csc_descricao_ensino_05` text,
+            `csc_descricao_ensino_06` text,
+            `csc_descricao_ensino_07` text,
+            `csc_descricao_ensino_08` text,
+            `csc_descricao_rendimento` text,
+            `csc_descricao_tipo_escola` text,
+            `csc_data_fim_digitar_rendimento` text,
+            `csc_email_escola` text,
+            `csc_endereco_zona` text,
+            `csc_endereco` text,
+            `csc_erro` text,
+            `csc_fax_escola` text,
+            `csc_codigo_unidade` text,
+            `csc_lit_mun` text,
+            `csc_lit_vinc` text,
+            `csc_nome_abreviado_escola` text,
+            `csc_nome_abreviado_escola_vinculadora` text,
+            `csc_nome_abreviado_municipio` text,
+            `csc_nome_distrito` text,
+            `csc_nome_escola` text,
+            `csc_numero_caixa_postal` text,
+            `csc_numero_diretoria_01` text,
+            `csc_numero_diretoria_02` text,
+            `csc_prog_pai` text,
+            `csc_rede_fisica` text,
+            `csc_situacao_escola` text,
+            `csc_telefone_escola_01` text,
+            `csc_telefone_escola_02` text,
+            `csc_codigo_tipo_escola` text,
+            `csc_quantidade_aluno_outro_tipo_ensino` text,
+            PRIMARY KEY (`csc_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `csc_consultar_escola_cie`
+            --
+
+            LOCK TABLES `csc_consultar_escola_cie` WRITE;
+            /*!40000 ALTER TABLE `csc_consultar_escola_cie` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `csc_consultar_escola_cie` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cse_consultar_escola_cie`
+            --
+
+            DROP TABLE IF EXISTS `cse_consultar_escola_cie`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cse_consultar_escola_cie` (
+            `cse_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cse_codigo_escola` varchar(7) DEFAULT NULL,
+            `ccr_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`cse_id`),
+            KEY `FK8kbu0s4yegxhyypx696fbqwh2` (`ccr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cse_consultar_escola_cie`
+            --
+
+            LOCK TABLES `cse_consultar_escola_cie` WRITE;
+            /*!40000 ALTER TABLE `cse_consultar_escola_cie` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cse_consultar_escola_cie` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `csl_consulta_classe`
+            --
+
+            DROP TABLE IF EXISTS `csl_consulta_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `csl_consulta_classe` (
+            `csl_id` int(11) NOT NULL AUTO_INCREMENT,
+            `csl_digito_registro_aluno` text,
+            `csl_nome_aluno` text,
+            `csl_numero` text,
+            `csl_abandono` text,
+            `csl_ano` text,
+            `csl_atual` text,
+            `csl_cadastrado` text,
+            `csl_codigo_escola` text,
+            `csl_erro` text,
+            `csl_horario` text,
+            `csl_nao_compareceu` text,
+            `csl_nome_escola` text,
+            `csl_numero_classe` text,
+            `csl_numero_sala` text,
+            `csl_outros` text,
+            `csl_remanejado` text,
+            `csl_serie` text,
+            `csl_tipo_classe` text,
+            `csl_tipo_ensino` text,
+            `csl_transferido` text,
+            `csl_turma` text,
+            `csl_turno` text,
+            `csl_registro_aluno` text,
+            `csl_serie_multisseriada` text,
+            `csl_status` text,
+            `csl_tipo_ensina_multisseriada` text,
+            `csl_unidade_federada` text,
+            PRIMARY KEY (`csl_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `csl_consulta_classe`
+            --
+
+            LOCK TABLES `csl_consulta_classe` WRITE;
+            /*!40000 ALTER TABLE `csl_consulta_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `csl_consulta_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `css_consulta_classe`
+            --
+
+            DROP TABLE IF EXISTS `css_consulta_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `css_consulta_classe` (
+            `fcr_id` int(11) NOT NULL,
+            `csl_id` int(11) NOT NULL,
+            KEY `fk_css_csl_id` (`csl_id`),
+            KEY `fk_css_fcr_id` (`fcr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `css_consulta_classe`
+            --
+
+            LOCK TABLES `css_consulta_classe` WRITE;
+            /*!40000 ALTER TABLE `css_consulta_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `css_consulta_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `cta_certidao_antiga`
+            --
+
+            DROP TABLE IF EXISTS `cta_certidao_antiga`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `cta_certidao_antiga` (
+            `cta_id` int(11) NOT NULL AUTO_INCREMENT,
+            `cta_ano_emissao_certidao` varchar(4) DEFAULT NULL,
+            `cta_dia_emissao_certidao` varchar(2) DEFAULT NULL,
+            `cta_distrito_certidao` varchar(22) DEFAULT NULL,
+            `cta_folha` varchar(4) DEFAULT NULL,
+            `cta_livro` varchar(4) DEFAULT NULL,
+            `cta_mes_emissao_certidao` varchar(2) DEFAULT NULL,
+            `cta_municipio_comarca` varchar(22) DEFAULT NULL,
+            `cta_numero_certidao` varchar(6) DEFAULT NULL,
+            `cta_uf_comarca` varchar(2) DEFAULT NULL,
+            PRIMARY KEY (`cta_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `cta_certidao_antiga`
+            --
+
+            LOCK TABLES `cta_certidao_antiga` WRITE;
+            /*!40000 ALTER TABLE `cta_certidao_antiga` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `cta_certidao_antiga` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `dfa_alterar_documentos_ficha_aluno_response`
+            --
+
+            DROP TABLE IF EXISTS `dfa_alterar_documentos_ficha_aluno_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `dfa_alterar_documentos_ficha_aluno_response` (
+            `dfa_id` int(11) NOT NULL AUTO_INCREMENT,
+            `dfa_erro` text,
+            `dfa_codigo_processo` text,
+            `dfa_sucesso` text,
+            PRIMARY KEY (`dfa_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `dfa_alterar_documentos_ficha_aluno_response`
+            --
+
+            LOCK TABLES `dfa_alterar_documentos_ficha_aluno_response` WRITE;
+            /*!40000 ALTER TABLE `dfa_alterar_documentos_ficha_aluno_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `dfa_alterar_documentos_ficha_aluno_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `dsm_dia_semana`
+            --
+
+            DROP TABLE IF EXISTS `dsm_dia_semana`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `dsm_dia_semana` (
+            `dsm_id` int(11) NOT NULL AUTO_INCREMENT,
+            `dsm_quarta` varchar(1) DEFAULT NULL,
+            `dsm_quinta` varchar(1) DEFAULT NULL,
+            `dsm_sabado` varchar(1) DEFAULT NULL,
+            `dsm_segunda` varchar(1) DEFAULT NULL,
+            `dsm_sexta` varchar(1) DEFAULT NULL,
+            `dsm_terca` varchar(1) DEFAULT NULL,
+            PRIMARY KEY (`dsm_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `dsm_dia_semana`
+            --
+
+            LOCK TABLES `dsm_dia_semana` WRITE;
+            /*!40000 ALTER TABLE `dsm_dia_semana` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `dsm_dia_semana` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `ear_alterar_endereco_ficha_aluno_response`
+            --
+
+            DROP TABLE IF EXISTS `ear_alterar_endereco_ficha_aluno_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `ear_alterar_endereco_ficha_aluno_response` (
+            `ear_id` int(11) NOT NULL AUTO_INCREMENT,
+            `ear_erro` text,
+            `ear_codigo_processo` text,
+            `ear_sucesso` text,
+            PRIMARY KEY (`ear_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `ear_alterar_endereco_ficha_aluno_response`
+            --
+
+            LOCK TABLES `ear_alterar_endereco_ficha_aluno_response` WRITE;
+            /*!40000 ALTER TABLE `ear_alterar_endereco_ficha_aluno_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `ear_alterar_endereco_ficha_aluno_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `ecc_excluir_coleta_classe`
+            --
+
+            DROP TABLE IF EXISTS `ecc_excluir_coleta_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `ecc_excluir_coleta_classe` (
+            `ecc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `ecc_ano` text,
+            `ecc_numero_classe` text,
+            `lcr_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`ecc_id`),
+            KEY `FK8mcldat9r8n8toc2sv9dxu3lu` (`lcr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `ecc_excluir_coleta_classe`
+            --
+
+            LOCK TABLES `ecc_excluir_coleta_classe` WRITE;
+            /*!40000 ALTER TABLE `ecc_excluir_coleta_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `ecc_excluir_coleta_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `ecr_excluir_coleta_classe_response`
+            --
+
+            DROP TABLE IF EXISTS `ecr_excluir_coleta_classe_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `ecr_excluir_coleta_classe_response` (
+            `ecr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `ecr_codigo_processo` text,
+            PRIMARY KEY (`ecr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `ecr_excluir_coleta_classe_response`
+            --
+
+            LOCK TABLES `ecr_excluir_coleta_classe_response` WRITE;
+            /*!40000 ALTER TABLE `ecr_excluir_coleta_classe_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `ecr_excluir_coleta_classe_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `enc_endereco_indicativo`
+            --
+
+            DROP TABLE IF EXISTS `enc_endereco_indicativo`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `enc_endereco_indicativo` (
+            `enc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `enc_bairro` text,
+            `enc_cep` text,
+            `enc_cidade` text,
+            `enc_latitude` text,
+            `enc_logradouro` text,
+            `enc_longitude` text,
+            `enc_numero` text,
+            `enc_uf` text,
+            PRIMARY KEY (`enc_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `enc_endereco_indicativo`
+            --
+
+            LOCK TABLES `enc_endereco_indicativo` WRITE;
+            /*!40000 ALTER TABLE `enc_endereco_indicativo` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `enc_endereco_indicativo` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `ers_endereco_residencial`
+            --
+
+            DROP TABLE IF EXISTS `ers_endereco_residencial`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `ers_endereco_residencial` (
+            `ers_id` int(11) NOT NULL AUTO_INCREMENT,
+            `ers_bairro` text,
+            `ers_cep` text,
+            `ers_cidade` text,
+            `ers_complemento` text,
+            `ers_ddd` text,
+            `ers_fone_recados` text,
+            `ers_tipo_ensino` text,
+            `ers_latitude` text,
+            `ers_logradouro` text,
+            `ers_longitude` text,
+            `ers_nome_fone_recado` text,
+            `ers_numero` text,
+            `ers_tipo_logradouro` text,
+            `ers_uf` text,
+            PRIMARY KEY (`ers_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `ers_endereco_residencial`
+            --
+
+            LOCK TABLES `ers_endereco_residencial` WRITE;
+            /*!40000 ALTER TABLE `ers_endereco_residencial` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `ers_endereco_residencial` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `far_consulta_ficha_aluno_response`
+            --
+
+            DROP TABLE IF EXISTS `far_consulta_ficha_aluno_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `far_consulta_ficha_aluno_response` (
+            `far_id` int(11) NOT NULL AUTO_INCREMENT,
+            `far_erro` varchar(255) DEFAULT NULL,
+            `far_codigo_processo` varchar(255) DEFAULT NULL,
+            `far_sucesso` varchar(255) DEFAULT NULL,
+            `fln_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`far_id`),
+            KEY `FKrnpmb5dwwasowak7m7s8gd6l4` (`fln_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `far_consulta_ficha_aluno_response`
+            --
+
+            LOCK TABLES `far_consulta_ficha_aluno_response` WRITE;
+            /*!40000 ALTER TABLE `far_consulta_ficha_aluno_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `far_consulta_ficha_aluno_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `fcr_consulta_formacao_classe_response`
+            --
+
+            DROP TABLE IF EXISTS `fcr_consulta_formacao_classe_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `fcr_consulta_formacao_classe_response` (
+            `fcr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `fcr_codigo_processo` text,
+            PRIMARY KEY (`fcr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `fcr_consulta_formacao_classe_response`
+            --
+
+            LOCK TABLES `fcr_consulta_formacao_classe_response` WRITE;
+            /*!40000 ALTER TABLE `fcr_consulta_formacao_classe_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `fcr_consulta_formacao_classe_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `fln_ficha_aluno`
+            --
+
+            DROP TABLE IF EXISTS `fln_ficha_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `fln_ficha_aluno` (
+            `fln_id` int(11) NOT NULL AUTO_INCREMENT,
+            `fln_auxilio_leitor` text,
+            `fln_auxilio_transcricao` text,
+            `fln_bairro` text,
+            `fln_baolsa_familia` text,
+            `fln_cep` text,
+            `fln_cpf` text,
+            `fln_cidade` text,
+            `fln_cod_pais_origem` text,
+            `fln_complemento` text,
+            `fln_cor_raca` text,
+            `fln_cuidador` text,
+            `fln_ddd` text,
+            `fln_ddd_cel` text,
+            `fln_data_alteracao` text,
+            `fln_data_emis_reg_nasc` text,
+            `fln_data_emissao_rg` text,
+            `fln_data_entrada_brasil` text,
+            `fln_data_nascimento` text,
+            `fln_desc_municipio` text,
+            `fln_digito_ra` text,
+            `fln_digito_rg` text,
+            `fln_email` text,
+            `fln_endereco` text,
+            `fln_erro` text,
+            `fln_fone_cel` text,
+            `fln_fone_recado` text,
+            `fln_fone_residencial` text,
+            `fln_gemeo` text,
+            `fln_guia_interprete` text,
+            `fln_ident_aluno_mec` text,
+            `fln_interprete_libras` text,
+            `fln_irmao` text,
+            `fln_latitude` text,
+            `fln_leitura_labial` text,
+            `fln_logradouro` text,
+            `fln_longitude` text,
+            `fln_mobilidade_reduzida` text,
+            `fln_nascionalidade` text,
+            `fln_nenhum` text,
+            `fln_nome_aluno` text,
+            `fln_nome_mae` text,
+            `fln_nome_pai` text,
+            `fln_nome_pais_origem` text,
+            `fln_nome_social` text,
+            `fln_num_nis` text,
+            `fln_num_rg` text,
+            `fln_num_registro_nascimento` text,
+            `fln_numero` text,
+            `fln_observacao_recado` text,
+            `fln_operador` text,
+            `fln_profissional_saude` text,
+            `fln_prova_ampliada` text,
+            `fln_prova_brasil` text,
+            `fln_quilombola` text,
+            `fln_ra` text,
+            `fln_sms` text,
+            `fln_sexo` text,
+            `fln_tam_dezesseis` text,
+            `fln_tam_vinte` text,
+            `fln_tamaho_vinte_quatro` text,
+            `fln_uf` text,
+            `fln_uf_nascimento` text,
+            `fln_uf_ra` text,
+            `fln_uf_rg` text,
+            `fln_zona` text,
+            PRIMARY KEY (`fln_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `fln_ficha_aluno`
+            --
+
+            LOCK TABLES `fln_ficha_aluno` WRITE;
+            /*!40000 ALTER TABLE `fln_ficha_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `fln_ficha_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `icc_incluir_coleta_classe`
+            --
+
+            DROP TABLE IF EXISTS `icc_incluir_coleta_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `icc_incluir_coleta_classe` (
+            `icc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `icc_atendimento_educacional_especializado` varchar(7) DEFAULT NULL,
+            `icc_atc` varchar(7) DEFAULT NULL,
+            `icc_ano` varchar(4) DEFAULT NULL,
+            `icc_capacidade_fisica` varchar(7) DEFAULT NULL,
+            `icc_codigo_escola` varchar(7) DEFAULT NULL,
+            `icc_codigo_unidade` varchar(7) DEFAULT NULL,
+            `icc_codigo_inep` varchar(7) DEFAULT NULL,
+            `icc_curso_semestral_1` varchar(7) DEFAULT NULL,
+            `icc_curso_semestral_2` varchar(7) DEFAULT NULL,
+            `icc_dia_inicio_aula` varchar(7) DEFAULT NULL,
+            `icc_dia_termino_aula` varchar(7) DEFAULT NULL,
+            `icc_flag_convenio_estado` varchar(7) DEFAULT NULL,
+            `icc_hora_final` varchar(4) DEFAULT NULL,
+            `icc_hora_inicial` varchar(4) DEFAULT NULL,
+            `icc_mes_inicio_aula` varchar(7) DEFAULT NULL,
+            `icc_mes_termino_aula` varchar(7) DEFAULT NULL,
+            `icc_numero_sala` varchar(7) DEFAULT NULL,
+            `icc_programa_mais_educacao` varchar(1) DEFAULT NULL,
+            `icc_serie_ano` varchar(7) DEFAULT NULL,
+            `icc_tipo_classe` varchar(2) DEFAULT NULL,
+            `icc_tipo_ensino` varchar(2) DEFAULT NULL,
+            `icc_turma` varchar(7) DEFAULT NULL,
+            `icc_turno` varchar(7) DEFAULT NULL,
+            `dsm_id` int(11) DEFAULT NULL,
+            `icr_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`icc_id`),
+            KEY `FK3v4cy5yqm2brp3rrfm69o8yc1` (`dsm_id`),
+            KEY `FKsvmewdvd6pwblgoryxqbk2det` (`icr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `icc_incluir_coleta_classe`
+            --
+
+            LOCK TABLES `icc_incluir_coleta_classe` WRITE;
+            /*!40000 ALTER TABLE `icc_incluir_coleta_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `icc_incluir_coleta_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `icr_incluir_coleta_classe_response`
+            --
+
+            DROP TABLE IF EXISTS `icr_incluir_coleta_classe_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `icr_incluir_coleta_classe_response` (
+            `icr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `icr_mensagem` text,
+            `icr_codigo_processo` varchar(255) DEFAULT NULL,
+            `icr_status_response_enum` varchar(60) DEFAULT NULL,
+            PRIMARY KEY (`icr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `icr_incluir_coleta_classe_response`
+            --
+
+            LOCK TABLES `icr_incluir_coleta_classe_response` WRITE;
+            /*!40000 ALTER TABLE `icr_incluir_coleta_classe_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `icr_incluir_coleta_classe_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `lcr_alterar_coleta_classe_response`
+            --
+
+            DROP TABLE IF EXISTS `lcr_alterar_coleta_classe_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `lcr_alterar_coleta_classe_response` (
+            `lcr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `lcr_mensagem` text,
+            `lcr_codigo_processo` varchar(16) DEFAULT NULL,
+            `lcr_sucesso` varchar(30) DEFAULT NULL,
+            `lcr_status_response_enum` varchar(60) DEFAULT NULL,
+            PRIMARY KEY (`lcr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `lcr_alterar_coleta_classe_response`
+            --
+
+            LOCK TABLES `lcr_alterar_coleta_classe_response` WRITE;
+            /*!40000 ALTER TABLE `lcr_alterar_coleta_classe_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `lcr_alterar_coleta_classe_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `lfc_aluno_ficha_consulta`
+            --
+
+            DROP TABLE IF EXISTS `lfc_aluno_ficha_consulta`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `lfc_aluno_ficha_consulta` (
+            `far_id` int(11) NOT NULL,
+            `fln_id` int(11) NOT NULL,
+            KEY `fk_lfc_fln_id` (`fln_id`),
+            KEY `fk_lfc_far_id` (`far_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `lfc_aluno_ficha_consulta`
+            --
+
+            LOCK TABLES `lfc_aluno_ficha_consulta` WRITE;
+            /*!40000 ALTER TABLE `lfc_aluno_ficha_consulta` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `lfc_aluno_ficha_consulta` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `lna_alterar_endereco_ficha_aluno`
+            --
+
+            DROP TABLE IF EXISTS `lna_alterar_endereco_ficha_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `lna_alterar_endereco_ficha_aluno` (
+            `lna_id` int(11) NOT NULL AUTO_INCREMENT,
+            `lna_bairro` text,
+            `lna_cep` text,
+            `lna_cidade` text,
+            `lna_complemento` text,
+            `lna_ddd` text,
+            `lna_ddd_celular` text,
+            `lna_digito_registro_aluno` text,
+            `lna_numero_celular` text,
+            `lna_fone_recado` text,
+            `lna_residencial` text,
+            `lna_latitude` text,
+            `lna_logradouro` text,
+            `lna_longitude` text,
+            `lna_nome_fone_recado` text,
+            `lna_numero` text,
+            `lna_registro_aluno` text,
+            `lna_sms` text,
+            `lna_tipo_logradouro` text,
+            `lna_uf` text,
+            `lna_uf_registro_aluno` text,
+            `ear_id` int(11) DEFAULT NULL,
+            `enc_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`lna_id`),
+            KEY `FK5bf7408d0infmqyy5pf4sn1lp` (`ear_id`),
+            KEY `FK9ug6s1ryn55y2qhx7csbtvx4n` (`enc_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `lna_alterar_endereco_ficha_aluno`
+            --
+
+            LOCK TABLES `lna_alterar_endereco_ficha_aluno` WRITE;
+            /*!40000 ALTER TABLE `lna_alterar_endereco_ficha_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `lna_alterar_endereco_ficha_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `mac_mensagem_alterar_coleta_classe`
+            --
+
+            DROP TABLE IF EXISTS `mac_mensagem_alterar_coleta_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `mac_mensagem_alterar_coleta_classe` (
+            `mac_id` int(11) NOT NULL AUTO_INCREMENT,
+            `mac_erro` text,
+            PRIMARY KEY (`mac_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `mac_mensagem_alterar_coleta_classe`
+            --
+
+            LOCK TABLES `mac_mensagem_alterar_coleta_classe` WRITE;
+            /*!40000 ALTER TABLE `mac_mensagem_alterar_coleta_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `mac_mensagem_alterar_coleta_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `mcc_mensagem_consulta_coleta_classe`
+            --
+
+            DROP TABLE IF EXISTS `mcc_mensagem_consulta_coleta_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `mcc_mensagem_consulta_coleta_classe` (
+            `mcc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `outAEE01` varchar(255) DEFAULT NULL,
+            `outAEE02` varchar(255) DEFAULT NULL,
+            `outAEE03` varchar(255) DEFAULT NULL,
+            `outAEE04` varchar(255) DEFAULT NULL,
+            `outAEE05` varchar(255) DEFAULT NULL,
+            `outAEE06` varchar(255) DEFAULT NULL,
+            `outAEE07` varchar(255) DEFAULT NULL,
+            `outAEE08` varchar(255) DEFAULT NULL,
+            `outAEE09` varchar(255) DEFAULT NULL,
+            `outAEE10` varchar(255) DEFAULT NULL,
+            `outAEE11` varchar(255) DEFAULT NULL,
+            `outCapacidadeFisica` varchar(255) DEFAULT NULL,
+            `outClasseConvenioEst` varchar(255) DEFAULT NULL,
+            `outCodATC01` varchar(255) DEFAULT NULL,
+            `outCodATC02` varchar(255) DEFAULT NULL,
+            `outCodATC03` varchar(255) DEFAULT NULL,
+            `outCodATC04` varchar(255) DEFAULT NULL,
+            `outCodATC05` varchar(255) DEFAULT NULL,
+            `outCodATC06` varchar(255) DEFAULT NULL,
+            `outCodEscola` varchar(255) DEFAULT NULL,
+            `outDataInicio` varchar(255) DEFAULT NULL,
+            `outDescrATC01` varchar(255) DEFAULT NULL,
+            `outDescrATC02` varchar(255) DEFAULT NULL,
+            `outDescrATC03` varchar(255) DEFAULT NULL,
+            `outDescrATC04` varchar(255) DEFAULT NULL,
+            `outDescrATC05` varchar(255) DEFAULT NULL,
+            `outDescrATC06` varchar(255) DEFAULT NULL,
+            `outDescrHabillit` varchar(255) DEFAULT NULL,
+            `outDescrNivel` varchar(255) DEFAULT NULL,
+            `outDescrPreench` varchar(255) DEFAULT NULL,
+            `outDescrProgEstadual` varchar(255) DEFAULT NULL,
+            `outDescrSala` varchar(255) DEFAULT NULL,
+            `outDescrSerie` varchar(255) DEFAULT NULL,
+            `outDescrSituacaoClasse` varchar(255) DEFAULT NULL,
+            `outDescrTipoEnsino` varchar(255) DEFAULT NULL,
+            `outDescrTurma` varchar(255) DEFAULT NULL,
+            `outDescrTurno` varchar(255) DEFAULT NULL,
+            `outDomingo` varchar(255) DEFAULT NULL,
+            `outDurClasse` varchar(255) DEFAULT NULL,
+            `outErro` varchar(255) DEFAULT NULL,
+            `outHabilitacao` varchar(255) DEFAULT NULL,
+            `outHoraFinal` varchar(255) DEFAULT NULL,
+            `outHoraInicial` varchar(255) DEFAULT NULL,
+            `outInicioAula` varchar(255) DEFAULT NULL,
+            `outNivel` varchar(255) DEFAULT NULL,
+            `outNomeEscola` varchar(255) DEFAULT NULL,
+            `outNomeUnidade` varchar(255) DEFAULT NULL,
+            `outNumeroSala` varchar(255) DEFAULT NULL,
+            `outProgMaisEduc` varchar(255) DEFAULT NULL,
+            `outQtdAlunoClasse` varchar(255) DEFAULT NULL,
+            `outQtdCargaHoraHabilitaca` varchar(255) DEFAULT NULL,
+            `outQuartaFeira` varchar(255) DEFAULT NULL,
+            `outQuintaFeira` varchar(255) DEFAULT NULL,
+            `outSabado` varchar(255) DEFAULT NULL,
+            `outSegundaFeira` varchar(255) DEFAULT NULL,
+            `outSerieAno` varchar(255) DEFAULT NULL,
+            `outSextaFeira` varchar(255) DEFAULT NULL,
+            `outTercaFeira` varchar(255) DEFAULT NULL,
+            `outTerminoAula` varchar(255) DEFAULT NULL,
+            `outTipoClasse` varchar(255) DEFAULT NULL,
+            `outTipoEnsino` varchar(255) DEFAULT NULL,
+            `outTurma` varchar(255) DEFAULT NULL,
+            `outTurno` varchar(255) DEFAULT NULL,
+            PRIMARY KEY (`mcc_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `mcc_mensagem_consulta_coleta_classe`
+            --
+
+            LOCK TABLES `mcc_mensagem_consulta_coleta_classe` WRITE;
+            /*!40000 ALTER TABLE `mcc_mensagem_consulta_coleta_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `mcc_mensagem_consulta_coleta_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `mcc_mensagem_consultar_classe_aluno_por_escola`
+            --
+
+            DROP TABLE IF EXISTS `mcc_mensagem_consultar_classe_aluno_por_escola`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `mcc_mensagem_consultar_classe_aluno_por_escola` (
+            `mcc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `mcc_codigo_escola` text,
+            `mcc_codigo_habilitacao` text,
+            `mcc_erro` text,
+            `mcc_nome_escola` text,
+            `mcc_numero_classe` text,
+            `mcc_quantidade_abandono` text,
+            `mcc_quantidade_atual` text,
+            `mcc_quantidade_cadastrada` text,
+            `mcc_quantidade_cessados` text,
+            `mcc_quantidade_outros` text,
+            `mcc_quantidade_reclassificados` text,
+            `mcc_quantidade_remanejados` text,
+            `mcc_quantidade_transferidos` text,
+            `mcc_quantidade_semestre` text,
+            `mcc_serie_ano` text,
+            `mcc_tipo_classe` text,
+            `mcc_tipo_ensino` text,
+            `mcc_turma` text,
+            `mcc_turno` text,
+            PRIMARY KEY (`mcc_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `mcc_mensagem_consultar_classe_aluno_por_escola`
+            --
+
+            LOCK TABLES `mcc_mensagem_consultar_classe_aluno_por_escola` WRITE;
+            /*!40000 ALTER TABLE `mcc_mensagem_consultar_classe_aluno_por_escola` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `mcc_mensagem_consultar_classe_aluno_por_escola` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `mce_mensagem_consultar_classe_aluno_por_escola`
+            --
+
+            DROP TABLE IF EXISTS `mce_mensagem_consultar_classe_aluno_por_escola`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `mce_mensagem_consultar_classe_aluno_por_escola` (
+            `cer_id` int(11) NOT NULL,
+            `mcc_id` int(11) NOT NULL,
+            KEY `fk_mce_mcc_id` (`mcc_id`),
+            KEY `fk_mce_cer_id` (`cer_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `mce_mensagem_consultar_classe_aluno_por_escola`
+            --
+
+            LOCK TABLES `mce_mensagem_consultar_classe_aluno_por_escola` WRITE;
+            /*!40000 ALTER TABLE `mce_mensagem_consultar_classe_aluno_por_escola` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `mce_mensagem_consultar_classe_aluno_por_escola` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `mcq_mensagem_consultar_quadro_resumo`
+            --
+
+            DROP TABLE IF EXISTS `mcq_mensagem_consultar_quadro_resumo`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `mcq_mensagem_consultar_quadro_resumo` (
+            `mcq_id` int(11) NOT NULL AUTO_INCREMENT,
+            `mcq_atividade_complementar_01` text,
+            `mcq_atividade_complementar_01_cltd` text,
+            `mcq_atividade_complementar_02` text,
+            `mcq_atividade_complementar_02_cltd` text,
+            `mcq_atividade_complementar_03` text,
+            `mcq_atividade_complementar_03_cltd` text,
+            `mcq_atividade_complementar_04` text,
+            `mcq_atividade_complementar_04_cltd` text,
+            `mcq_auditiva` text,
+            `mcq_auditiva_cltd` text,
+            `mcq_classe_coletada` text,
+            `mcq_classe_digitada` text,
+            `mcq_concomitante_subsequente` text,
+            `mcq_concominante_subsequente_cltd` text,
+            `mcq_curso_normal_01` text,
+            `mcq_curso_normal_01_cltd` text,
+            `mcq_curso_normal_02` text,
+            `mcq_curso_normal_02_cltd` text,
+            `mcq_curso_normal_03` text,
+            `mcq_curso_normal_03_cltd` text,
+            `mcq_curso_normal_04` text,
+            `mcq_curso_normal_04_cltd` text,
+            `mcq_educacao_especializada_exclusiva` text,
+            `mcq_educacao_especializada_exclusiva_cltd` text,
+            `mcq_educacao_especializada` text,
+            `mcq_educacao_especializada_cltd` text,
+            `mcq_eja_ensino_fundamental_af` text,
+            `mcq_eja_ensino_fundamental_a_cltd` text,
+            `mcq_eja_ensino_fundamental_if` text,
+            `mcq_eja_ensino_fundamental_ai_cltd` text,
+            `mcq_eja_ensino_medio` text,
+            `mcq_eja_ensino_medio_cltd` text,
+            `mcq_ensino_medio_01` text,
+            `mcq_ensino_medio_01_cltd` text,
+            `mcq_ensino_medio_02` text,
+            `mcq_ensino_medio_02_cltd` text,
+            `mcq_ensino_medio_03` text,
+            `mcq_ensino_medio_03_cltd` text,
+            `mcq_ensino_medio_04` text,
+            `mcq_ensino_medio_04_cltd` text,
+            `mcq_ensino_medio_profissnal` text,
+            `mcq_ensino_profissinal_cltd` text,
+            `mcq_ensino_linguas` text,
+            `mcq_erro` text,
+            `mcq_especializacao` text,
+            `mcq_especializacao_cltd` text,
+            `mcq_fisica` text,
+            `mcq_fisica_cltd` text,
+            `mcq_fundamental_8_anos_5` text,
+            `mcq_fundamental_8_anos_5_cltd` text,
+            `mcq_fundamental_8_anos_6` text,
+            `mcq_fundamental_8_anos_6_cltd` text,
+            `mcq_fundamental_8_anos_7` text,
+            `mcq_fundamental_8_anos_7_cltd` text,
+            `mcq_fundamental_8_anos_8` text,
+            `mcq_fundamental_8_anos_8_cltd` text,
+            `mcq_fundamental_9_anos_1` text,
+            `mcq_fundamental_9_anos_1_cltd` text,
+            `mcq_fundamental_9_anos_2` text,
+            `mcq_fundamental_9_anos_2_cltd` text,
+            `mcq_fundamental_9_anos_3` text,
+            `mcq_fundamental_9_anos_3_cltd` text,
+            `mcq_fundamental_9_anos_4` text,
+            `mcq_fundamental_9_anos_4_cltd` text,
+            `mcq_fundamental_9_anos_5` text,
+            `mcq_fundamental_9_anos_5_cltd` text,
+            `mcq_fundamental_9_anos_6` text,
+            `mcq_fundamental_9_anos_6_cltd` text,
+            `mcq_fundamental_9_anos_7` text,
+            `mcq_fundamental_9_anos_7_cltd` text,
+            `mcq_fundamental_9_anos_8` text,
+            `mcq_fundamental_9_anos_8_cltd` text,
+            `mcq_fundamental_9_anos_9` text,
+            `mcq_fundamental_9_anos_9_cltd` text,
+            `mcq_fundamental_9_anos_multisseriada` text,
+            `mcq_fundamental_9_anos_multisseriada_cltd` text,
+            `mcq_infantil_01` text,
+            `mcq_infantil_01_cltd` text,
+            `mcq_infantil_02` text,
+            `mcq_infantil_02_cltd` text,
+            `mcq_infantil_04` text,
+            `mcq_infantil_04_cltd` text,
+            `mcq_infantil_05` text,
+            `mcq_infantil_05_cltd` text,
+            `mcq_infantil_06` text,
+            `mcq_infantil_06_cltd` text,
+            `mcq_infantil_07` text,
+            `mcq_infantil_07_cltd` text,
+            `mcq_infantil_multiseriada` text,
+            `mcq_infantil_multsseriada_cltd` text,
+            `mcq_intelectual` text,
+            `mcq_intelectual_cltd` text,
+            `mcq_multipla` text,
+            `mcq_multi_plac_cltd` text,
+            `mcq_nao_seriado` text,
+            `mcq_nao_seriada_cltd` text,
+            `mcq_projovem_urb` text,
+            `mcq_projovem_urb_cltd` text,
+            `mcq_proeja_ensina_fundamental` text,
+            `mcq_proeja_ensino_fundamental_cltd` text,
+            `mcq_proeja_ensina_medio` text,
+            `mcq_proeja_ensino_medio_cltd` text,
+            `mcq_qualificacao_basica` text,
+            `mcq_qualificacao_basica_cltd` text,
+            `mcq_transtorno_especial_autismo` text,
+            `mcq_transt_esp_autismo_cltd` text,
+            `mcq_visual_cltd` text,
+            PRIMARY KEY (`mcq_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `mcq_mensagem_consultar_quadro_resumo`
+            --
+
+            LOCK TABLES `mcq_mensagem_consultar_quadro_resumo` WRITE;
+            /*!40000 ALTER TABLE `mcq_mensagem_consultar_quadro_resumo` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `mcq_mensagem_consultar_quadro_resumo` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `mcr_mensagem_consulta_coleta_classe_response`
+            --
+
+            DROP TABLE IF EXISTS `mcr_mensagem_consulta_coleta_classe_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `mcr_mensagem_consulta_coleta_classe_response` (
+            `ccr_id` int(11) NOT NULL,
+            `mcc_id` int(11) NOT NULL,
+            KEY `fk_mcr_mcc_id` (`mcc_id`),
+            KEY `fk_mcr_icr_id` (`ccr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `mcr_mensagem_consulta_coleta_classe_response`
+            --
+
+            LOCK TABLES `mcr_mensagem_consulta_coleta_classe_response` WRITE;
+            /*!40000 ALTER TABLE `mcr_mensagem_consulta_coleta_classe_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `mcr_mensagem_consulta_coleta_classe_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `mic_mensagem_incluir_coleta_classe`
+            --
+
+            DROP TABLE IF EXISTS `mic_mensagem_incluir_coleta_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `mic_mensagem_incluir_coleta_classe` (
+            `mic_id` int(11) NOT NULL AUTO_INCREMENT,
+            `mic_erro` text,
+            `mic_mensagem` text,
+            `mic_numero_classe` text,
+            PRIMARY KEY (`mic_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `mic_mensagem_incluir_coleta_classe`
+            --
+
+            LOCK TABLES `mic_mensagem_incluir_coleta_classe` WRITE;
+            /*!40000 ALTER TABLE `mic_mensagem_incluir_coleta_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `mic_mensagem_incluir_coleta_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `mir_mensagem_incluir_coleta_classe_response`
+            --
+
+            DROP TABLE IF EXISTS `mir_mensagem_incluir_coleta_classe_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `mir_mensagem_incluir_coleta_classe_response` (
+            `icr_id` int(11) NOT NULL,
+            `mic_id` int(11) NOT NULL,
+            KEY `fk_mir_mic_id` (`mic_id`),
+            KEY `fk_mir_icr_id` (`icr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `mir_mensagem_incluir_coleta_classe_response`
+            --
+
+            LOCK TABLES `mir_mensagem_incluir_coleta_classe_response` WRITE;
+            /*!40000 ALTER TABLE `mir_mensagem_incluir_coleta_classe_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `mir_mensagem_incluir_coleta_classe_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `mqr_mensagem_consultar_quadro_resumo_response`
+            --
+
+            DROP TABLE IF EXISTS `mqr_mensagem_consultar_quadro_resumo_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `mqr_mensagem_consultar_quadro_resumo_response` (
+            `qrr_id` int(11) NOT NULL,
+            `mcq_id` int(11) NOT NULL,
+            KEY `fk_mqr_mcq_id` (`mcq_id`),
+            KEY `fk_mqr_qrr_id` (`qrr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `mqr_mensagem_consultar_quadro_resumo_response`
+            --
+
+            LOCK TABLES `mqr_mensagem_consultar_quadro_resumo_response` WRITE;
+            /*!40000 ALTER TABLE `mqr_mensagem_consultar_quadro_resumo_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `mqr_mensagem_consultar_quadro_resumo_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `mra_matricula_registro_aluno_response`
+            --
+
+            DROP TABLE IF EXISTS `mra_matricula_registro_aluno_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `mra_matricula_registro_aluno_response` (
+            `rar_id` int(11) NOT NULL,
+            `cma_id` int(11) NOT NULL,
+            KEY `fk_mra_cma_id` (`cma_id`),
+            KEY `fk_mra_rar_id` (`rar_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `mra_matricula_registro_aluno_response`
+            --
+
+            LOCK TABLES `mra_matricula_registro_aluno_response` WRITE;
+            /*!40000 ALTER TABLE `mra_matricula_registro_aluno_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `mra_matricula_registro_aluno_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `mxc_mensagem_excluir_coleta_classe`
+            --
+
+            DROP TABLE IF EXISTS `mxc_mensagem_excluir_coleta_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `mxc_mensagem_excluir_coleta_classe` (
+            `ecr_id` int(11) NOT NULL,
+            `xcc_id` int(11) NOT NULL,
+            KEY `fk_mxc_xcc_id` (`xcc_id`),
+            KEY `fk_mxc_ecr_id` (`ecr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `mxc_mensagem_excluir_coleta_classe`
+            --
+
+            LOCK TABLES `mxc_mensagem_excluir_coleta_classe` WRITE;
+            /*!40000 ALTER TABLE `mxc_mensagem_excluir_coleta_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `mxc_mensagem_excluir_coleta_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `opr_operador`
+            --
+
+            DROP TABLE IF EXISTS `opr_operador`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `opr_operador` (
+            `opr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `opr_password` varchar(255) DEFAULT NULL,
+            `opr_user_name` varchar(255) DEFAULT NULL,
+            `asx_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`opr_id`),
+            KEY `fk_opr_asx_id` (`asx_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `opr_operador`
+            --
+
+            LOCK TABLES `opr_operador` WRITE;
+            /*!40000 ALTER TABLE `opr_operador` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `opr_operador` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `pss_pais`
+            --
+
+            DROP TABLE IF EXISTS `pss_pais`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `pss_pais` (
+            `pss_id` int(11) NOT NULL AUTO_INCREMENT,
+            `pss_codigo` int(11) DEFAULT NULL,
+            `pss_descricao` varchar(50) DEFAULT NULL,
+            PRIMARY KEY (`pss_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `pss_pais`
+            --
+
+            LOCK TABLES `pss_pais` WRITE;
+            /*!40000 ALTER TABLE `pss_pais` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `pss_pais` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `qrr_consultar_quadro_resumo_response`
+            --
+
+            DROP TABLE IF EXISTS `qrr_consultar_quadro_resumo_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `qrr_consultar_quadro_resumo_response` (
+            `qrr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `qrr_erro` text,
+            `qrr_codigo_processo` text,
+            `qrr_sucesso` text,
+            PRIMARY KEY (`qrr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `qrr_consultar_quadro_resumo_response`
+            --
+
+            LOCK TABLES `qrr_consultar_quadro_resumo_response` WRITE;
+            /*!40000 ALTER TABLE `qrr_consultar_quadro_resumo_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `qrr_consultar_quadro_resumo_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `rar_consultar_matricula_registro_aluno_response`
+            --
+
+            DROP TABLE IF EXISTS `rar_consultar_matricula_registro_aluno_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `rar_consultar_matricula_registro_aluno_response` (
+            `rar_id` int(11) NOT NULL AUTO_INCREMENT,
+            `rar_codigo_processo` varchar(16) DEFAULT NULL,
+            PRIMARY KEY (`rar_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `rar_consultar_matricula_registro_aluno_response`
+            --
+
+            LOCK TABLES `rar_consultar_matricula_registro_aluno_response` WRITE;
+            /*!40000 ALTER TABLE `rar_consultar_matricula_registro_aluno_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `rar_consultar_matricula_registro_aluno_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `rcr_raca_cor`
+            --
+
+            DROP TABLE IF EXISTS `rcr_raca_cor`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `rcr_raca_cor` (
+            `rcr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `rcr_codigo` varchar(2) DEFAULT NULL,
+            `rcr_descricao` varchar(50) DEFAULT NULL,
+            PRIMARY KEY (`rcr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `rcr_raca_cor`
+            --
+
+            LOCK TABLES `rcr_raca_cor` WRITE;
+            /*!40000 ALTER TABLE `rcr_raca_cor` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `rcr_raca_cor` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `rlp_role_operador`
+            --
+
+            DROP TABLE IF EXISTS `rlp_role_operador`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `rlp_role_operador` (
+            `rlp_id` int(11) NOT NULL AUTO_INCREMENT,
+            `rlp_role` varchar(255) DEFAULT NULL,
+            `opr_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`rlp_id`),
+            KEY `fk_rlp_opr_id` (`opr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `rlp_role_operador`
+            --
+
+            LOCK TABLES `rlp_role_operador` WRITE;
+            /*!40000 ALTER TABLE `rlp_role_operador` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `rlp_role_operador` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `rma_realizar_matricula_com_registro_aluno`
+            --
+
+            DROP TABLE IF EXISTS `rma_realizar_matricula_com_registro_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `rma_realizar_matricula_com_registro_aluno` (
+            `rma_id` int(11) NOT NULL AUTO_INCREMENT,
+            `rma_erro_alteracao_endereco` text,
+            `rma_errp_matricula` text,
+            `rma_codigo_processo` text,
+            `rma_sucesso_alteracao_endereco` text,
+            `rma_suecce_matricula` text,
+            PRIMARY KEY (`rma_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `rma_realizar_matricula_com_registro_aluno`
+            --
+
+            LOCK TABLES `rma_realizar_matricula_com_registro_aluno` WRITE;
+            /*!40000 ALTER TABLE `rma_realizar_matricula_com_registro_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `rma_realizar_matricula_com_registro_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `rmc_realizar_matricula_com_registro_aluno`
+            --
+
+            DROP TABLE IF EXISTS `rmc_realizar_matricula_com_registro_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `rmc_realizar_matricula_com_registro_aluno` (
+            `rmc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `rmc_ano` text,
+            `rmc_convenio` text,
+            `rmc_ddd_celular` text,
+            `rmc_data_matricula` text,
+            `rmc_digito_registro_aluno` text,
+            `rmc_fone_celular` text,
+            `rmc_mes_matricula` text,
+            `rmc_numero_aluno` text,
+            `rmc_numero_classe` text,
+            `rmc_registro_aluno` text,
+            `rmc_sms` text,
+            `rmc_serie_ano` text,
+            `rmc_tipo_ensino` text,
+            `rmc_uf_registro_aluno` text,
+            `ers_id` int(11) DEFAULT NULL,
+            `rma_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`rmc_id`),
+            KEY `FKcfccyrdrywb2kr77v9msausfd` (`ers_id`),
+            KEY `FKicnxlinlmd2ma0vnte97ah4v8` (`rma_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `rmc_realizar_matricula_com_registro_aluno`
+            --
+
+            LOCK TABLES `rmc_realizar_matricula_com_registro_aluno` WRITE;
+            /*!40000 ALTER TABLE `rmc_realizar_matricula_com_registro_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `rmc_realizar_matricula_com_registro_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `rmr_realizar_matricula_sem_registro_aluno_response`
+            --
+
+            DROP TABLE IF EXISTS `rmr_realizar_matricula_sem_registro_aluno_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `rmr_realizar_matricula_sem_registro_aluno_response` (
+            `rmr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `rmr_digito_registro_aluno` varchar(255) DEFAULT NULL,
+            `rmr_erro` varchar(255) DEFAULT NULL,
+            `rmr_codigo_processo` varchar(255) DEFAULT NULL,
+            `rmr_registro_aluno` varchar(255) DEFAULT NULL,
+            `rmr_sucesso` varchar(255) DEFAULT NULL,
+            `rmr_uf` varchar(255) DEFAULT NULL,
+            PRIMARY KEY (`rmr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `rmr_realizar_matricula_sem_registro_aluno_response`
+            --
+
+            LOCK TABLES `rmr_realizar_matricula_sem_registro_aluno_response` WRITE;
+            /*!40000 ALTER TABLE `rmr_realizar_matricula_sem_registro_aluno_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `rmr_realizar_matricula_sem_registro_aluno_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `rsr_realizar_matricula_sem_registro_aluno`
+            --
+
+            DROP TABLE IF EXISTS `rsr_realizar_matricula_sem_registro_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `rsr_realizar_matricula_sem_registro_aluno` (
+            `rsr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `rsr_altas_habilidades_superdotacao` varchar(1) DEFAULT NULL,
+            `rsr_ano` varchar(4) DEFAULT NULL,
+            `rsr_ano_emissao` varchar(4) DEFAULT NULL,
+            `rsr_ano_entrada_brasil` varchar(4) DEFAULT NULL,
+            `rsr_ano_nascimento` varchar(4) DEFAULT NULL,
+            `rsr_autista_classico` varchar(1) DEFAULT NULL,
+            `rsr_auxilio_leitor` varchar(1) DEFAULT NULL,
+            `rsr_auxilio_transcricao` varchar(1) DEFAULT NULL,
+            `rsr_bairro` varchar(30) DEFAULT NULL,
+            `rsr_baixa_visao` varchar(1) DEFAULT NULL,
+            `rsr_bolsa_familia` varchar(1) DEFAULT NULL,
+            `rsr_cpf` varchar(11) DEFAULT NULL,
+            `rsr_cegueira` varchar(1) DEFAULT NULL,
+            `rsr_cep` varchar(8) DEFAULT NULL,
+            `rsr_cidade` varchar(22) DEFAULT NULL,
+            `rsr_complemento` varchar(13) DEFAULT NULL,
+            `rsr_raca_cor` varchar(2) DEFAULT NULL,
+            `rsr_ddd` varchar(2) DEFAULT NULL,
+            `rsr_ddd_cel` varchar(2) DEFAULT NULL,
+            `rsr_data_matricula` varchar(2) DEFAULT NULL,
+            `rsr_dia_emissao` varchar(2) DEFAULT NULL,
+            `rsr_dia_entrada_brasil` varchar(2) DEFAULT NULL,
+            `rsr_dia_nascimento` varchar(2) DEFAULT NULL,
+            `rsr_email` varchar(40) DEFAULT NULL,
+            `rsr_fisica_cadeirante` varchar(1) DEFAULT NULL,
+            `rsr_fisica_outros` varchar(1) DEFAULT NULL,
+            `rsr_fisica_paralisia_cereblal` varchar(1) DEFAULT NULL,
+            `rsr_fone_cel` varchar(9) DEFAULT NULL,
+            `rsr_fone_recado` varchar(9) DEFAULT NULL,
+            `rsr_fone_residencial` varchar(9) DEFAULT NULL,
+            `rsr_guia_interprete` varchar(1) DEFAULT NULL,
+            `rsr_intelectual` varchar(1) DEFAULT NULL,
+            `rsr_interprete_libras` varchar(1) DEFAULT NULL,
+            `rsr_latitude` varchar(17) DEFAULT NULL,
+            `rsr_leitura_labial` varchar(1) DEFAULT NULL,
+            `rsr_logradouro` varchar(60) DEFAULT NULL,
+            `rsr_longitude` varchar(17) DEFAULT NULL,
+            `rsr_mes_emissao` varchar(2) DEFAULT NULL,
+            `rsr_mes_entrada_brasil` varchar(2) DEFAULT NULL,
+            `rsr_mes_matricula` varchar(2) DEFAULT NULL,
+            `rsr_mes_nascimento` varchar(2) DEFAULT NULL,
+            `rsr_mobilidade_reduzida` varchar(1) DEFAULT NULL,
+            `rsr_multipla` varchar(1) DEFAULT NULL,
+            `rsr_municipio_nascimento` varchar(22) DEFAULT NULL,
+            `rsr_nacionalidade` varchar(1) DEFAULT NULL,
+            `rsr_necesita_educacao_especial` varchar(1) DEFAULT NULL,
+            `rsr_nenhum` varchar(1) DEFAULT NULL,
+            `rsr_nome_aluno` varchar(60) DEFAULT NULL,
+            `rsr_nome_fone_recado` varchar(10) DEFAULT NULL,
+            `rsr_nome_mae` varchar(60) DEFAULT NULL,
+            `rsr_nome_pai` varchar(60) DEFAULT NULL,
+            `rsr_nome_sicial` varchar(50) DEFAULT NULL,
+            `rsr_numero_aluno` varchar(2) DEFAULT NULL,
+            `rsr_numero_classe` varchar(9) DEFAULT NULL,
+            `rsr_numero_identificacao_social` varchar(11) DEFAULT NULL,
+            `rsr_numero` varchar(6) DEFAULT NULL,
+            `rsr_pais_origem` varchar(40) DEFAULT NULL,
+            `rsr_permanente` varchar(1) DEFAULT NULL,
+            `rsr_prova_ampliada` varchar(1) DEFAULT NULL,
+            `rsr_prova_braile` varchar(1) DEFAULT NULL,
+            `rsr_quilombola` varchar(1) DEFAULT NULL,
+            `rsr_rgrne01` varchar(14) DEFAULT NULL,
+            `rsr_rgrne02` varchar(2) DEFAULT NULL,
+            `rsr_rgrne03` varchar(2) DEFAULT NULL,
+            `rsr_sms` varchar(1) DEFAULT NULL,
+            `rsr_serie_ano` varchar(2) DEFAULT NULL,
+            `rsr_sexo` varchar(1) DEFAULT NULL,
+            `rsr_sindrome_asperger` varchar(1) DEFAULT NULL,
+            `rsr_sindrome_down` varchar(1) DEFAULT NULL,
+            `rsr_sindrome_rett` varchar(1) DEFAULT NULL,
+            `rsr_surdez_leve_moderada` varchar(1) DEFAULT NULL,
+            `rsr_surdez_severa_profunda` varchar(1) DEFAULT NULL,
+            `rsr_surdocegueira` varchar(1) DEFAULT NULL,
+            `rsr_tam16` varchar(1) DEFAULT NULL,
+            `rsr_tam20` varchar(1) DEFAULT NULL,
+            `rsr_tam24` varchar(1) DEFAULT NULL,
+            `rsr_temporaria` varchar(1) DEFAULT NULL,
+            `rsr_tipo_log` varchar(1) DEFAULT NULL,
+            `rsr_tipo_ensino` varchar(2) DEFAULT NULL,
+            `rsr_trans_desintegrativo_inf` varchar(1) DEFAULT NULL,
+            `rsr_uf` varchar(2) DEFAULT NULL,
+            `rsr_uf_nascimento` varchar(2) DEFAULT NULL,
+            `cta_id` int(11) DEFAULT NULL,
+            `cnv_id` int(11) DEFAULT NULL,
+            `enc_id` int(11) DEFAULT NULL,
+            `rmr_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`rsr_id`),
+            KEY `FKnbvneptwwy9fd1pgifh5x8v7q` (`cta_id`),
+            KEY `FKg8bvhggg70muf862tv1669v0m` (`cnv_id`),
+            KEY `FK3hgrgjvaqeygwbqmh53sspnrn` (`enc_id`),
+            KEY `FKrcoknukknx6dywgm4vqy3o2xb` (`rmr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `rsr_realizar_matricula_sem_registro_aluno`
+            --
+
+            LOCK TABLES `rsr_realizar_matricula_sem_registro_aluno` WRITE;
+            /*!40000 ALTER TABLE `rsr_realizar_matricula_sem_registro_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `rsr_realizar_matricula_sem_registro_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `sxt_servico_externo`
+            --
+
+            DROP TABLE IF EXISTS `sxt_servico_externo`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `sxt_servico_externo` (
+            `sxt_id` int(11) NOT NULL AUTO_INCREMENT,
+            `sxt_tipo_servico_externo` varchar(20) DEFAULT NULL,
+            PRIMARY KEY (`sxt_id`),
+            UNIQUE KEY `UK_hshhfg30vqwy5lkwier9e7koj` (`sxt_tipo_servico_externo`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `sxt_servico_externo`
+            --
+
+            LOCK TABLES `sxt_servico_externo` WRITE;
+            /*!40000 ALTER TABLE `sxt_servico_externo` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `sxt_servico_externo` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `tac_trocar_aluno_classe_registro_aluno`
+            --
+
+            DROP TABLE IF EXISTS `tac_trocar_aluno_classe_registro_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `tac_trocar_aluno_classe_registro_aluno` (
+            `tac_id` int(11) NOT NULL AUTO_INCREMENT,
+            `tac_erro` text,
+            `tac_horario` text,
+            `tac_numero_classe` text,
+            `tac_tac_ano` text,
+            `tac_sucesso` text,
+            `tac_tipo_ensino` text,
+            `tac_turma` text,
+            `tac_turno` text,
+            `tac_ano` text,
+            `tac_ano_troca` text,
+            `tac_dia_troca` text,
+            `tac_digito_registro_aluno` text,
+            `tac_mes_troca` text,
+            `tac_numero_aluno` text,
+            `tac_numero_classe_destino` text,
+            `tac_numero_classe_origem` text,
+            `tac_registro_aluno` text,
+            `tac_serie_ano` text,
+            `tac_uf` text,
+            `tar_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`tac_id`),
+            KEY `FKpry4gh4d6op71xouf7x0kl4t5` (`tar_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `tac_trocar_aluno_classe_registro_aluno`
+            --
+
+            LOCK TABLES `tac_trocar_aluno_classe_registro_aluno` WRITE;
+            /*!40000 ALTER TABLE `tac_trocar_aluno_classe_registro_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `tac_trocar_aluno_classe_registro_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `tar_troca_aluno_classe_response`
+            --
+
+            DROP TABLE IF EXISTS `tar_troca_aluno_classe_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `tar_troca_aluno_classe_response` (
+            `tar_id` int(11) NOT NULL AUTO_INCREMENT,
+            `tar_codigo_processo` text,
+            PRIMARY KEY (`tar_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `tar_troca_aluno_classe_response`
+            --
+
+            LOCK TABLES `tar_troca_aluno_classe_response` WRITE;
+            /*!40000 ALTER TABLE `tar_troca_aluno_classe_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `tar_troca_aluno_classe_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `tcf_tipo_consulta_ficha_aluno`
+            --
+
+            DROP TABLE IF EXISTS `tcf_tipo_consulta_ficha_aluno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `tcf_tipo_consulta_ficha_aluno` (
+            `tcf_id` int(11) NOT NULL AUTO_INCREMENT,
+            `tcf_consultar_ficha_aluno_enum` varchar(60) DEFAULT NULL,
+            PRIMARY KEY (`tcf_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `tcf_tipo_consulta_ficha_aluno`
+            --
+
+            LOCK TABLES `tcf_tipo_consulta_ficha_aluno` WRITE;
+            /*!40000 ALTER TABLE `tcf_tipo_consulta_ficha_aluno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `tcf_tipo_consulta_ficha_aluno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `tcs_troca_entre_classe`
+            --
+
+            DROP TABLE IF EXISTS `tcs_troca_entre_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `tcs_troca_entre_classe` (
+            `tar_id` int(11) NOT NULL,
+            `tac_id` int(11) NOT NULL,
+            KEY `fk_tcs_tac_id` (`tac_id`),
+            KEY `fk_tcs_tar_id` (`tar_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `tcs_troca_entre_classe`
+            --
+
+            LOCK TABLES `tcs_troca_entre_classe` WRITE;
+            /*!40000 ALTER TABLE `tcs_troca_entre_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `tcs_troca_entre_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `trn_turno`
+            --
+
+            DROP TABLE IF EXISTS `trn_turno`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `trn_turno` (
+            `trn_id` int(11) NOT NULL AUTO_INCREMENT,
+            `trn_codigo` varchar(10) DEFAULT NULL,
+            `trn_descricao` varchar(60) DEFAULT NULL,
+            `trn_turno_enum` varchar(255) DEFAULT NULL,
+            PRIMARY KEY (`trn_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `trn_turno`
+            --
+
+            LOCK TABLES `trn_turno` WRITE;
+            /*!40000 ALTER TABLE `trn_turno` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `trn_turno` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `xcc_mensagem_excluir_coleta_classe`
+            --
+
+            DROP TABLE IF EXISTS `xcc_mensagem_excluir_coleta_classe`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `xcc_mensagem_excluir_coleta_classe` (
+            `xcc_id` int(11) NOT NULL AUTO_INCREMENT,
+            `xcc_erro` text,
+            `xcc_sucesso` text,
+            PRIMARY KEY (`xcc_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `xcc_mensagem_excluir_coleta_classe`
+            --
+
+            LOCK TABLES `xcc_mensagem_excluir_coleta_classe` WRITE;
+            /*!40000 ALTER TABLE `xcc_mensagem_excluir_coleta_classe` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `xcc_mensagem_excluir_coleta_classe` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `xmr_excluir_matricula_response`
+            --
+
+            DROP TABLE IF EXISTS `xmr_excluir_matricula_response`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `xmr_excluir_matricula_response` (
+            `xmr_id` int(11) NOT NULL AUTO_INCREMENT,
+            `xmr_erro` text,
+            `xmr_codigo_processo` text,
+            `xmr_sucesso` text,
+            PRIMARY KEY (`xmr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `xmr_excluir_matricula_response`
+            --
+
+            LOCK TABLES `xmr_excluir_matricula_response` WRITE;
+            /*!40000 ALTER TABLE `xmr_excluir_matricula_response` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `xmr_excluir_matricula_response` ENABLE KEYS */;
+            UNLOCK TABLES;
+
+            --
+            -- Table structure for table `xmt_excluir_matricula`
+            --
+
+            DROP TABLE IF EXISTS `xmt_excluir_matricula`;
+            /*!40101 SET @saved_cs_client     = @@character_set_client */;
+            /*!40101 SET character_set_client = utf8 */;
+            CREATE TABLE `xmt_excluir_matricula` (
+            `xmt_id` int(11) NOT NULL AUTO_INCREMENT,
+            `xmt_ano` text,
+            `xmt_digito_registro_aluno` text,
+            `xmt_numero_classe` text,
+            `xmt_registro_aluno` text,
+            `xmt_serie_ano` text,
+            `xmt_tipo_ensino` text,
+            `xmt_uf` text,
+            `xmr_id` int(11) DEFAULT NULL,
+            PRIMARY KEY (`xmt_id`),
+            KEY `FKc53tdgy1w775bkk0axg4w711d` (`xmr_id`)
+            ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+            /*!40101 SET character_set_client = @saved_cs_client */;
+
+            --
+            -- Dumping data for table `xmt_excluir_matricula`
+            --
+
+            LOCK TABLES `xmt_excluir_matricula` WRITE;
+            /*!40000 ALTER TABLE `xmt_excluir_matricula` DISABLE KEYS */;
+            /*!40000 ALTER TABLE `xmt_excluir_matricula` ENABLE KEYS */;
+            UNLOCK TABLES;
+            /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+            /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+            /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+            /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+            /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+            /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+            /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+            /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+            -- Dump completed on 2019-03-18 12:01:45
+        </sql>
+    </changeSet>
+</databaseChangeLog>

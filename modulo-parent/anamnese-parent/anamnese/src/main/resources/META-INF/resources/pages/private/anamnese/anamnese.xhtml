@@ -1,0 +1,193 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:sw="http://java.sun.com/jsf/composite/jsf-components"
+                template="/template/template.xhtml">
+
+    <ui:define name="title">
+        Pessoa
+    </ui:define>
+
+    <ui:define name="description">
+        Cadastro de anamnese.
+    </ui:define>
+
+    <ui:define name="body">
+        <h:form id="formEdicao" >
+            <p:tabView id="tab" widgetVar="tab">
+                <p:tab title="Anamnese">
+                    <p:panelGrid id="panelGridHead01" columns="1" layout="grid" columnClasses="ui-g-12 ui-g-nopad">
+
+                        <p:panelGrid columns="2" layout="grid" columnClasses="ui-sm-12 ui-md-2 ui-lg-1 ui-xl-1, ui-sm-12 ui-md-4 ui-lg-2 ui-xl-2">
+
+                            <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                                <h:outputLabel value="Código" />
+                                <p:inputText id="inputTextAnamneseId" 
+                                             value="#{anamneseMb.anamnese.id}"
+                                             disabled="true"
+                                             style="text-align: right;" >
+                                    <f:convertNumber  />
+                                </p:inputText>
+                            </p:panelGrid>
+
+
+
+
+                            <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                <p:panelGrid columns="1" layout="grid" >
+                                    <h:outputLabel value="Data" />
+                                    <p:calendar id="calendarDataEmissao"
+                                                value="#{anamneseMb.anamnese.dataHora}"
+                                                required="true"
+                                                requiredMessage="Informe a data"
+                                                pattern="dd/MM/yyyy HH:mm:ss" 
+                                                locale="pt" 
+                                                style="width: 100%"
+                                                inputStyle="width: 100%;">
+                                    </p:calendar>
+                                </p:panelGrid>
+                            </p:panelGrid>
+
+                        </p:panelGrid>
+                    </p:panelGrid>
+                    <p:panelGrid id="panelGridHead02" columns="1" layout="grid" columnClasses="ui-g-12 ui-g-nopad">
+                        <p:panelGrid columns="1" layout="grid" columnClasses="ui-g-12 ui-g-nopad">
+                            <p:outputLabel value="Pessoa"/>
+                            <sw:autoCompletePessoa id="autoCompletePessoa" 
+                                                   value="#{anamneseMb.anamnese.pessoa}" 
+                                                   completeMethod="#{pessoaMb.completaPessoaAtivo}"
+                                                   controlador="#{anamneseMb.pessoaComponentListener()}"
+                                                   converter="#{genericEntidadeConverter}"
+                                                   actionUnlocked="#{pessoaMb.cancelar()}" 
+                                                   list="#{pessoaMb.pessoaList}"
+                                                   forceSelection="false"
+                                                   updateItemSelect="@form">
+
+                            </sw:autoCompletePessoa>
+                        </p:panelGrid>
+                    </p:panelGrid>
+
+                    <div class="ui-widget-content" style="margin-top: 5px; margin-bottom: 10px"/>
+
+                    <p:panelGrid columns="1" layout="grid" columnClasses="ui-g-12 ui-g-nopad">
+                        <p:panelGrid columns="1" layout="grid" columnClasses="ui-g-12 ui-g-nopad">
+                            <p:outputLabel for="selectOneMenuTipoDadoClinoco" value="Tipo Dado Clínico" />
+                            <p:selectOneMenu id="selectOneMenuTipoDadoClinoco"
+                                             value="#{anamneseMb.dadoClinico.tipoDadoClinico}"
+                                             converter="#{genericEntidadeConverter}">
+                                <f:selectItems value="#{javaServerFacesUtil.getSelectItems(anamneseMb.tipoDadoClinicoMap, false)}" />
+                            </p:selectOneMenu>
+                        </p:panelGrid>
+                        <br/>
+                        <p:textEditor value="#{anamneseMb.dadoClinico.observacao}" placeholder="Entre com o seu comentário." height="300">
+                        </p:textEditor>
+                    </p:panelGrid>
+
+                    <br/>
+                    <p:commandButton id="commandLinkAdcionarDadoClinico" 
+                                     value="Adicionar" 
+                                     action="#{anamneseMb.adicionarDadoClinico()}"
+                                     disabled="#{!anamneseMb.modoTela.insercaoOrAlteracao}"
+                                     update="@form"
+                                     icon="ui-icon ui-icon-circle-plus"
+                                     class="btn btn-primary"
+                                     style="height: 100%; width: 100%;" >
+                    </p:commandButton>
+                    <div class="ui-widget-content" style="margin-top: 5px; margin-bottom: 10px"/>
+                    <br/>
+
+                    <p:dataTable id="dataTableProdutoMandatoSeguranca" 
+                                 rendered="true"
+                                 value="#{anamneseMb.dadoClinicoGrupoList}" 
+                                 var="dadoClinico"
+                                 rowKey="#{dadoClinico.key.id}"
+                                 emptyMessage="Nenhum registro encontrado.">
+
+                        <f:facet name="header" >
+                            <h:outputText value="Anamnese" />
+                        </f:facet>
+
+                        <p:columnGroup type="header">  
+                            <p:row>
+                                <p:column headerText="Tipo Dado Clinico" />    
+                                <p:column headerText="Dado Clinico" />    
+
+                            </p:row>  
+                        </p:columnGroup>  
+
+                        <p:subTable value="#{dadoClinico.value}"
+                                    id="teste"
+                                    var="procedimentoEtapaAtendimento">
+
+
+                            <f:facet name="header">  
+                                <h:outputText value="#{dadoClinico.key.display}" />
+                            </f:facet>
+
+                            <p:column  >
+                                <p:outputLabel value="#{procedimentoEtapaAtendimento.tipoDadoClinico.descricao}" />
+                            </p:column>
+
+                            <p:column  >
+                                <p:outputLabel value="#{procedimentoEtapaAtendimento.observacao}" escape="falses" />
+                            </p:column>
+
+
+
+
+
+                        </p:subTable>
+                    </p:dataTable>
+
+
+
+
+
+                </p:tab>
+            </p:tabView>
+            <p:spacer/>
+            <h:panelGrid columns="2"  style="width: 100%">
+                <h:panelGrid columns="5">
+                    <p:commandButton value="Inserir" 
+                                     action="#{anamneseMb.inserir()}"
+                                     rendered="#{!anamneseMb.modoTela.insercaoOrAlteracao}"
+                                     process="@this"
+                                     update="@form"
+                                     class="btn btn-primary"/>
+
+                    <p:commandButton value="Salvar" 
+                                     action="#{anamneseMb.salvar()}" 
+                                     rendered="#{anamneseMb.modoTela.insercaoOrAlteracao}"
+                                     class="btn btn-success"
+                                     process="@form"
+                                     update="@form"/>
+
+                    <p:commandButton value="Alterar" 
+                                     action="#{anamneseMb.alterar()}"
+                                     rendered="#{anamneseMb.modoTela.visualizacao}"
+                                     process="@this"
+                                     update="@form"
+                                     class="btn btn-warning" />
+
+                    <p:commandButton value="Excluir"
+                                     action="#{anamneseMb.excluir()}"
+                                     rendered="#{anamneseMb.modoTela.visualizacao}"
+                                     class="btn btn-info" />
+
+                    <p:commandButton value="Cancelar" 
+                                     action="#{anamneseMb.cancelar()}"
+                                     class="btn btn-danger"
+                                     process="@this"
+                                     update="@form">
+                        <p:resetInput target="@form" />
+                    </p:commandButton>
+
+                </h:panelGrid>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+
+
+</ui:composition>

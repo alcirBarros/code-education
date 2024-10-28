@@ -1,0 +1,21 @@
+version: "3.3"
+
+services:
+  spring-boot:
+    container_name: spring-swagger
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: spring-swagger-0.0.1.jar
+    environment:
+      COMPOSE_PROFILES: "development,logging"
+    ports :
+      - 8080:8080
+#    volumes:
+#      - type: bind
+#        source: ${HOME}/.aws
+#        target: /root/.aws
+
+
+

@@ -1,0 +1,9 @@
+info.app:
+  name: BB Facade
+  version: ${project.version}
+
+spring:
+  jackson:
+    default-property-inclusion: NON_NULL
+  main:
+    allow-bean-definition-overriding: true

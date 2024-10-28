@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerOracleDriver
+    url: &arn sm-hml/usadq-meuestabelecimento
+    username: *arn
+
+  jpa:
+    database: oracle
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        default_schema: OWADQ
+
+
+#spring:
+#  datasource:
+#    driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@10.40.89.38:1521/ibi
+#    username: USADQSM
+#    password: Al3lo_DEV
+#
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: validate
+#
+#    properties:
+#      hibernate:
+#        default_schema: OWADQ
+
+
+
+

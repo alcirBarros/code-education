@@ -1,0 +1,83 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:sw="http://java.sun.com/jsf/composite/jsf-components"
+                template="/template/template.xhtml">  
+
+    <ui:define name="title">
+        Endereço
+    </ui:define>
+
+    <ui:define name="description">
+        Cadastro de Endereço.
+    </ui:define>
+
+    <ui:define name="body">
+        <h:form id="formEdicao" >
+            <p:tabView id="tab" widgetVar="tab">
+
+                <p:tab title="Endereço">
+
+                    <sw:enderecoComponent id="enderecoComponent" 
+                                          value="#{enderecoMb.endereco}" 
+                                          controlador="#{enderecoMb.enderecoComponentListener()}"
+                                          converter="#{genericEntidadeConverter}"
+                                          disabled="#{!enderecoMb.modoTela.insercaoOrAlteracao}" 
+                                          required="true"
+                                          update=":formEdicao:tab:enderecoComponent:panelGridEndereco"
+                                          block="#{enderecoMb.modoTela.insercaoOrAlteracao}">
+                    </sw:enderecoComponent>
+
+
+
+
+                </p:tab>
+
+
+            </p:tabView>
+            <p:spacer/>
+            <h:panelGrid columns="2"  style="width: 100%">
+                <h:panelGrid columns="5">
+                    <p:commandButton value="Inserir" 
+                                     action="#{enderecoMb.inserir()}"
+                                     rendered="#{!enderecoMb.modoTela.insercaoOrAlteracao}"
+                                     process="@this"
+                                     update="@form"
+                                     class="btn btn-primary"/>
+
+                    <p:commandButton value="Salvar" 
+                                     action="#{enderecoMb.salvar()}" 
+                                     rendered="#{enderecoMb.modoTela.insercaoOrAlteracao}"
+                                     class="btn btn-success"
+                                     process="@form"
+                                     update="@form"/>
+
+                    <p:commandButton value="Alterar" 
+                                     action="#{enderecoMb.alterar()}"
+                                     rendered="#{enderecoMb.modoTela.visualizacao}"
+                                     process="@this"
+                                     update="@form"
+                                     class="btn btn-warning" />
+
+                    <p:commandButton value="Excluir"
+                                     action="#{enderecoMb.excluir()}"
+                                     rendered="#{enderecoMb.modoTela.visualizacao}"
+                                     class="btn btn-info" />
+
+                    <p:commandButton value="Cancelar" 
+                                     action="#{enderecoMb.cancelar()}"
+                                     class="btn btn-danger"
+                                     process="@this"
+                                     update="@form">
+                        <p:resetInput target="@form" />
+                    </p:commandButton>
+
+                </h:panelGrid>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+
+
+</ui:composition>

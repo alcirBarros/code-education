@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restMockResponse>
+    <body>{
+    "dataDebitoParcela": "21.03.2022",
+    "indicadorContinuacaoPesquisa": "N",
+    "quantidadeOperacoesCliente": 1,
+    "listaParcelas": [
+        {
+            "identificadorUnico": 20210206416791119,
+            "contrato": 55122894,
+            "dataContratacao": "01.04.2021",
+            "instituicaoFinanceira": 1,
+            "agencia": 551,
+            "digitoVerificadorAgencia": "7",
+            "conta": 120396,
+            "digitoVerificadorConta": "7",
+            "valorContratado": 5400,
+            "valorParcela": 0,
+            "dataVencimento": "21.03.2022",
+            "indicadorOperacaoLiquidada": "N"
+        }
+    ]
+}</body>
+    <contentEncodings/>
+    <headerQueries/>
+    <httpHeaders>
+        <httpHeader>
+            <name>content-type</name>
+            <value>application/json; charset=utf-8</value>
+        </httpHeader>
+    </httpHeaders>
+    <httpStatusCode>200</httpStatusCode>
+    <id>09oIiA</id>
+    <jsonPathExpressions/>
+    <methodId>vcQd18</methodId>
+    <name>200</name>
+    <parameterQueries/>
+    <status>ENABLED</status>
+    <usingExpressions>false</usingExpressions>
+    <xpathExpressions/>
+</restMockResponse>

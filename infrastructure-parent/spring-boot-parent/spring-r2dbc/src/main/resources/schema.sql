@@ -1,0 +1,14 @@
+--CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+--
+--CREATE SEQUENCE IF NOT EXISTS public.sequence_id
+--              START WITH 1
+--              INCREMENT BY 1
+--              NO MINVALUE
+--              NO MAXVALUE
+--              CACHE 1;
+--
+--CREATE TABLE IF NOT EXISTS employee (
+--    uuid uuid default uuid_generate_v4(),
+--    id bigint DEFAULT nextval('public.sequence_id'::regclass) NOT NULL,
+--    name TEXT NOT NULL
+--);

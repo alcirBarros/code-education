@@ -1,0 +1,29 @@
+_format_version: '2.1'
+
+services:
+- name: service-1
+  url: http://mockbin.com/request
+  
+  routes:
+  - paths:
+    - '/v1'
+  plugins:
+#  - name: helloworld
+#  - name: ifood-kong-oidc-plugin
+#    config:
+#        server_url: http://ifoodoffice-keycloak.aws.dev.k8s.ifood-devel.com.br/auth/realms/dxt.abarros
+#        issuer: http://ifoodoffice-keycloak.aws.dev.k8s.ifood-devel.com.br/auth/realms/dxt.abarros
+#        authorized_party: kong-merchant-api      
+
+
+#- name: service-2
+#  url: http://p1machado-test-server.herokuapp.com/
+#  routes:
+#  - name: my-route
+#    protocols:
+#    - http
+#    - https
+#    methods:
+#    - GET
+#  - paths:
+#    - '/v2'

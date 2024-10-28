@@ -1,0 +1,21 @@
+[
+  {
+    "httpRequest": {
+      "path": "/v1/facade-bb/contracts/consult-installments"
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": ["application/json"]
+      },
+      "body": "{\n    \"installmentDebitDate\": \"2020-07-20\",\n    \"hasNext\": false,\n    \"customerOperationsQuantity\": 1,\n    \"installments\": [\n        {\n            \"uniqueIdentifier\": 20193025359691268,\n            \"contract\": 55120435,\n            \"hiringDate\": \"2020-07-20\",\n            \"financialInstitution\": 0,\n            \"agency\": 551,\n            \"agencyCheckDigit\": \"7\",\n            \"account\": 5707,\n            \"accountCheckDigit\": \"X\",\n            \"hiredValue\": 10900.0,\n            \"installmentValue\": 0,\n            \"installmentDueDate\": \"2020-07-20\",\n            \"settledTransactionIndicator\": false\n        }\n    ]\n}"
+    }
+  },
+  {
+    "httpRequest": {
+      "path": "/simpleSecond"
+    },
+    "httpResponse": {
+      "body": "some second responseeeeeeeeeee"
+    }
+  }
+]

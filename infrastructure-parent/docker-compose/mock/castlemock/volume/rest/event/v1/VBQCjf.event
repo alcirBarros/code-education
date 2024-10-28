@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restEvent>
+    <endDate>2022-03-10T11:35:54.927Z</endDate>
+    <id>VBQCjf</id>
+    <resourceName>consultar-parcelas</resourceName>
+    <startDate>2022-03-10T11:35:54.927Z</startDate>
+    <applicationId>GMbMAX</applicationId>
+    <methodId>vcQd18</methodId>
+    <projectId>h1Ys8K</projectId>
+    <request>
+        <body></body>
+        <httpHeaders>
+            <httpHeader>
+                <name>user-agent</name>
+                <value>PostmanRuntime/7.29.0</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept</name>
+                <value>*/*</value>
+            </httpHeader>
+            <httpHeader>
+                <name>postman-token</name>
+                <value>3346cb82-5497-4f82-9722-7e5e698b7a33</value>
+            </httpHeader>
+            <httpHeader>
+                <name>host</name>
+                <value>localhost:88</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept-encoding</name>
+                <value>gzip, deflate, br</value>
+            </httpHeader>
+            <httpHeader>
+                <name>connection</name>
+                <value>keep-alive</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpMethod>GET</httpMethod>
+        <httpParameters/>
+        <uri>/v2/contratos/consultar-parcelas</uri>
+    </request>
+    <resourceId>ICMIEV</resourceId>
+    <response>
+        <body>{
+    "dataDebitoParcela": "21.03.2022",
+    "indicadorContinuacaoPesquisa": "N",
+    "quantidadeOperacoesCliente": 1,
+    "listaParcelas": [
+        {
+            "identificadorUnico": 20210206416791119,
+            "contrato": 55122894,
+            "dataContratacao": "01.04.2021",
+            "instituicaoFinanceira": 1,
+            "agencia": 551,
+            "digitoVerificadorAgencia": "7",
+            "conta": 120396,
+            "digitoVerificadorConta": "7",
+            "valorContratado": 5400,
+            "valorParcela": 0,
+            "dataVencimento": "21.03.2022",
+            "indicadorOperacaoLiquidada": "N"
+        }
+    ]
+}</body>
+        <contentEncodings/>
+        <httpHeaders>
+            <httpHeader>
+                <name>content-type</name>
+                <value>application/json; charset=utf-8</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpStatusCode>200</httpStatusCode>
+        <mockResponseName>200</mockResponseName>
+    </response>
+</restEvent>

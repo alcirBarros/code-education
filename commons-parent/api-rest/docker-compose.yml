@@ -1,0 +1,51 @@
+version: '3.3'
+
+services:
+  spring-boot:
+    container_name: rest-api
+    hostname: rest-api
+    working_dir: /application
+    entrypoint: ./.docker/entrypoint.sh
+    network_mode: bridge
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        - env=devpppppppppppppppppp
+    restart: always
+    user: root
+    profiles:
+      - dev
+    ports :
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - PROJECT_ID=0001
+    command:
+      - "./script/001.start.sh"
+    env_file:
+      - ./hadoop-hive.env
+    networks:
+      network_local:
+        ipv4_address: 10.20.0.14
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+          cpus: '0.5'
+        reservations:
+          memory: 512M
+#    healthcheck:
+#      test: ["CMD-SHELL", "pg_isready -U admin"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+
+
+networks:
+  network_local:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.20.0.0/16
+          gateway: 10.20.0.1

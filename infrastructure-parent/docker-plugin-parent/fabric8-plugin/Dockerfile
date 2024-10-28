@@ -1,0 +1,30 @@
+FROM openjdk:17 as builder
+
+WORKDIR /app
+
+ARG JAR_FILE
+
+RUN echo "JAR_FILE=$JAR_FILE"
+RUN echo "COMPOSE_PROFILES=$COMPOSE_PROFILES"
+RUN echo "COMPOSE_API_VERSION=$COMPOSE_API_VERSION"
+
+RUN echo "COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}"
+
+
+ADD /target/$JAR_FILE .
+
+ENTRYPOINT java -jar -Dspring.profiles.active=$COMPOSE_PROFILES *.jar
+
+
+
+
+
+
+
+
+
+
+
+
+
+

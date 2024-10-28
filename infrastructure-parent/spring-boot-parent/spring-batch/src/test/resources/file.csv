@@ -1,0 +1,4 @@
+integerType,   bigIntegerType, bigDecimalType,    stringType,   booleanType,   longType,           dateType
+1,             12123,          2343.2344,         string,       true,          48497874596056,     2021-12-22T18:03:02.000-0300
+2,             12321,          2343.2344,         texto,        false,         48497874596056,     2021-06-01
+2,             32342,          2343.2344,         texto,        TRUE,          48497874596056,     2021-06-01

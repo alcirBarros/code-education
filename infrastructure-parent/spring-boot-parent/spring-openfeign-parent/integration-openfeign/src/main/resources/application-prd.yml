@@ -1,0 +1,8 @@
+key-param: gw-dev-app-key
+key-param-value: f6f54bb406bbef90134b348990050756b911a5b0
+
+client-id: eyJpZCI6ImQwMTFlODctMjMiLCJjb2RpZ29QdWJsaWNhZG9yIjowLCJjb2RpZ29Tb2Z0d2FyZSI6MTA5MzcsInNlcXVlbmNpYWxJbnN0YWxhY2FvIjoxfQ
+client_secret: eyJpZCI6IjJlYmI5NTctOTdhNS00Y2U1LWFmNDAtNzYiLCJjb2RpZ29QdWJsaWNhZG9yIjowLCJjb2RpZ29Tb2Z0d2FyZSI6MTA5MzcsInNlcXVlbmNpYWxJbnN0YWxhY2FvIjoxLCJzZXF1ZW5jaWFsQ3JlZGVuY2lhbCI6MSwiYW1iaWVudGUiOiJwcm9kdWNhbyIsImlhdCI6MTU3NTQwNzA1NTg3NH0
+
+bb-base-token: https://oauth.bb.com.br
+bb-base-service: https://api-ip.bb.com.br

@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:sw="http://java.sun.com/jsf/composite/jsf-components"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:metadata>
+        <f:viewParam name="tipo" value="#{movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento.tipoMovimentacaoEnum}" />
+        <f:viewAction action="#{movimentacaoProdutoMb.carregarTela()}"  />
+    </f:metadata>
+
+    <ui:composition template="/template/template.xhtml">
+
+        <ui:define name="css">
+            <style type="text/css">
+                .nao-processado {
+                    background-color: #ebebeb !important;
+                    background-image: none !important;
+                    color: #000000 !important;
+                }
+                .produto_estorno {
+                    background-color: #e5e598 !important;
+                }
+                .estorno_parcial {
+                    background-color: #e3aeb9 !important;
+                }
+                .estorno_total {
+                    background-color: #bdeebf !important;
+                }
+
+
+            </style>
+        </ui:define>
+        <ui:define name="body">
+            <h:form id="formEdicaoMovimentacaoProduto" >
+                <p:tabView id="tab" widgetVar="tabView">
+                    <p:tab id="tabMovimentacao" title="Entrada" >
+                        <p:panelGrid id="panelGridHead" columns="1" layout="grid" columnClasses="ui-g-12 ui-g-nopad">
+
+                            <p:panelGrid id="panelGridHeader01" columns="6" layout="grid" columnClasses="ui-sm-12 ui-md-2 ui-lg-1 ui-xl-1, ui-sm-12 ui-md-4 ui-lg-2 ui-xl-2, ui-sm-12 ui-md-6 ui-lg-3 ui-xl-5, ui-sm-12 ui-md-4 ui-lg-2 ui-xl-1, ui-sm-12 ui-md-4 ui-lg-2 ui-xl-2, ui-sm-12 ui-md-4 ui-lg-2 ui-xl-1">
+
+                                <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                                    <h:outputLabel value="Código" />
+                                    <p:inputText id="inputTextMovimentacaoProdutoId" 
+                                                 value="#{movimentacaoProdutoMb.movimentacaoProduto.id}"
+                                                 disabled="true"
+                                                 style="text-align: right;" >
+                                        <f:convertNumber  />
+                                        <p:ajax event="keydown" />
+                                    </p:inputText>
+                                </p:panelGrid>
+
+                                <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                    <h:outputLabel value="Status Movimento" />
+                                    <p:inputText id="inputTextStatusMovimento" 
+                                                 value="#{movimentacaoProdutoMb.movimentacaoProduto.statusMovimentoEnum.display}"
+                                                 disabled="true" 
+                                                 style="width: 100%;" >
+                                    </p:inputText>
+                                </p:panelGrid>
+
+                                <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                    <h:outputLabel value="Tipo documento"  />
+                                    <p:selectOneMenu id="selectOneMenuTipoDocumento"
+                                                     value="#{movimentacaoProdutoMb.movimentacaoProduto.tipoDocumento}"
+                                                     converter="#{genericEntidadeConverter}"
+                                                     disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                     required="true"
+                                                     requiredMessage="Informe o tipo documento"
+                                                     style="width: 100%">
+
+                                        <p:ajax event="change" 
+                                                listener="#{movimentacaoProdutoMb.selecionaTipoDocumentoAjaxBehaviorEvent}"
+                                                update=":formEdicaoMovimentacaoProduto:tab:panelGridOrigemDestino"/>
+
+                                        <f:selectItems value="#{javaServerFacesUtil.getSelectItems(movimentacaoProdutoMb.tipoDocumentoList, true)}" />
+                                    </p:selectOneMenu>
+                                </p:panelGrid>
+
+                                <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                    <h:outputLabel value="Data" />
+                                    <p:calendar id="calendarDataEmissao"
+                                                value="#{movimentacaoProdutoMb.movimentacaoProduto.dataHora}"
+                                                disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                required="true"
+                                                requiredMessage="Informe a data"
+                                                pattern="dd/MM/yyyy" 
+                                                locale="pt" 
+                                                inputStyle="width: 100%;">
+                                    </p:calendar>
+                                </p:panelGrid>
+
+                                <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                    <h:outputLabel value="Data saida/hora" />
+                                    <p:calendar id="calendarDataHora" 
+                                                value="#{movimentacaoProdutoMb.movimentacaoProduto.dataEmissao}"
+                                                disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                pattern="dd/MM/yyyy HH:mm:ss"
+                                                required="true"
+                                                requiredMessage="Informe a saida data/hora"
+                                                styleClass="calendarioHora" 
+                                                inputStyle="width: 100%;"/>
+                                </p:panelGrid>
+
+                                <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                    <h:outputLabel value="Número nota" />
+                                    <p:inputText id="inputTextNumeroNota" 
+                                                 value="#{movimentacaoProdutoMb.movimentacaoProduto.numeroNota}"
+                                                 disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                 requiredMessage="Informe o número da nota"
+                                                 maxlength="10"
+                                                 style="text-align: right; width: 100%;" />
+                                </p:panelGrid>
+
+                            </p:panelGrid>
+                        </p:panelGrid>
+
+                        <div class="ui-widget-content" style="margin-top: 5px; margin-bottom: 10px"/>
+
+
+                        <p:panelGrid id="panelGridOrigemDestino" columns="3" layout="grid" columnClasses="ui-sm-12 ui-md-5 ui-lg-5 ui-xl-5, ui-sm-12 ui-md-2 ui-lg-2 ui-xl-2, ui-sm-12 ui-md-5 ui-lg-5 ui-xl-5">
+                            <p:panelGrid id="panelGroupOrigem" columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                <p:panelGrid id="panelGroupOrigemHeader" columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                    <h:outputLabel value="Origem" style="font-size: 30px"/>
+                                    <p:selectOneMenu id="selectOneMenuTipoDocumentoOrigem"
+                                                     converter="#{genericEntidadeConverter}"
+                                                     disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                     style="width: 100%">
+                                        <f:selectItems value="#{javaServerFacesUtil.getSelectItems(movimentacaoProdutoMb.tipoTramitacaoOrigemList, true)}" />
+                                    </p:selectOneMenu>
+                                </p:panelGrid>
+                                <br/>
+                                <p:panelGrid id="panelGroupOrigemDetail" columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+
+                                    <p:panelGrid id="panelGroupOrigemEstabelecimento" columns="1" layout="grid" columnClasses="ui-sm-12 ui-md-12 ui-lg-12 ui-xl-12">
+
+                                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                            <h:outputLabel value="Nome Estabelecimento" />
+                                            <p:inputText >
+                                            </p:inputText>
+                                        </p:panelGrid>
+
+                                    </p:panelGrid>
+
+                                </p:panelGrid>
+
+                            </p:panelGrid>
+
+                            <div style="margin: auto; width:0.2px; border:1px solid #A6C9E2; height: 100%;  background: #A6C9E2" />    
+
+
+                            <p:panelGrid id="panelGroupDestino" columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                <p:panelGrid id="panelGroupDestinoHeader" columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                    <h:outputLabel value="Destino" style="font-size: 30px"/>
+                                    <p:selectOneMenu id="selectOneMenuTipoDocumentoDestino" 
+                                                     converter="#{genericEntidadeConverter}"
+                                                     disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                     style="width: 100%" >
+                                        <f:selectItems value="#{javaServerFacesUtil.getSelectItems(movimentacaoProdutoMb.tipoTramitacaoDestinoList, true)}" />
+                                    </p:selectOneMenu>
+                                </p:panelGrid>
+                                <br/>
+                                <p:panelGrid id="panelGroupDestinoDetail" columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                    <p:panelGrid id="panelGroupDestinoEstabelecimento" columns="3" layout="grid" columnClasses="ui-sm-12 ui-md-12 ui-lg-12 ui-xl-1, ui-sm-12 ui-md-12 ui-lg-12 ui-xl-8, ui-sm-12 ui-md-12 ui-lg-12 ui-xl-3">
+
+                                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                            <h:outputLabel value="Código" />
+                                            <p:inputText >
+                                            </p:inputText>
+                                        </p:panelGrid>
+
+                                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                            <h:outputLabel value="Nome" />
+                                            <p:inputText >
+                                            </p:inputText>
+                                        </p:panelGrid>
+
+                                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                            <h:outputLabel value="Data Nascimento" />
+                                            <p:inputText >
+                                            </p:inputText>
+                                        </p:panelGrid>
+
+                                    </p:panelGrid>
+                                </p:panelGrid>
+
+                            </p:panelGrid>
+
+
+                        </p:panelGrid>
+
+                        <div class="ui-widget-content" style="margin-top: 5px; margin-bottom: 10px"/>
+
+
+
+
+                        <p:panelGrid id="panelGridProdutoMovimentacao" columns="1" layout="grid" columnClasses="ui-g-12 ui-g-nopad"  style="height: 100% !important" >
+
+                                <p:panelGrid columns="2" columnClasses="ui-sm-12 ui-md-9 ui-lg-10 ui-xl-10, ui-sm-12 ui-md-3 ui-lg-2 ui-xl-2" layout="grid"  style="height: 100% !important" >
+
+                                <p:panelGrid columns="1" layout="grid" columnClasses="ui-g-12 ui-g-nopad">
+                                    <p:panelGrid columns="8" layout="grid" 
+                                                 columnClasses="ui-sm-12 ui-md-9 ui-lg-9 ui-xl-2, 
+                                                                ui-sm-12 ui-md-3 ui-lg-3 ui-xl-1, 
+                                                                ui-sm-12 ui-md-12 ui-lg-12 ui-xl-5, 
+                                                                ui-sm-12 ui-md-3 ui-lg-3 ui-xl-1, 
+                                                                ui-sm-12 ui-md-3 ui-lg-3 ui-xl-1, 
+                                                                ui-sm-12 ui-md-3 ui-lg-3 ui-xl-1, 
+                                                                ui-sm-12 ui-md-3 ui-lg-3 ui-xl-1" >
+
+                                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                            <h:outputLabel value="Número lote" />
+                                            <p:inputText id="autoCompleteNumeroLote" 
+                                                         value="#{movimentacaoProdutoMb.produtoMovimentacao.numeroLote}"
+                                                         disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"/>
+                                        </p:panelGrid>
+
+                                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                            <h:outputLabel value="Validade" />
+                                            <p:calendar id="calendarDataDeValidade"
+                                                        value="#{movimentacaoProdutoMb.produtoMovimentacao.dataValidade}"
+                                                        disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                        inputStyle="width: 100%;" />
+                                        </p:panelGrid>
+
+
+
+
+                                        <p:panelGrid columns="1" layout="grid" columnClasses="ui-g-12 ui-g-nopad">
+                                            <p:outputLabel value="Produto"/>
+                                            <sw:autoCompleteProduto id="autoCompleteProduto" 
+                                                                    value="#{movimentacaoProdutoMb.produtoMovimentacao.produto}" 
+                                                                    completeMethod="#{produtoMb.completaProdutoAtivo}"
+                                                                    controlador="#{movimentacaoProdutoMb.produtoComponentListener()}"
+                                                                    converter="#{genericEntidadeConverter}"
+                                                                    actionUnlocked="#{produtoMb.cancelar()}" 
+                                                                    disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                                    list="#{produtoMb.produtoList}"
+                                                                    required="#{param['formEdicaoMovimentacaoProduto:tab:commandLinkAdcionarProduto'] != null}"
+                                                                    requiredMessage="Informe o campo Produto" 
+                                                                    forceSelection="false"
+                                                                    updateItemSelect="@form">
+
+                                            </sw:autoCompleteProduto>
+                                        </p:panelGrid>
+
+                                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                            <h:outputLabel value="Saldo." />
+                                            <p:inputText id="inputTextSaldo"
+                                                         value="#{movimentacaoProdutoMb.produtoMovimentacao.saldo}"
+                                                         disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                         style="text-align: right;" />
+                                        </p:panelGrid>
+
+                                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                            <h:outputLabel value="V.Unit." />
+                                            <p:inputText id="inputMoney"
+                                                         value="#{movimentacaoProdutoMb.produtoMovimentacao.valorUitario}"
+                                                         disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                         style="text-align: right;"/>
+                                        </p:panelGrid>
+
+                                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                            <h:outputLabel value="Quant." />
+                                            <p:inputText id="prod_vl_qtd" 
+                                                         value="#{movimentacaoProdutoMb.produtoMovimentacao.quantidade}"
+                                                         disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                         style=" text-align: right;" />
+                                        </p:panelGrid>
+
+                                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                            <h:outputLabel value="V.Total" />
+                                            <p:inputText id="prod_vl_total" 
+                                                         value="#{movimentacaoProdutoMb.produtoMovimentacao.valorTotal}"
+                                                         disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                         style="text-align: right;"/>
+                                        </p:panelGrid>
+                                    </p:panelGrid>
+
+                                    <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                                        <h:outputText value="Observação" 
+                                                      style="font-size: small;color:darkgray"/>
+                                        <p:inputTextarea id="inputTextareaProdutoObservacao"
+                                                         value="#{movimentacaoProdutoMb.produtoMovimentacao.observacao}"
+                                                         disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                         style="height: 50px; width: 100%" />
+                                    </p:panelGrid>
+                                </p:panelGrid>
+
+                                <p:commandButton id="commandLinkAdcionarProduto" 
+                                                 action="#{movimentacaoProdutoMb.adicionarProduto()}"
+                                                 disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                                 value="Adicionar" 
+                                                 process=":formEdicaoMovimentacaoProduto:tab:panelGridHead :formEdicaoMovimentacaoProduto:tab:panelGridProdutoMovimentacao"
+                                                 update=":formEdicaoMovimentacaoProduto:tab:panelGridHead :formEdicaoMovimentacaoProduto:tab:panelGridProdutoMovimentacao :formEdicaoMovimentacaoProduto:tab:dataTableSaldoEstoque :formEdicaoMovimentacaoProduto:tab:dataTableProdutoMovimentacao"
+                                                 icon="ui-icon ui-icon-circle-plus"
+                                                 class="btn btn-primary"
+                                                 style="height: 100%; width: 100%;" >
+                                </p:commandButton>
+
+                            </p:panelGrid>
+
+
+
+                        </p:panelGrid>
+                        <p:dataTable id="dataTableSaldoEstoque"
+                                     reflow="true"
+                                     emptyMessage="Registro não encontrado.">
+
+                            <p:ajax event="rowSelect" />
+
+                            <f:facet name="header" >
+                                <h:outputText value="Saldo Estoque" />
+                            </f:facet>
+
+
+                            <p:column headerText="Número Lote" >
+                                <h:outputText  />
+                            </p:column>
+                            <p:column headerText="Validade"  >
+                                <h:outputText  >
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="Saldo" >
+                                <h:outputText>
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="Reservado">
+                                <h:outputText>
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="Disponivel">
+                                <h:outputText >
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="V. Unit" >
+                                <h:outputText>
+                                </h:outputText>
+                            </p:column>
+
+
+
+                            <p:columnGroup type="footer">
+                                <p:row>
+                                    <p:column colspan="7"  >
+                                        <f:facet name="footer">
+                                            <h:outputText value="Total de Produtos: "/>
+                                            <h:outputText >
+                                            </h:outputText>
+                                        </f:facet>
+                                    </p:column>
+                                </p:row>
+                            </p:columnGroup>
+                        </p:dataTable>
+
+                        <div class="ui-widget-content" style="margin-top: 10px; margin-bottom: 10px"/>
+
+                        <p:dataTable id="dataTableProdutoMovimentacao" 
+                                     value="#{movimentacaoProdutoMb.movimentacaoProduto.grupoProdutoMovimentacao}"
+                                     var="grupo"
+                                     rowKey="#{grupo.key.id}"
+                                     emptyMessage="Registro não encontrado.">
+
+                            <f:facet name="header">
+                                <h:outputText value="Movimentação Produto" />
+                            </f:facet>
+
+                            <p:columnGroup type="header">  
+                                <p:row>
+                                    <p:column headerText="Número Lote" />    
+                                    <p:column headerText="Data Validade" />    
+                                    <p:column headerText="Produto" />
+                                    <p:column headerText="Fabricante" />
+                                    <p:column headerText="V. Unit" />
+                                    <p:column headerText="Quant." />
+                                    <p:column headerText="V. Total" />
+                                    <p:column headerText="Ações" />
+                                </p:row>  
+                            </p:columnGroup>  
+
+                            <p:subTable value="#{grupo.value}"
+                                        var="produtoMovimentacao">
+
+                                <f:facet name="header">  
+                                    <h:outputText value="#{grupo.key.display}" />
+                                </f:facet>
+
+                                <p:column style="width:100px; text-align: center" >
+                                    <h:outputText value="#{produtoMovimentacao.numeroLote}" />
+                                </p:column>
+
+                                <p:column style="width:100px; text-align: center">
+                                    <h:outputText value="#{produtoMovimentacao.dataValidade}" >
+                                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                    </h:outputText> 
+                                </p:column>
+
+                                <p:column style="width: 550px;" >
+                                    <h:outputText id="outputTextProdutoDescricao" 
+                                                  value="#{produtoMovimentacao.produto.display}"/>
+                                </p:column>
+
+                                <p:column style="width: 550px;"  >
+                                    <h:outputText id="outputTextFabricante" />
+                                </p:column>
+
+                                <p:column style="width:50px; text-align: right" >
+                                    <h:outputText value="#{produtoMovimentacao.valorUitario}" />
+                                </p:column>
+
+                                <p:column style="width:50px; text-align: right" >
+                                    <h:outputText value="#{produtoMovimentacao.quantidade}" />
+                                </p:column>
+
+                                <p:column style="width:50px; text-align: right" >
+                                    <h:outputText value="#{produtoMovimentacao.valorTotal}"/>
+                                </p:column>
+
+                                <p:column  >
+
+                                </p:column>
+
+
+                            </p:subTable>
+
+
+                            <p:columnGroup type="footer">
+                                <p:row>
+                                    <p:column colspan="6" style="text-align:right"  >
+                                        <f:facet name="footer">
+                                            Total:
+                                        </f:facet>
+                                    </p:column>
+                                    <p:column style="text-align: right">
+                                        <f:facet name="footer">
+                                            <h:outputText >
+                                                <f:convertNumber />
+                                            </h:outputText>
+                                        </f:facet>
+                                    </p:column>
+                                    <p:column style="text-align:right" >
+                                        <f:facet name="footer">
+                                            <h:outputText>
+                                            </h:outputText>
+                                        </f:facet>
+                                    </p:column>
+                                </p:row>
+                            </p:columnGroup>
+                        </p:dataTable>
+
+
+                        <p:panelGrid  columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" style="float: right;">
+                            <h:panelGrid columns="2" >
+                                <div style="width:9px; height:9px;" class="produto_estorno"/>
+                                <h:outputLabel value="Estorno" style="font-size: 10px" />
+                            </h:panelGrid>
+                        </p:panelGrid>
+
+                        <p:panelGrid id="panelGridFooter" columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                            <h:outputText value="Observação" />
+                            <p:inputTextarea id="inputTextareaMovimentacaoProdutoObservacao"
+                                             value="#{movimentacaoProdutoMb.movimentacaoProduto.observacao}"
+                                             disabled="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                             style="height: 75px; width: 100%"/>
+                            <h:outputText id="displayObservacao" value="500"/>
+                        </p:panelGrid>
+
+
+
+
+                    </p:tab>
+                    <p:tab id="tabHistorico" title="Histórico">
+                        <p:dataTable id="dataTableMovimentacaoProdutoHistorico"
+                                     reflow="true"
+                                     emptyMessage="Registro não encontrado.">
+
+                            <p:column headerText="Código"
+                                      style="width: 60px;">
+                                <div style="text-align: right">
+                                    <h:outputText >
+
+                                    </h:outputText>
+                                </div>
+                            </p:column>
+                            <p:column headerText="Data Hora" 
+                                      style="width: 125px; text-align: center">
+                                <h:outputText />
+                            </p:column>
+                            <p:column headerText="TipoDocumento"
+                                      style="width: 180px; text-align: center">
+                                <h:outputText />
+                            </p:column>
+                            <p:column headerText="Origem" >
+                                <h:outputText />
+                            </p:column>
+                            <p:column headerText="Destino">
+                                <h:outputText />
+                            </p:column>
+
+                        </p:dataTable>
+                        <h:panelGrid columns="6" style="margin-left: auto">
+                            <h:panelGrid columns="2">
+                                <div style="width:9px; height:9px;" class="nao-processado" />
+                                <h:outputLabel value="Não Processada" style="font-size:10px" />
+                            </h:panelGrid>
+                            <h:panelGrid columns="2">
+                                <div style="width:9px; height:9px;" class="estorno_parcial" />
+                                <h:outputLabel value="Estorno Parcial" style="font-size:10px" />
+                            </h:panelGrid>
+                            <h:panelGrid columns="2">
+                                <div style="width:9px; height:9px;" class="estorno_total" />
+                                <h:outputLabel value="Estorno Total" style="font-size:10px" />
+                            </h:panelGrid>
+                        </h:panelGrid>
+                    </p:tab>
+                </p:tabView>
+
+
+
+                <p:spacer/>
+                <h:panelGrid columns="2"  style="width: 100%">
+                    <h:panelGrid columns="5">
+                        <p:commandButton value="Inserir" 
+                                         action="#{movimentacaoProdutoMb.inserir()}"
+                                         rendered="#{!movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                         process="@this"
+                                         update="@form"
+                                         class="btn btn-primary"/>
+
+                        <p:commandButton value="Salvar" 
+                                         action="#{movimentacaoProdutoMb.salvar()}" 
+                                         rendered="#{movimentacaoProdutoMb.modoTela.insercaoOrAlteracao}"
+                                         class="btn btn-success"
+                                         process="@form"
+                                         update="@form"/>
+
+                        <p:commandButton value="Alterar" 
+                                         action="#{movimentacaoProdutoMb.alterar()}"
+                                         rendered="#{movimentacaoProdutoMb.modoTela.visualizacao}"
+                                         process="@this"
+                                         update="@form"
+                                         class="btn btn-warning" />
+
+                        <p:commandButton value="Excluir"
+                                         action="#{movimentacaoProdutoMb.excluir()}"
+                                         rendered="#{movimentacaoProdutoMb.modoTela.visualizacao}"
+                                         class="btn btn-info" />
+
+                        <p:commandButton value="Cancelar" 
+                                         action="#{movimentacaoProdutoMb.cancelar()}"
+                                         class="btn btn-danger"
+                                         process="@this"
+                                         update="@form">
+                            <p:resetInput target="@form" />
+                        </p:commandButton>
+
+                    </h:panelGrid>
+                    <h:panelGrid columns="2" style="text-align: right; width: 100%" >
+                        <p:commandButton value="Processar"
+                                         action="#{movimentacaoProdutoMb.processar()}"
+                                         rendered="#{movimentacaoProdutoMb.modoTela.visualizacao}"
+                                         process="@this"
+                                         update="@form"
+                                         class="btn btn-success" >
+                        </p:commandButton>
+                        <h:commandLink id="buttonImprimir" 
+                                       value="Imprimir"
+                                       style="width: 76px; text-align: center; color: #2e6e9e; padding: 5px 0px;" >
+
+                        </h:commandLink>
+                    </h:panelGrid>
+                </h:panelGrid>
+
+                <p:confirmDialog 
+                    header="Exluir" severity="alert" 
+                    widgetVar="confirmeDialogExluir" width="310">
+                    <f:facet name="message">
+                        <h:panelGrid>
+                            <h:outputText value="Tem certeza que deseja exluir esse registro ?"/>
+                        </h:panelGrid>
+                    </f:facet>
+                    <p:commandButton 
+                        value="Sim" 
+                        onclick="PF('confirmeDialogExluir').hide();"/>
+
+                    <p:commandButton value="Não" 
+                                     onclick="PF('confirmeDialogExluir').hide();" 
+                                     process="@this" 
+                                     type="button"/>
+                </p:confirmDialog>
+
+                <p:confirmDialog 
+                    id="confirmDialogProcessar"
+                    header="Processar" severity="alert" 
+                    widgetVar="confirmeDialogProcessar" style="width: 900px">
+                    <f:facet name="message">
+                        <h:panelGrid style="width: 400px">
+                            <h:outputText value="Deseja processar essa entrada de produto para o estabelecimento."/>
+                            <br/>
+                            <h:outputText value="Estabelecimento:"/>
+                            <h:outputText style="font-size: 20px"/>
+                            <br/>
+                            <h:outputText value="Setor:"/>
+                            <h:outputText style="font-size: 20px"/>
+                        </h:panelGrid>
+                    </f:facet>
+                    <p:commandButton id="commandButtonProcessarSim"
+                                     value="Sim" 
+                                     process="@this"
+                                     onclick="PF('confirmeDialogProcessar').hide();"/>
+                    <p:commandButton value="Não" onclick="PF('confirmeDialogProcessar').hide();"
+                                     process="@this" type="button"/>
+                </p:confirmDialog>  
+
+                <p:dialog id="dialogEscolhaProdutoSource"
+                          header="Escolher Produto"
+                          widgetVar="widgetVarEscolhaProdutoSource"
+                          width="600" modal="true" closable="false">
+                    <p:scrollPanel mode="native" style="max-width :600px; min-height :300px; max-height :300px; border: solid #ffffff;">
+                        <p:dataTable id="dataTableEscolhaProdutoSource"
+                                     emptyMessage="Nenhum Registro Encontrado"
+                                     selectionMode="single"
+                                     paginator="true"
+                                     paginatorPosition="bottom"
+                                     style="width: 540px">
+
+                            <p:subTable var="source">
+                                <f:facet name="header">  
+                                    <h:outputText />
+                                </f:facet>
+                                <p:column >
+                                    <h:outputText />
+                                </p:column>
+                                <p:column style="width: 20px; text-align: center">
+                                    <p:commandLink 
+                                        onclick="PF('widgetVarEscolhaProdutoSource').hide()">
+                                    </p:commandLink>
+                                </p:column>
+                            </p:subTable>
+                        </p:dataTable>
+                    </p:scrollPanel>
+                    <p:commandButton value="Fechar" onclick="PF('widgetVarEscolhaProdutoSource').hide()" 
+                                     style="float: right" process="@this"/>
+                </p:dialog>
+
+            </h:form>
+        </ui:define>        
+    </ui:composition>
+</html>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restEvent>
+    <endDate>2022-03-10T11:15:04.878Z</endDate>
+    <id>sFg7eE</id>
+    <resourceName>simulacoes-oferta-ativa</resourceName>
+    <startDate>2022-03-10T11:15:04.878Z</startDate>
+    <applicationId>GMbMAX</applicationId>
+    <methodId>3Uj4t8</methodId>
+    <projectId>h1Ys8K</projectId>
+    <request>
+        <body></body>
+        <httpHeaders>
+            <httpHeader>
+                <name>user-agent</name>
+                <value>PostmanRuntime/7.29.0</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept</name>
+                <value>*/*</value>
+            </httpHeader>
+            <httpHeader>
+                <name>postman-token</name>
+                <value>56b765a8-5a73-4efa-bf0e-07205705d0b9</value>
+            </httpHeader>
+            <httpHeader>
+                <name>host</name>
+                <value>localhost:88</value>
+            </httpHeader>
+            <httpHeader>
+                <name>accept-encoding</name>
+                <value>gzip, deflate, br</value>
+            </httpHeader>
+            <httpHeader>
+                <name>connection</name>
+                <value>keep-alive</value>
+            </httpHeader>
+            <httpHeader>
+                <name>content-length</name>
+                <value>0</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpMethod>POST</httpMethod>
+        <httpParameters/>
+        <uri>/v2/simulacoes-oferta-ativa</uri>
+    </request>
+    <resourceId>CFFQtz</resourceId>
+    <response>
+        <body>{
+    "quantidadeMinimaParcelasSimulacao": 1,
+    "valorMinimoSimulacao": 1000,
+    "ofertaAtivaCurtoPrazo": {
+        "numeroSimulacao": 19131,
+        "dataPrimeiraParcelaReposicao": "23.03.2022",
+        "dataUltimaParcelaReposicao": "23.02.2023",
+        "quantidadeRegistroListaParcela": 13,
+        "quantidadeRegistroListaDespesa": 3,
+        "valorCredito": 100000,
+        "valorPrimeiraParcelaReposicao": 9825.02,
+        "valorJuros": 2.629,
+        "valorUltimaParcelaReposicao": 9825.02,
+        "listaCronogramaPagamentos": [
+            {
+                "data": "23.02.2022",
+                "valorReposicaoCapital": 0,
+                "valorEncargoAdicional": 4146.23,
+                "valorSaldoDevedor": 100000,
+                "valorTotalParcela": 4146.23
+            },
+            {
+                "data": "23.03.2022",
+                "valorReposicaoCapital": 9573.34,
+                "valorEncargoAdicional": 251.68,
+                "valorSaldoDevedor": 92803.98,
+                "valorTotalParcela": 9825.02
+            },
+            {
+                "data": "23.04.2022",
+                "valorReposicaoCapital": 9328.1,
+                "valorEncargoAdicional": 496.92,
+                "valorSaldoDevedor": 85418.78,
+                "valorTotalParcela": 9825.02
+            },
+            {
+                "data": "23.05.2022",
+                "valorReposicaoCapital": 9089.15,
+                "valorEncargoAdicional": 735.87,
+                "valorSaldoDevedor": 77839.42,
+                "valorTotalParcela": 9825.02
+            },
+            {
+                "data": "23.06.2022",
+                "valorReposicaoCapital": 8856.31,
+                "valorEncargoAdicional": 968.71,
+                "valorSaldoDevedor": 70060.8,
+                "valorTotalParcela": 9825.02
+            },
+            {
+                "data": "23.07.2022",
+                "valorReposicaoCapital": 8629.45,
+                "valorEncargoAdicional": 1195.57,
+                "valorSaldoDevedor": 62077.68,
+                "valorTotalParcela": 9825.02
+            },
+            {
+                "data": "23.08.2022",
+                "valorReposicaoCapital": 8408.39,
+                "valorEncargoAdicional": 1416.63,
+                "valorSaldoDevedor": 53884.68,
+                "valorTotalParcela": 9825.02
+            },
+            {
+                "data": "23.09.2022",
+                "valorReposicaoCapital": 8193,
+                "valorEncargoAdicional": 1632.02,
+                "valorSaldoDevedor": 45476.29,
+                "valorTotalParcela": 9825.02
+            },
+            {
+                "data": "23.10.2022",
+                "valorReposicaoCapital": 7983.12,
+                "valorEncargoAdicional": 1841.9,
+                "valorSaldoDevedor": 36846.84,
+                "valorTotalParcela": 9825.02
+            },
+            {
+                "data": "23.11.2022",
+                "valorReposicaoCapital": 7778.62,
+                "valorEncargoAdicional": 2046.4,
+                "valorSaldoDevedor": 27990.52,
+                "valorTotalParcela": 9825.02
+            },
+            {
+                "data": "23.12.2022",
+                "valorReposicaoCapital": 7579.36,
+                "valorEncargoAdicional": 2245.66,
+                "valorSaldoDevedor": 18901.37,
+                "valorTotalParcela": 9825.02
+            },
+            {
+                "data": "23.01.2023",
+                "valorReposicaoCapital": 7385.2,
+                "valorEncargoAdicional": 2439.82,
+                "valorSaldoDevedor": 9573.27,
+                "valorTotalParcela": 9825.02
+            },
+            {
+                "data": "23.02.2023",
+                "valorReposicaoCapital": 7195.96,
+                "valorEncargoAdicional": 2629.06,
+                "valorSaldoDevedor": 0,
+                "valorTotalParcela": 9825.02
+            }
+        ],
+        "listaDespesas": [
+            {
+                "nomeDespesa": "Tarifa de contratação",
+                "valorDespesa": 3000
+            },
+            {
+                "nomeDespesa": "Despesa - IOF",
+                "valorDespesa": 766.23
+            },
+            {
+                "nomeDespesa": "Despesa - Adicional IOF",
+                "valorDespesa": 380
+            }
+        ]
+    },
+    "ofertaAtivaLongoPrazo": {}
+}</body>
+        <contentEncodings/>
+        <httpHeaders>
+            <httpHeader>
+                <name>content-type</name>
+                <value>application/json; charset=utf-8</value>
+            </httpHeader>
+        </httpHeaders>
+        <httpStatusCode>200</httpStatusCode>
+        <mockResponseName>200</mockResponseName>
+    </response>
+</restEvent>

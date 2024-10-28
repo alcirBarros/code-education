@@ -1,0 +1,8 @@
+key-param: gw-app-key
+key-param-value: d3f69ca08898013868e0005056b91a5b
+
+client-id: eyJpZCI6ImI5ZWQ3MmItNjliZS00NDQzLSIsImNvZGlnb1B1YmxpY2Fkb3IiOjAsImNvZGlnb1NvZnR3YXJlIjoxMDM4Niwic2VxdWVuY2lhbEluc3RhbGFjYW8iOjF9
+client_secret: eyJpZCI6IjIyYWVlMmYtNDZhYy00Yzk0LTlhMTItOWZiNzY2ODUzYzJiNWIxNTBmNWItYWYiLCJjb2RpZ29QdWJsaWNhZG9yIjowLCJjb2RpZ29Tb2Z0d2FyZSI6MTAzODYsInNlcXVlbmNpYWxJbnN0YWxhY2FvIjoxLCJzZXF1ZW5jaWFsQ3JlZGVuY2lhbCI6MSwiYW1iaWVudGUiOiJob21vbG9nYWNhbyIsImlhdCI6MTU3MDEzNzI2NjExNn0
+
+bb-base-token: https://oauth.hm.bb.com.br
+bb-base-service: https://api.hm.bb.com.br
