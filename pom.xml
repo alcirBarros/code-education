@@ -10,8 +10,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>educa-facil</groupId>
-    <artifactId>educa-facil-parent</artifactId>
+    <groupId>code-education</groupId>
+    <artifactId>code-education-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
