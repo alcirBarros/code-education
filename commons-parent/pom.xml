@@ -75,8 +75,5 @@
                 <directory>src/test/java/</directory>
             </testResource>
         </testResources>
-
-
-
     </build>
 </project>
