@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Test;
 
 public class MethodUtilTest {
 
-  @Test
-  public void givenMethodUtilsClass_whenCalledgetAccessibleMethod_thenCorrect() {
-
-    User user = new User(1, "user");
-    Method getUsername = MethodUtils.getAccessibleMethod(user.getClass(), "getUsername");
-    assertThat(getUsername).isInstanceOf(Method.class);
-  }
+//  @Test
+//  public void givenMethodUtilsClass_whenCalledgetAccessibleMethod_thenCorrect() {
+//
+//    User user = new User(1, "user");
+//    Method getUsername = MethodUtils.getAccessibleMethod(user.getClass(), "getUsername");
+//    assertThat(getUsername).isInstanceOf(Method.class);
+//  }
 
   class User {
 

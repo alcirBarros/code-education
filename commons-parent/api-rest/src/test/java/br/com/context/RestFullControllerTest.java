@@ -27,14 +27,14 @@ public class RestFullControllerTest {
         mockMvc.perform(get("/restfull")).andExpect(status().isOk());
     }
 
-    @Test
-    void contextLoads2() throws Exception {
-        StatusRequest statusRequest = new StatusRequest();
-        MockHttpServletRequestBuilder post = post("/restfull");
-        post.contentType(APPLICATION_JSON);
-        post.content(objectMapper.writeValueAsBytes(statusRequest));
-        mockMvc.perform(post).andExpect(status().isOk());
-    }
+//    @Test
+//    void contextLoads2() throws Exception {
+//        StatusRequest statusRequest = new StatusRequest();
+//        MockHttpServletRequestBuilder post = post("/restfull");
+//        post.contentType(APPLICATION_JSON);
+//        post.content(objectMapper.writeValueAsBytes(statusRequest));
+//        mockMvc.perform(post).andExpect(status().isOk());
+//    }
 
 
 

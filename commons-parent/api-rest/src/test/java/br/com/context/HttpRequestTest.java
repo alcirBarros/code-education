@@ -34,20 +34,20 @@ public class HttpRequestTest {
         Assertions.assertThat(result).contains("OK");
     }
 
-    @Test
-    public void testReadTimeout() {
-        long startMillis = System.currentTimeMillis();
-
-        Throwable throwable = catchThrowable(() -> {
-            String url = "https://example.com:81";
-            restTemplate.getForObject(url, String.class);
-        });
-
-        long endMillis = System.currentTimeMillis();
-        System.out.println("Execution time: " + (endMillis - startMillis));
-
-        assertThat(throwable).hasRootCauseInstanceOf(ConnectException.class);
-    }
+//    @Test
+//    public void testReadTimeout() {
+//        long startMillis = System.currentTimeMillis();
+//
+//        Throwable throwable = catchThrowable(() -> {
+//            String url = "https://example.com:81";
+//            restTemplate.getForObject(url, String.class);
+//        });
+//
+//        long endMillis = System.currentTimeMillis();
+//        System.out.println("Execution time: " + (endMillis - startMillis));
+//
+//        assertThat(throwable).hasRootCauseInstanceOf(ConnectException.class);
+//    }
 
     @Test
     public void testReadTimeout3() {

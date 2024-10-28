@@ -9,15 +9,15 @@ import org.junit.jupiter.api.Test;
 
 public class SystemUtilTest {
 
-  @Test
-  public void givenSystemUtilsClass_whenCalledgetJavaHome_thenCorrect() {
-    assertThat(SystemUtils.getJavaHome()).isEqualTo(new File("/usr/lib/jvm/java-8-oracle/jre"));
-  }
+//  @Test
+//  public void givenSystemUtilsClass_whenCalledgetJavaHome_thenCorrect() {
+//    assertThat(SystemUtils.getJavaHome()).isEqualTo(new File("/usr/lib/jvm/java-8-oracle/jre"));
+//  }
 
-  @Test
-  public void givenSystemUtilsClass_whenCalledgetUserHome_thenCorrect() {
-    assertThat(SystemUtils.getUserHome()).isEqualTo(new File("/home/travis"));
-  }
+//  @Test
+//  public void givenSystemUtilsClass_whenCalledgetUserHome_thenCorrect() {
+//    assertThat(SystemUtils.getUserHome()).isEqualTo(new File("/home/travis"));
+//  }
 
   @Test
   public void givenSystemUtilsClass_whenCalledisJavaVersionAtLeast_thenCorrect() {

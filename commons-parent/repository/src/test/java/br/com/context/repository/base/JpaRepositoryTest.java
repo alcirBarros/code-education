@@ -22,8 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class JpaRepositoryTest {
 
   @Autowired
-  private JpaRepository<BaseEntity, UUID> jpaRepository;
-
+  private BaseEntityRepository baseEntityRepository;
 
   private List<BaseEntity> baseEntityList = List.of(
       BaseEntity.builder().stringType("string").build(),
@@ -32,49 +31,49 @@ public class JpaRepositoryTest {
 
   @BeforeAll
   public void BeforeAll() {
-    jpaRepository.deleteAll();
-    jpaRepository.saveAll(baseEntityList);
+    baseEntityRepository.deleteAll();
+    baseEntityRepository.saveAll(baseEntityList);
     System.out.println("BeforeEach");
   }
 
   @Test
   public void findAll() {
-    List<BaseEntity> baseEntityList = jpaRepository.findAll();
+    List<BaseEntity> baseEntityList = baseEntityRepository.findAll();
     assertNotNull(baseEntityList, "Deve ser verdadeiro");
   }
 
   @Test
   public void findAllById() {
     Iterable<UUID> uuid = List.of(UUID.randomUUID());
-    List<BaseEntity> baseEntityList = jpaRepository.findAllById(uuid);
+    List<BaseEntity> baseEntityList = baseEntityRepository.findAllById(uuid);
     assertNotNull(baseEntityList, "Deve ser verdadeiro");
   }
 
   @Test
   public void saveAll() {
     List<BaseEntity> baseEntityList = List.of(new BaseEntity());
-    List<BaseEntity> baseEntityList1 = jpaRepository.saveAll(baseEntityList);
+    List<BaseEntity> baseEntityList1 = baseEntityRepository.saveAll(baseEntityList);
     assertNotNull(baseEntityList1, "Deve ser verdadeiro");
   }
 
   @Test
   public void saveAndFlush() {
     BaseEntity baseEntityList = new BaseEntity();
-    BaseEntity baseEntity = jpaRepository.saveAndFlush(baseEntityList);
+    BaseEntity baseEntity = baseEntityRepository.saveAndFlush(baseEntityList);
     assertNotNull(baseEntity, "Deve ser verdadeiro");
   }
 
   @Test
   public void saveAllAndFlush() {
     List<BaseEntity> baseEntityList = List.of(new BaseEntity());
-    List<BaseEntity> baseEntityList1 = jpaRepository.saveAllAndFlush(baseEntityList);
+    List<BaseEntity> baseEntityList1 = baseEntityRepository.saveAllAndFlush(baseEntityList);
     assertNotNull(baseEntityList1, "Deve ser verdadeiro");
   }
 
   @Test
   public void findAllPageable() {
     Pageable pageable = Pageable.ofSize(10);
-    Page<BaseEntity> baseEntityPage = jpaRepository.findAll(pageable);
+    Page<BaseEntity> baseEntityPage = baseEntityRepository.findAll(pageable);
     assertNotNull(baseEntityPage, "Deve ser verdadeiro");
   }
 
