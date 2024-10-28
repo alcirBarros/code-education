@@ -13,9 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>util</module>
         <module>project-config</module>
-        <module>java-parent</module>
         <module>spring-boot-parent</module>
         <module>repository-parent</module>
         <module>amazon-parent</module>
