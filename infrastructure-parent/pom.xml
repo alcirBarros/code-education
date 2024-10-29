@@ -13,11 +13,11 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>project-config</module>
-        <module>spring-boot-parent</module>
-        <module>repository-parent</module>
-        <module>amazon-parent</module>
-        <module>framework-parent</module>
+<!--        <module>project-config</module>-->
+<!--        <module>spring-boot-parent</module>-->
+<!--        <module>repository-parent</module>-->
+<!--        <module>amazon-parent</module>-->
+<!--        <module>framework-parent</module>-->
     </modules>
 
 </project>
