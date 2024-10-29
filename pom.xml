@@ -11,7 +11,9 @@
 
     <modules>
         <module>commons-parent</module>
+        <module>infrastructure-parent</module>
         <module>java-parent</module>
+<!--        <module>kotlin-parent</module>-->
     </modules>
 
 </project>
