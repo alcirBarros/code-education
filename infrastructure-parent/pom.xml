@@ -16,7 +16,7 @@
 <!--        <module>project-config</module>-->
 <!--        <module>spring-boot-parent</module>-->
 <!--        <module>repository-parent</module>-->
-<!--        <module>amazon-parent</module>-->
+        <module>amazon-parent</module>
 <!--        <module>framework-parent</module>-->
     </modules>
 
