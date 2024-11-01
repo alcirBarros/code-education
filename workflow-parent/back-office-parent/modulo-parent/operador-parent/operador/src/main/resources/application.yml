@@ -1,5 +1,0 @@
-server:
-  application:
-    name: operador
-  servlet:
-    context-path: /operador

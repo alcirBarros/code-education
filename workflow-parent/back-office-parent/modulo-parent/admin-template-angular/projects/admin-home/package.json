@@ -1,5 +1,0 @@
-{
-  "scripts": {
-    "start": "ng serve admin-home --port 4400"
-  }
-}

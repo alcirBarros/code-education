@@ -1,5 +1,0 @@
-server:
-  application:
-    name: driver-restfull
-  servlet:
-    context-path: /driverrestfull

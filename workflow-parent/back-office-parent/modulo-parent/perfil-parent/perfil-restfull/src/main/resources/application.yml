@@ -1,5 +1,0 @@
-server:
-  application:
-    name: perfil
-  servlet:
-    context-path: /perfil
