@@ -1,0 +1,21 @@
+<app-preloader>
+
+</app-preloader>
+
+<app-navbar *ngIf="!(location == '/coming-soon')">
+
+</app-navbar>
+
+<router-outlet>
+
+</router-outlet>
+
+<app-footer *ngIf="!(location == '/coming-soon')">
+
+</app-footer>
+
+<div id="whatsapp" class="back-to-top-btn" >
+    <a href="https://api.whatsapp.com/send?phone=5512991519653&text=Gostaria%20de%20agendar%20uma%20consulta." target="_blanck">
+        <img src="assets/img/whatsapp/whatsapp.png" alt="whatsapp"/>
+    </a>
+</div>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>educa-facil</groupId>
+        <artifactId>paciente-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>paciente</artifactId>
+    <packaging>jar</packaging>
+    
+    <dependencies>
+
+        <dependency>
+            <groupId>educa-facil</groupId>
+            <artifactId>educa-facil-template</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>educa-facil</groupId>
+            <artifactId>auxiliar-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>educa-facil</groupId>
+            <artifactId>pessoa-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>educa-facil</groupId>
+            <artifactId>paciente-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>educa-facil</groupId>
+            <artifactId>endereco</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+    </dependencies>
+    
+    <profiles>
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+
+            </dependencies>
+            <properties>
+                <spring.profiles.active>development</spring.profiles.active>
+                
+                <app.environment.label>DEV</app.environment.label>
+                <app.auth.server.address>server.dev.br</app.auth.server.address>
+                <app.auth.server.port>9090</app.auth.server.port>
+            </properties>
+        </profile>
+        
+        <profile>
+            <id>create-drop</id>
+            <properties>
+                <spring.profiles.active>create-drop</spring.profiles.active>
+            </properties>
+        </profile>
+        
+        <profile>
+            <id>production</id>
+            <properties>
+                <spring.profiles.active>production</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+    
+    <!--    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>-->
+    
+
+</project>

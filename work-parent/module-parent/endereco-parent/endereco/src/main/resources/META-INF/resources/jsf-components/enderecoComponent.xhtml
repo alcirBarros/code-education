@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:sw="http://java.sun.com/jsf/composite/jsf-components">
+
+    <cc:interface  >
+        <cc:attribute name="value" type="java.lang.Object" />
+        <cc:attribute name="converter" />  
+        <cc:attribute name="controlador" />  
+
+        <cc:attribute name="block" type="java.lang.Boolean" default="false" />
+        <cc:attribute name="disabled" type="java.lang.Boolean" default="false" />
+        <cc:attribute name="required" type="java.lang.Boolean" />
+        <cc:attribute name="requiredMessage" type="java.lang.String"  />
+        <cc:attribute name="update" type="java.lang.String"  />
+        <cc:attribute name="oncomplete" type="java.lang.String" />
+        <cc:attribute name="onblur" type="java.lang.String" />
+    </cc:interface>
+
+    <cc:implementation id="implementationPessoa">
+
+        <p:panelGrid id="panelGridEndereco" columns="1" columnClasses="ui-xl-12" layout="grid">
+
+            <sw:cidadeComponent id="cidadeComponent"
+                                value="#{cc.attrs.value.logradouro.bairro.cidade}"
+                                completeMethod="#{cc.attrs.controlador.completeMethodCidade}"
+                                converter="#{cc.attrs.converter}"
+                                controlador="#{cc.attrs.controlador}"
+                                disabled="#{cc.attrs.disabled}"
+                                required="#{cc.attrs.required}"
+                                update="#{cc.attrs.update}"
+                                block="#{cc.attrs.block and cc.attrs.value.logradouro.bairro.cidade.id != null}">
+            </sw:cidadeComponent>
+
+            <p:panelGrid id="panelGridLogradouro" 
+                         columnClasses="ui-sm-12 ui-md-6 ui-lg-6 ui-xl-6,
+                         ui-sm-12 ui-md-3 ui-lg-3 ui-xl-3,
+                         ui-sm-12 ui-md-3 ui-lg-3 ui-xl-3"
+                         columns="3" layout="grid" >
+
+
+
+                <sw:logradouroComponent id="logradouroComponent"
+                                        value="#{cc.attrs.value.logradouro}"
+                                        completeMethod="#{cc.attrs.controlador.completeMethodLogradouro}"
+                                        converter="#{cc.attrs.converter}"
+                                        controlador="#{cc.attrs.controlador}"
+                                        disabled="#{cc.attrs.disabled}"
+                                        required="#{cc.attrs.required}"
+                                        update="#{cc.attrs.update}"
+                                        block="#{cc.attrs.block and cc.attrs.value.logradouro.bairro.cidade.id != null and cc.attrs.value.logradouro.id != null}">
+                </sw:logradouroComponent>
+
+
+
+                <p:panelGrid columns="1" columnClasses="ui-xl-12" layout="grid">
+                    <p:outputLabel value="Cep" for="cep" />
+                    <p:inputMask id="cep"
+                                 disabled="true"
+                                 mask="99999999" style="width: 100%" />
+                </p:panelGrid>
+
+                <p:panelGrid columns="1" columnClasses="ui-xl-12" layout="grid">
+                    <p:outputLabel value="Bairro" for="bairro" />
+                    <p:inputText id="bairro"
+                                 maxlength="20"
+                                 disabled="true" 
+                                 style="width: 100%" />
+                </p:panelGrid>
+            </p:panelGrid>
+
+        </p:panelGrid>
+
+        <p:panelGrid id="panelGridINumero" 
+                     columns="6" 
+                     columnClasses="ui-sm-12 ui-md-12 ui-lg-1 ui-xl-2,
+                                    ui-sm-12 ui-md-12 ui-lg-7 ui-xl-4,
+                                    ui-sm-12 ui-md-12 ui-lg-6 ui-xl-3,
+                                    ui-sm-12 ui-md-12 ui-lg-2 ui-xl-1,
+                                    ui-sm-12 ui-md-12 ui-lg-2 ui-xl-1,
+                                    ui-sm-12 ui-md-12 ui-lg-2 ui-xl-1"
+                     layout="grid">
+
+            <p:panelGrid columns="1" columnClasses="ui-xl-12" layout="grid">
+                <p:outputLabel value="Número" for="numero" />
+                <p:inputText id="numero" 
+                             value="#{cc.attrs.value.numero}"
+                             maxlength="7"
+                             disabled="#{cc.attrs.disabled}"
+                             required="#{cc.attrs.required}"
+                             requiredMessage="Informe o número"
+                             style="width: 100%" />
+            </p:panelGrid>
+
+            <p:panelGrid columns="1" columnClasses="ui-xl-12" layout="grid">
+                <p:outputLabel value="Complemento" for="complemento" />
+                <p:inputText id="complemento"
+                             value="#{cc.attrs.value.complemento}"
+                             disabled="#{cc.attrs.disabled}"
+                             maxlength="20"
+                             style="width: 100%" />
+            </p:panelGrid>
+
+            <p:panelGrid columns="1" columnClasses="ui-xl-12" layout="grid">
+                <p:outputLabel value="Condominio" for="condominio" />
+                <p:inputText id="condominio" 
+                             value="#{cc.attrs.value.condominio}"
+                             disabled="#{cc.attrs.disabled}"
+                             maxlength="20"
+                             style="width: 100%" />
+            </p:panelGrid>
+
+            <p:panelGrid columns="1" columnClasses="ui-xl-12" layout="grid">
+                <p:outputLabel value="Apto/Sala" for="apto" />
+                <p:inputText id="apto"
+                             value="#{cc.attrs.value.apartamentoSala}"
+                             disabled="#{cc.attrs.disabled}"
+                             maxlength="5"
+                             style="width: 100%" />
+            </p:panelGrid>
+
+            <p:panelGrid columns="1" columnClasses="ui-xl-12" layout="grid">
+                <p:outputLabel value="Latitude" />
+                <p:inputText disabled="true"
+                             value="#{cc.attrs.value.latitude}"
+                             style="width: 100%" />
+            </p:panelGrid>
+
+            <p:panelGrid columns="1" columnClasses="ui-xl-12" layout="grid">
+                <p:outputLabel value="Longitude" for="apto" />
+                <p:inputText disabled="true"
+                             value="#{cc.attrs.value.longitude}"
+                             style="width: 100%" />
+            </p:panelGrid>
+
+        </p:panelGrid>
+
+
+    </cc:implementation>
+</html>
+

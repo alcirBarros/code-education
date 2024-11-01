@@ -1,0 +1,488 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:sw="http://java.sun.com/jsf/composite/jsf-components"
+                template="/template/template.xhtml">  
+
+    <ui:define name="title">
+        Pessoa
+    </ui:define>
+
+    <ui:define name="description">
+        Cadastro de pessoa.
+    </ui:define>
+
+    <ui:define name="body">
+        <h:form id="formEdicao" >
+            <p:tabView id="tab" widgetVar="tab">
+                <p:tab title="Pessoa">
+
+                    <p:panelGrid columns="4"
+                                 columnClasses="
+                                 ui-sm-12 ui-md-2 ui-lg-1 ui-xl-1, 
+                                 ui-sm-12 ui-md-6 ui-lg-6 ui-xl-7,
+                                 ui-sm-12 ui-md-4 ui-lg-3 ui-xl-2,
+                                 ui-sm-12 ui-md-12 ui-lg-2 ui-xl-2" 
+                                 layout="grid"  >
+
+
+                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                            <p:outputLabel value="Código" for="inputTextCodigo"/>
+                            <p:inputText id="inputTextCodigo" 
+                                         value="#{pessoaMb.pessoa.id}"
+                                         disabled="true"
+                                         style="width: 100%" >
+                            </p:inputText> 
+                        </p:panelGrid>
+
+                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                            <p:outputLabel value="Nome" for="inputTextNome" />
+                            <p:inputText id="inputTextNome"
+                                         value="#{pessoaMb.pessoa.nome}"
+                                         disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                         required="true"
+                                         requiredMessage="Informe o campo Nome"
+                                         style="width: 100%" />
+                        </p:panelGrid>
+
+                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                            <p:outputLabel value="Sexo" for="selectOneMenuTipoSexo"/>
+                            <p:selectOneMenu id="selectOneMenuTipoSexo"
+                                             value="#{pessoaMb.pessoa.tipoSexo}"
+                                             converter="#{genericEntidadeConverter}"
+                                             disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                             required="true"
+                                             style="width: 100%">
+                                <f:selectItems value="#{javaServerFacesUtil.getSelectItems(pessoaMb.tipoSexoList, true)}" />
+                            </p:selectOneMenu>
+                        </p:panelGrid>
+
+                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                            <p:outputLabel value="Data Nascimento" for="calendarDataNascimento" />
+                            <p:calendar id="calendarDataNascimento"
+                                        value="#{pessoaMb.pessoa.dataNascimento}"
+                                        disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                        required="true"
+                                        requiredMessage="Informe o campo Data Nascimento"
+                                        pattern="dd/MM/yyyy" 
+                                        mask="true" 
+                                        navigator="true"
+                                        showOn="button"
+                                        inputStyle="width: 100%"/>
+                        </p:panelGrid>
+
+                    </p:panelGrid>
+
+                    <p:panelGrid columns="2"
+                                 columnClasses="ui-sm-12 ui-md-6 ui-lg-6 ui-xl-6,
+                                 ui-sm-12 ui-md-6 ui-lg-6 ui-xl-6"
+                                 layout="grid"  >
+
+                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                            <p:outputLabel value="Estado Civil" for="selectOneMenuTipoEstadoCivil"/>
+                            <p:selectOneMenu id="selectOneMenuTipoEstadoCivil"
+                                             value="#{pessoaMb.pessoa.tipoEstadoCivil}"
+                                             converter="#{genericEntidadeConverter}"
+                                             disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                             required="false"
+                                             requiredMessage="Informe o campo Estado Civil"
+                                             style="width: 100%">
+                                <f:selectItems value="#{javaServerFacesUtil.getSelectItems(pessoaMb.tipoEstadoCivilList, true)}" />
+                            </p:selectOneMenu>
+                        </p:panelGrid>
+
+                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                            <p:outputLabel value="Escolaridade" for="selectOneMenuTipoEscolaridade"/>
+                            <p:selectOneMenu id="selectOneMenuTipoEscolaridade"
+                                             value="#{pessoaMb.pessoa.tipoEscolaridade}"
+                                             converter="#{genericEntidadeConverter}"
+                                             disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                             required="false"
+                                             requiredMessage="Informe o campo Escolaridade"
+                                             style="width: 100%">
+                                <f:selectItems value="#{javaServerFacesUtil.getSelectItems(pessoaMb.tipoEscolaridadeList, true)}" />
+                            </p:selectOneMenu>
+                        </p:panelGrid>
+                    </p:panelGrid>
+
+                    <p:fieldset legend="Endereço">
+                        <sw:enderecoComponent value="#{pessoaMb.pessoa.endereco}" 
+                                              disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}" 
+                                              block="#{pessoaMb.modoTela.insercaoOrAlteracao}">
+
+                        </sw:enderecoComponent>
+                    </p:fieldset>
+
+                </p:tab>
+
+                <p:tab title="Documento">
+
+
+
+                    <p:panelGrid id="panelGridDocumento" columns="1" columnClasses="ui-sm-12 ui-md-12 ui-lg-12 ui-xl-12" layout="grid" >
+
+
+
+
+                        <p:panelGrid columns="2" layout="grid" 
+                                     columnClasses="ui-sm-12 ui-md-5 ui-lg-3 ui-xl-2, 
+                                     ui-sm-12 ui-md-7 ui-lg-9 ui-xl-10" >
+
+                            <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                                <p:outputLabel value="Tipo contato" />
+                                <p:selectOneMenu id="selectOneMenuTipoDocumento"
+                                                 converter="#{genericEntidadeConverter}"
+                                                 disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                                 required="#{param['formEdicao:tab:commandButtonAdicionarDocumento'] != null}"
+                                                 requiredMessage="Informe o campo Tipo Documento"
+                                                 style="width: 100%">
+                                    <f:selectItems  />
+                                </p:selectOneMenu>
+                            </p:panelGrid>
+
+                            <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                                <p:outputLabel value="Documento" for="inputTextDocumento" />
+                                <p:inputText id="inputTextDocumento" 
+                                             value="#{pessoaMb.contatoPessoa.contato}"
+                                             disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                             required="#{param['formEdicao:tab:commandButtonAdicionarContato'] != null}"
+                                             requiredMessage="Informe o campo Documento"
+                                             style="width: 100%" />
+                            </p:panelGrid>
+
+                        </p:panelGrid>
+
+
+                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                            <h:outputText value="Observação" 
+                                          style="font-size: small;color:darkgray"/>
+                            <p:inputTextarea id="inputTextareaDocumentoObservacao"
+                                             value="#{pessoaMb.contatoPessoa.observacao}"
+                                             disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                             style="height: 50px; width: 100%" />
+                        </p:panelGrid>
+                    </p:panelGrid>
+
+                    <p:commandButton id="commandButtonAdicionarDocumento"
+                                     action="#{pessoaMb.adicionarContato()}"
+                                     disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                     process="@this :formEdicao:tab:panelGridContato"
+                                     update=":formEdicao:tab:panelGridContato :formEdicao:tab:dataTableContato"
+                                     value="Adicionar"
+                                     class="btn btn-primary"
+                                     style=" width: 100%;" >
+                    </p:commandButton>
+                    <div class="ui-widget-content" style="margin-top: 5px; margin-bottom: 10px"/>
+                    <p:dataTable id="dataTableDocumento"  
+                                 value="#{pessoaMb.pessoa.contatoList}"
+                                 var="contato"
+                                 rowKey="#{contato.randomId}"
+                                 rows="10"
+                                 paginator="true"
+                                 paginatorPosition="bottom"
+                                 reflow="true"
+                                 selectionMode="single"
+                                 emptyMessage="Registro não encontrado."
+                                 >
+
+                        <p:ajax event="rowSelect"
+                                listener="#{pessoaMb.selecionaContatoSelectEvent}"
+                                process="@this"
+                                update=":formEdicao:tab:panelGridContato"/>
+
+                        <p:column headerText="Tipo">
+                            <h:outputText value="#{contato.tipoContato.descricao}" />
+                        </p:column>
+                        <p:column headerText="Contato" >
+                            <h:outputText value="#{contato.contato}" />
+                        </p:column>
+                        <p:column >
+                            <p:commandLink value="Remover" process="@this" update=":formEdicao:tab:dataTableContato">
+                                <p:collector unique="true" value="#{contato}" removeFrom="#{pessoaMb.pessoa.contatoList}" />
+                            </p:commandLink>
+                        </p:column>
+                    </p:dataTable>
+
+
+                </p:tab>
+
+                <p:tab id="tabResponsavelPessoa" title="Responsável" >
+
+
+                    <p:panelGrid id="panelGridResponsavelPessoa" columns="1" layout="grid" columnClasses="ui-sm-12 ui-md-12 ui-lg-12 ui-xl-12">
+
+
+                        <p:panelGrid columns="3" columnClasses="
+                                     ui-sm-12 ui-md-5 ui-lg-5 ui-xl-2, 
+                                     ui-sm-12 ui-md-4 ui-lg-4 ui-xl-7,
+                                     ui-sm-12 ui-md-3 ui-lg-3 ui-xl-3" layout="grid"  style="height: 100% !important" >
+
+                            <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                                <p:outputLabel value="Tipo Responsável" for="selectOneMenuTipoResponsavel"/>
+                                <p:selectOneMenu id="selectOneMenuTipoResponsavel"
+                                                 value="#{pessoaMb.responsavelPessoa.tipoResponsavel}"
+                                                 converter="#{genericEntidadeConverter}"
+                                                 disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                                 required="#{param['formEdicao:tab:commandButtonAdicionarResponsavelPessoa'] != null}"
+                                                 requiredMessage="Informe o campo Tipo Responsável"
+                                                 style="width: 100%">
+                                    <f:selectItems value="#{javaServerFacesUtil.getSelectItems(pessoaMb.tipoResponsavelList, true)}" />
+                                </p:selectOneMenu>
+                            </p:panelGrid>
+
+                            <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                                <p:outputLabel value="Nome" for="inputTextResponsavelPessoa" />
+                                <p:inputText id="inputTextResponsavelPessoa" 
+                                             value="#{pessoaMb.responsavelPessoa.nome}"
+                                             disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                             required="#{param['formEdicao:tab:commandButtonAdicionarResponsavelPessoa'] != null}"
+                                             requiredMessage="Informe o campo Responsável" />
+                            </p:panelGrid>
+
+
+                            <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                                <p:outputLabel value="Data Nascimento" for="calendarResponsavelDataNascimento" />
+                                <p:calendar id="calendarResponsavelDataNascimento"
+                                            value="#{pessoaMb.responsavelPessoa.dataNascimento}"
+                                            disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                            required="#{param['formEdicao:tab:commandButtonAdicionarResponsavelPessoa'] != null}"
+                                            requiredMessage="Informe o campo Data Nascimento"
+                                            pattern="dd/MM/yyyy" 
+                                            mask="true" 
+                                            navigator="true"
+                                            showOn="button"
+                                            inputStyle="width: 100%"/>
+                            </p:panelGrid>
+                        </p:panelGrid>
+
+                        <div class="ui-widget-content" style="margin-top: 5px; margin-bottom: 10px"/>
+
+                        <p:fieldset legend="Endereço">
+                            <sw:enderecoComponent
+                                value="#{pessoaMb.responsavelPessoa.pessoa.endereco}" 
+                                disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}" 
+                                block="#{pessoaMb.modoTela.insercaoOrAlteracao}" >
+
+                            </sw:enderecoComponent>
+                        </p:fieldset>
+                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                            <h:outputText value="Observação" 
+                                          style="font-size: small;color:darkgray"/>
+                            <p:inputTextarea id="inputTextareaResponsavelObservacao"
+                                             value="#{pessoaMb.responsavelPessoa.observacao}"
+                                             disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                             style="height: 50px; width: 100%" />
+                        </p:panelGrid>
+                    </p:panelGrid>
+
+                    <p:splitButton id="commandButtonAdicionarResponsavelPessoa"
+                                   value="Adicionar"
+                                   action="#{pessoaMb.adicionarResponsavelPessoa()}"
+                                   disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                   update=":formEdicao:tab:panelGridResponsavelPessoa :formEdicao:tab:dataTablePessoaResponsavel" 
+                                   process="@this :formEdicao:tab:panelGridResponsavelPessoa"
+                                   class="btn-primary"
+                                   style="width: 100%;">
+
+                        <p:menuitem value="Cancelar" update="@form" process="@form" style="width: 100px"/>
+                    </p:splitButton>  
+
+
+
+                    <div class="ui-widget-content" style="margin-top: 5px; margin-bottom: 10px"/>
+
+                    <p:dataTable id="dataTablePessoaResponsavel" 
+                                 value="#{pessoaMb.pessoa.responsavelPessoaList}"
+                                 var="responsavel"
+                                 rowKey="#{responsavel.randomId}"
+                                 rows="10"
+                                 paginator="true"
+                                 paginatorPosition="bottom"
+                                 reflow="true"
+                                 selectionMode="single"
+                                 emptyMessage="Registro não encontrado.">
+
+                        <p:ajax event="rowSelect"
+                                listener="#{pessoaMb.selecionaResponsavelPessoaSelectEvent}"
+                                process="@this"
+                                update=":formEdicao:tab:panelGridResponsavelPessoa"/>
+
+                        <p:column headerText="Tipo Responsável" >
+                            <h:outputText value="#{responsavel.tipoResponsavel.display}" />
+                        </p:column>
+
+                        <p:column headerText="Nome" >
+                            <h:outputText value="#{responsavel.nome}" />
+                        </p:column>
+
+                        <p:column >
+                            <p:commandLink value="Remover" process="@this" update=":formEdicao:tab:dataTablePessoaResponsavel">
+                                <p:collector unique="true" value="#{responsavel}" removeFrom="#{pessoaMb.pessoa.responsavelPessoaList}" />
+                            </p:commandLink>
+                        </p:column>
+                    </p:dataTable>
+                </p:tab>
+
+                <p:tab id="tabContatoPessoa" title="Contato" >
+
+                    <p:panelGrid id="panelGridContato" columns="1" columnClasses="ui-sm-12 ui-md-12 ui-lg-12 ui-xl-12" layout="grid" >
+
+
+
+
+                        <p:panelGrid columns="2" layout="grid" 
+                                     columnClasses="ui-sm-12 ui-md-5 ui-lg-3 ui-xl-2, 
+                                     ui-sm-12 ui-md-7 ui-lg-9 ui-xl-10" >
+
+                            <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                                <p:outputLabel value="Tipo contato" />
+                                <p:selectOneMenu id="selectOneMenuTipoContato"
+                                                 value="#{pessoaMb.contatoPessoa.tipoContato}"
+                                                 converter="#{genericEntidadeConverter}"
+                                                 disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                                 required="#{param['formEdicao:tab:commandButtonAdicionarContato'] != null}"
+                                                 requiredMessage="Informe o campo Tipo Contato"
+                                                 style="width: 100%">
+                                    <f:selectItems value="#{javaServerFacesUtil.getSelectItems(pessoaMb.tipoContatoList, true)}" />
+                                </p:selectOneMenu>
+                            </p:panelGrid>
+
+                            <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid" >
+                                <p:outputLabel value="Contato" for="inputTextContato" />
+                                <p:inputText id="inputTextContato" 
+                                             value="#{pessoaMb.contatoPessoa.contato}"
+                                             disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                             required="#{param['formEdicao:tab:commandButtonAdicionarContato'] != null}"
+                                             requiredMessage="Informe o campo Contato"
+                                             style="width: 100%" />
+                            </p:panelGrid>
+
+                        </p:panelGrid>
+
+
+                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                            <h:outputText value="Observação" 
+                                          style="font-size: small;color:darkgray"/>
+                            <p:inputTextarea id="inputTextareaContatoObservacao"
+                                             value="#{pessoaMb.contatoPessoa.observacao}"
+                                             disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                             style="height: 50px; width: 100%" />
+                        </p:panelGrid>
+                    </p:panelGrid>
+
+                    <p:commandButton id="commandButtonAdicionarContato"
+                                     action="#{pessoaMb.adicionarContato()}"
+                                     disabled="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                     process="@this :formEdicao:tab:panelGridContato"
+                                     update=":formEdicao:tab:panelGridContato :formEdicao:tab:dataTableContato"
+                                     value="Adicionar"
+                                     class="btn btn-primary"
+                                     style=" width: 100%;" >
+                    </p:commandButton>
+                    <div class="ui-widget-content" style="margin-top: 5px; margin-bottom: 10px"/>
+                    <p:dataTable id="dataTableContato"  
+                                 value="#{pessoaMb.pessoa.contatoList}"
+                                 var="contato"
+                                 rowKey="#{contato.randomId}"
+                                 rows="10"
+                                 paginator="true"
+                                 paginatorPosition="bottom"
+                                 reflow="true"
+                                 selectionMode="single"
+                                 emptyMessage="Registro não encontrado."
+                                 >
+
+                        <p:ajax event="rowSelect"
+                                listener="#{pessoaMb.selecionaContatoSelectEvent}"
+                                process="@this"
+                                update=":formEdicao:tab:panelGridContato"/>
+
+                        <p:column headerText="Tipo">
+                            <h:outputText value="#{contato.tipoContato.descricao}" />
+                        </p:column>
+                        <p:column headerText="Contato" >
+                            <h:outputText value="#{contato.contato}" />
+                        </p:column>
+                        <p:column >
+                            <p:commandLink value="Remover" process="@this" update=":formEdicao:tab:dataTableContato">
+                                <p:collector unique="true" value="#{contato}" removeFrom="#{pessoaMb.pessoa.contatoList}" />
+                            </p:commandLink>
+                        </p:column>
+                    </p:dataTable>
+                </p:tab>
+                <p:tab title="Pessoa">
+
+                    <p:dataTable value="#{pessoaMb.pessoaList}"
+                                 var="pessoa"
+                                 rowKey="#{pessoa.randomId}"
+                                 rows="10"
+                                 paginator="true"
+                                 paginatorPosition="bottom"
+                                 reflow="true"
+                                 selectionMode="single"
+                                 emptyMessage="Registro não encontrado." >
+
+
+                        <p:ajax event="rowSelect"
+                                listener="#{pessoaMb.selecionaPessoaSelectEvent}"
+                                process="@this"
+                                update="@form"/>
+
+                        <p:column headerText="Código">
+                            <p:outputLabel value="#{pessoa.id}" />
+                        </p:column>
+                        <p:column headerText="Nome" >
+                            <p:outputLabel value="#{pessoa.display}" />
+                        </p:column>
+
+                    </p:dataTable>
+                </p:tab>
+
+
+            </p:tabView>
+            <p:spacer/>
+            <h:panelGrid columns="2"  style="width: 100%">
+                <h:panelGrid columns="5">
+                    <p:commandButton value="Inserir" 
+                                     action="#{pessoaMb.inserir()}"
+                                     rendered="#{!pessoaMb.modoTela.insercaoOrAlteracao}"
+                                     process="@this"
+                                     update="@form"
+                                     class="btn btn-primary"/>
+
+                    <p:commandButton value="Salvar" 
+                                     action="#{pessoaMb.salvar()}" 
+                                     rendered="#{pessoaMb.modoTela.insercaoOrAlteracao}"
+                                     class="btn btn-success"
+                                     process="@form"
+                                     update="@form"/>
+
+                    <p:commandButton value="Alterar" 
+                                     action="#{pessoaMb.alterar()}"
+                                     rendered="#{pessoaMb.modoTela.visualizacao}"
+                                     process="@this"
+                                     update="@form"
+                                     class="btn btn-warning" />
+
+                    <p:commandButton value="Excluir"
+                                     action="#{pessoaMb.excluir()}"
+                                     rendered="#{pessoaMb.modoTela.visualizacao}"
+                                     class="btn btn-info" />
+
+                    <p:commandButton value="Cancelar" 
+                                     action="#{pessoaMb.cancelar()}"
+                                     class="btn btn-danger"
+                                     process="@this"
+                                     update="@form">
+                        <p:resetInput target="@form" />
+                    </p:commandButton>
+
+                </h:panelGrid>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+
+
+</ui:composition>

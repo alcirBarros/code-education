@@ -1,0 +1,148 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/template/template.xhtml">
+
+
+
+    <ui:define name="title">
+        Forms
+    </ui:define>
+
+    <ui:define name="description">
+        Example of form controls.........................
+    </ui:define>
+
+    <ui:define name="body">
+        <h:form id="formEdicao" >
+            <p:tabView id="tab" widgetVar="tab">
+                <p:tab title="Município">
+
+                    <h:panelGrid columns="5">
+                        <h:panelGrid > 
+                            <h:outputLabel value="CNPJ"/>
+                            <p:inputText id="inputTextCnpj" 
+                                         style="width: 120px" >
+                            </p:inputText> 
+                        </h:panelGrid>
+
+                        <h:panelGrid >
+                            <h:outputLabel value="Razão Social" />
+                            <p:inputText id="inputTextRazaoSocial" 
+                                         style="width: 350px" />
+                        </h:panelGrid>
+
+                        <h:panelGrid>
+                            <h:outputLabel value="Nome Fantasia" for="nomeFantasia" />
+                            <p:inputText id="nomeFantasia" 
+                                         style="width: 350px" />
+                        </h:panelGrid>
+
+                        <p:panelGrid >
+                            <p:outputLabel value="Tipo Institução" for="selectOneMenuTipopessoa" />
+                            <p:selectOneMenu id="selectOneMenuTipopessoa" 
+                                             style="height: 22px;">
+                                <f:selectItem itemLabel="Física" />
+                                <f:selectItem itemLabel="Jurídica" />
+                            </p:selectOneMenu>
+                        </p:panelGrid>
+                    </h:panelGrid>
+
+
+
+                </p:tab>
+                <p:tab title="Contato">
+
+                    <p:panelGrid id="panelGridContato" columns="2" style="width: 100%;">
+                        <p:panelGrid>
+                            <p:outputLabel value="Tipo contato" />
+                            <p:selectOneMenu id="selectOneMenuTipoContato" >
+                                <f:selectItem itemLabel="Telefone" />
+                            </p:selectOneMenu>
+                        </p:panelGrid>
+
+                        <p:panelGrid style="width: 100%;"  > 
+                            <p:outputLabel value="Contato" />
+                            <p:panelGrid columns="2" style="width: 100%;"  >
+                                <p:inputText id="contato" style="width: 100%;"  />
+                                <p:commandButton 
+                                    id="commandButtonAdicionarContato"
+                                    style="height: 22px;" />
+                            </p:panelGrid>
+                        </p:panelGrid>	
+                    </p:panelGrid>	
+
+                    <p:dataTable id="tableContatos" >
+                        <p:column headerText="Tipo">
+                            <h:outputText />
+                        </p:column>
+                        <p:column headerText="Contato" >
+                            <h:outputText />
+                        </p:column>
+                        <p:column style="width:25px; text-align: center" >
+                            <p:commandLink process="@this">
+                                <h:graphicImage name="edit-18.png" library="images/icons"/>
+                            </p:commandLink>
+                        </p:column>
+
+                        <p:column style="width:25px; text-align: center">
+                            <p:commandLink process="@this">
+                                <h:graphicImage name="delete-18.png" library="images/icons" />
+                            </p:commandLink>
+                        </p:column>
+                    </p:dataTable>
+                </p:tab>
+            </p:tabView>
+            <p:spacer/>
+            <h:panelGrid columns="2"  style="width: 100%">
+                <h:panelGrid columns="5">
+                    <p:commandButton value="Inserir" 
+                                     action="#{municipioMb.inserir()}"
+                                     rendered="#{!municipioMb.modoTela.insercaoOrAlteracao}"
+                                     process="@this"
+                                     update="@form"
+                                     class="btn btn-primary"/>
+
+                    <p:commandButton value="Salvar" 
+                                     action="#{municipioMb.salvar()}" 
+                                     rendered="#{municipioMb.modoTela.insercaoOrAlteracao}"
+                                     class="btn btn-success"
+                                     process="@form"
+                                     update="@form"/>
+
+                    <p:commandButton value="Alterar" 
+                                     action="#{municipioMb.alterar()}"
+                                     rendered="#{municipioMb.modoTela.visualizacao}"
+                                     process="@this"
+                                     update="@form"
+                                     class="btn btn-warning" />
+
+                    <p:commandButton value="Excluir"
+                                     action="#{municipioMb.excluir()}"
+                                     rendered="#{municipioMb.modoTela.visualizacao}"
+                                     class="btn btn-info" />
+
+                    <p:commandButton value="Cancelar" 
+                                     action="#{municipioMb.cancelar()}"
+                                     class="btn btn-danger"
+                                     process="@this"
+                                     update="@form">
+                        <p:resetInput target="@form" />
+                    </p:commandButton>
+
+                </h:panelGrid>
+                <h:panelGrid style="text-align: right; width: 100%" >
+                    <p:commandButton value="Processar"
+                                     action="#{municipioMb.processar()}"
+                                     rendered="#{municipioMb.modoTela.visualizacao}"
+                                     process="@this"
+                                     class="btn btn-success" />
+                </h:panelGrid>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+
+
+</ui:composition>

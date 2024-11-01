@@ -1,0 +1,113 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/template/template.xhtml">
+
+
+
+    <ui:define name="title">
+        Forms
+    </ui:define>
+
+    <ui:define name="description">
+        Example of form controls.........................
+    </ui:define>
+
+    <ui:define name="body">
+        <h:form id="formEdicao" >
+            <p:tabView id="tab" widgetVar="tab">
+                <p:tab title="Role">
+
+                    <p:panelGrid columns="2"
+                                 columnClasses="
+                                 ui-sm-12 ui-md-2 ui-lg-2 ui-xl-2,
+                                 ui-sm-12 ui-md-10 ui-lg-10 ui-xl-10"
+                                 layout="grid" >
+
+                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                            <p:outputLabel value="Código"/>
+                            <p:inputText id="inputTextCodigo" 
+                                         value="#{roleMb.role.id}" >
+                            </p:inputText> 
+                        </p:panelGrid>
+
+                        <p:panelGrid columns="1" columnClasses="ui-g-12 ui-g-nopad" layout="grid">
+                            <p:outputLabel value="Descrição"/>
+                            <p:inputText id="inputTextCnpj"
+                                         value="#{roleMb.role.descricao}"
+                                         onblur="this.value = this.value.toUpperCase()" >
+                            </p:inputText> 
+                        </p:panelGrid>
+
+                    </p:panelGrid>
+
+                </p:tab>
+
+                <p:tab title="Operador">
+                    <p:dataTable value="#{roleMb.roleList}"
+                                 var="role"
+                                 emptyMessage="Registro não encontrado.">
+                        
+                        <p:column headerText="Código">
+                            <h:outputText value="#{role.id}" />
+                        </p:column>
+                        <p:column headerText="Nome" >
+                            <h:outputText value="#{role.descricao}" />
+                        </p:column>
+                        
+                    </p:dataTable>
+                </p:tab>
+            </p:tabView>
+            <p:spacer/>
+            <h:panelGrid columns="2"  style="width: 100%">
+                <h:panelGrid columns="5">
+                    <p:commandButton value="Inserir" 
+                                     action="#{roleMb.inserir()}"
+                                     rendered="#{!roleMb.modoTela.insercaoOrAlteracao}"
+                                     process="@this"
+                                     update="@form"
+                                     class="btn btn-primary"/>
+
+                    <p:commandButton value="Salvar" 
+                                     action="#{roleMb.salvar()}"
+                                     rendered="#{roleMb.modoTela.insercaoOrAlteracao}"
+                                     class="btn btn-success"
+                                     process="@form"
+                                     update="@form"/>
+
+                    <p:commandButton value="Alterar" 
+                                     action="#{roleMb.alterar()}"
+                                     rendered="#{roleMb.modoTela.visualizacao}"
+                                     process="@this"
+                                     update="@form"
+                                     class="btn btn-warning" />
+
+                    <p:commandButton value="Excluir"
+                                     action="#{roleMb.excluir()}"
+                                     rendered="#{roleMb.modoTela.visualizacao}"
+                                     class="btn btn-info" />
+
+                    <p:commandButton value="Cancelar" 
+                                     action="#{roleMb.cancelar()}"
+                                     class="btn btn-danger"
+                                     process="@this"
+                                     update="@form">
+                        <p:resetInput target="@form" />
+                    </p:commandButton>
+
+                </h:panelGrid>
+                <h:panelGrid style="text-align: right; width: 100%" >
+                    <p:commandButton value="Processar"
+                                     action="#{roleMb.processar()}"
+                                     rendered="#{roleMb.modoTela.visualizacao}"
+                                     process="@this"
+                                     class="btn btn-success" />
+                </h:panelGrid>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+
+
+</ui:composition>

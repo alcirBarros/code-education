@@ -1,0 +1,5 @@
+server:
+  application:
+    name: role
+  servlet:
+    context-path: /role
